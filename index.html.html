@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Markup Zero — Engenharia de Consumo</title>
+<meta name="description" content="Consultoria especializada em móveis planejados industriais em São Paulo. Direto da fábrica, sem markup abusivo."/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,800;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px;scroll-behavior:smooth}
+body{font-family:"Plus Jakarta Sans",sans-serif;background:#0A0A0A;color:#F0F0F0;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+button{cursor:pointer;font-family:inherit;border:none;background:none}
+img{max-width:100%;display:block}
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-thumb{background:#C9A96E;border-radius:2px}
+:root{
+--bg:#0A0A0A;--bg2:#111111;--bg3:#161616;--bg4:#1C1C1C;
+--border:rgba(255,255,255,0.07);--border2:rgba(255,255,255,0.12);
+--gold:#C9A96E;--gold2:#a8843e;--gold-bg:rgba(201,169,110,0.08);--gold-border:rgba(201,169,110,0.2);
+--text:#F0F0F0;--text2:#A0A0A0;--text3:#555555;
+--green:#10B981;--red:#EF4444;
+--r:6px;--r2:12px;--r3:18px;--r4:24px;
+}
+.page{display:none;min-height:100vh;padding-top:70px;animation:fadeIn .4s ease}
+.page.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes pulse{0%,100%{opacity:.5}50%{opacity:1}}
+.nav{position:fixed;top:0;left:0;right:0;z-index:200;height:70px;background:rgba(10,10,10,0.94);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:1100px;margin:0 auto;padding:0 24px;height:70px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.nav-logo{font-family:"Playfair Display",serif;font-size:19px;font-weight:800;cursor:pointer;flex-shrink:0}
+.nav-logo span{color:var(--gold)}
+.nav-links{display:flex;gap:2px}
+.nav-link{padding:7px 14px;border-radius:7px;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--text2);transition:.18s;cursor:pointer;white-space:nowrap}
+.nav-link:hover{color:var(--text);background:rgba(255,255,255,0.04)}
+.nav-link.active{color:var(--gold);background:var(--gold-bg)}
+.nav-cta{padding:8px 18px;background:var(--gold);color:#0A0A0A;font-size:12px;font-weight:700;border-radius:var(--r);transition:.18s;white-space:nowrap;cursor:pointer}
+.nav-cta:hover{background:var(--gold2)}
+.nav-mob{display:none;padding:8px;color:var(--text2);font-size:22px;cursor:pointer}
+@media(max-width:768px){.nav-links{display:none}.nav-mob{display:flex}.nav-cta{font-size:11px;padding:7px 12px}}
+.mob-menu{display:none;position:fixed;inset:70px 0 0;background:rgba(10,10,10,0.98);z-index:190;flex-direction:column;padding:20px}
+.mob-menu.open{display:flex}
+.mob-link{padding:14px 0;font-size:15px;font-weight:500;color:var(--text2);border-bottom:1px solid var(--border);cursor:pointer;transition:.18s}
+.mob-link:hover{color:var(--gold)}
+.mob-cta{margin-top:16px;padding:14px;background:var(--gold);color:#0A0A0A;text-align:center;border-radius:var(--r);font-weight:700;cursor:pointer}
+.wrap{max-width:1100px;margin:0 auto;padding:0 24px}
+@media(max-width:600px){.wrap{padding:0 16px}}
+.sec{padding:80px 0}
+.sec-alt{background:var(--bg2);position:relative}
+.sec-alt::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(to right,transparent,var(--gold),transparent)}
+.tag{display:inline-block;padding:4px 14px;border-radius:100px;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:var(--gold-bg);color:var(--gold);border:1px solid var(--gold-border);margin-bottom:14px}
+.sh{font-family:"Playfair Display",serif;font-size:clamp(24px,3.5vw,40px);font-weight:800;line-height:1.15;letter-spacing:-.02em;margin-bottom:14px}
+.sp{font-size:15px;color:var(--text2);line-height:1.8;max-width:580px}
+.appear{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+.appear.in{opacity:1;transform:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+.btn-gold{padding:13px 28px;background:var(--gold);color:#0A0A0A;font-size:14px;font-weight:700;border-radius:var(--r2);transition:.2s;display:inline-flex;align-items:center;gap:8px;cursor:pointer}
+.btn-gold:hover{background:var(--gold2);transform:translateY(-1px)}
+.btn-outline{padding:13px 28px;border:1px solid var(--border2);color:var(--text2);font-size:14px;font-weight:500;border-radius:var(--r2);transition:.2s;display:inline-flex;align-items:center;gap:8px;cursor:pointer}
+.btn-outline:hover{border-color:var(--gold-border);color:var(--text)}
+.wa-fab{position:fixed;bottom:24px;right:24px;z-index:150;width:54px;height:54px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;font-size:24px;box-shadow:0 4px 20px rgba(37,211,102,.35);transition:.2s}
+.wa-fab:hover{transform:scale(1.1)}
+/* HERO */
+.home-hero{min-height:calc(100vh - 70px);display:flex;align-items:center;position:relative;overflow:hidden}
+.hg{position:absolute;inset:0;background-image:linear-gradient(rgba(201,169,110,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(201,169,110,.04) 1px,transparent 1px);background-size:56px 56px;pointer-events:none}
+.hgl{position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(201,169,110,.07),transparent 70%);top:-200px;right:-150px;pointer-events:none}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;padding:5px 14px;border:1px solid var(--gold-border);border-radius:100px;font-size:12px;font-weight:600;color:var(--gold);background:var(--gold-bg);margin-bottom:28px;letter-spacing:.04em}
+.dot{width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0;animation:pulse 2s infinite}
+.h1{font-family:"Playfair Display",serif;font-size:clamp(36px,5.5vw,68px);font-weight:800;line-height:1.08;letter-spacing:-.03em;margin-bottom:22px}
+.h1 em{font-style:normal;color:var(--gold)}
+.hero-sub{font-size:clamp(15px,1.8vw,18px);color:var(--text2);max-width:560px;margin-bottom:36px;line-height:1.75}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:56px}
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--border);border-radius:var(--r2);overflow:hidden;background:var(--bg2);max-width:580px}
+.stat{padding:18px 12px;text-align:center;border-right:1px solid var(--border)}
+.stat:last-child{border:none}
+.stat-v{font-family:"Playfair Display",serif;font-size:22px;font-weight:700;color:var(--gold);line-height:1}
+.stat-l{font-size:10px;color:var(--text3);margin-top:4px;letter-spacing:.04em}
+@media(max-width:480px){.stats-row{grid-template-columns:1fr 1fr}.stat:nth-child(2){border-right:none}.stat:nth-child(3){border-top:1px solid var(--border)}.stat:nth-child(4){border-top:1px solid var(--border);border-right:none}}
+/* CARDS */
+.cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:40px}
+@media(max-width:700px){.cards3{grid-template-columns:1fr}}
+.card{padding:26px 22px;border-radius:var(--r3);background:var(--bg3);border:1px solid var(--border);transition:.25s}
+.card:hover{border-color:var(--gold-border);transform:translateY(-3px)}
+.card-ico{font-size:22px;margin-bottom:14px}
+.card h3{font-family:"Playfair Display",serif;font-size:15px;font-weight:700;margin-bottom:8px}
+.card p{font-size:13px;color:var(--text2);line-height:1.72}
+.card-tag{display:inline-block;padding:2px 10px;border-radius:100px;font-size:10px;font-weight:700;background:var(--gold-bg);color:var(--gold);border:1px solid var(--gold-border);margin-top:12px}
+/* TIMELINE */
+.timeline{display:flex;flex-direction:column;gap:0;position:relative;padding-left:40px}
+.timeline::before{content:"";position:absolute;left:14px;top:20px;bottom:20px;width:1px;background:linear-gradient(to bottom,var(--gold),transparent);opacity:.3}
+.tl{padding-bottom:32px;position:relative}
+.tl-dot{position:absolute;left:-40px;top:3px;width:28px;height:28px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#0A0A0A}
+.tl-year{font-size:10px;font-weight:700;color:var(--gold);letter-spacing:.08em;margin-bottom:4px}
+.tl h4{font-size:13px;font-weight:700;margin-bottom:4px}
+.tl p{font-size:13px;color:var(--text2);line-height:1.65}
+/* MVV */
+.mvv{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:40px}
+@media(max-width:700px){.mvv{grid-template-columns:1fr}}
+.mvv-card{padding:28px 24px;border-radius:var(--r3);background:var(--bg2);border:1px solid var(--border);transition:.25s}
+.mvv-card:hover{border-color:var(--gold-border);transform:translateY(-3px)}
+.mvv-ico{font-size:28px;margin-bottom:14px}
+.mvv-card h3{font-family:"Playfair Display",serif;font-size:17px;font-weight:700;margin-bottom:10px;color:var(--gold)}
+.mvv-card p,.mvv-card ul{font-size:13px;color:var(--text2);line-height:1.75}
+.mvv-card ul{list-style:none}
+.mvv-card ul li::before{content:"— ";color:var(--gold)}
+/* SOBRE GRID */
+.sobre-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;margin-top:56px}
+@media(max-width:820px){.sobre-grid{grid-template-columns:1fr}}
+.sobre-cards{display:flex;flex-direction:column;gap:14px}
+.sobre-card{padding:22px 24px;border-radius:var(--r2);background:var(--bg2);border:1px solid var(--border);display:flex;gap:14px;align-items:flex-start;transition:.25s}
+.sobre-card:hover{border-color:var(--gold-border)}
+.sc-ico{font-size:22px;flex-shrink:0;margin-top:2px}
+.sobre-card h4{font-size:14px;font-weight:700;margin-bottom:5px}
+.sobre-card p{font-size:13px;color:var(--text2);line-height:1.68}
+.metrics{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:28px}
+.metric{padding:18px;background:var(--bg3);border:1px solid var(--gold-border);border-radius:var(--r2);text-align:center}
+.metric-v{font-family:"Playfair Display",serif;font-size:28px;font-weight:700;color:var(--gold);line-height:1;margin-bottom:4px}
+.metric-l{font-size:11px;color:var(--text3)}
+/* DIFERENCIAL */
+.dif-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:40px}
+@media(max-width:760px){.dif-grid{grid-template-columns:1fr}}
+.dif-card{padding:26px 24px;border-radius:var(--r3);background:var(--bg3);border:1px solid var(--gold-border);transition:.25s}
+.dif-card:hover{transform:translateY(-3px)}
+.dif-ico{font-size:24px;margin-bottom:12px}
+.dif-card h3{font-family:"Playfair Display",serif;font-size:16px;font-weight:700;margin-bottom:8px;color:var(--gold)}
+.dif-card p{font-size:13px;color:var(--text2);line-height:1.72}
+/* STEPS */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--r3);overflow:hidden;margin-top:48px}
+@media(max-width:720px){.steps{grid-template-columns:1fr 1fr}}
+@media(max-width:420px){.steps{grid-template-columns:1fr}}
+.step{background:var(--bg);padding:28px 22px;transition:.25s}
+.step:hover{background:var(--bg2)}
+.step-n{font-family:"Playfair Display",serif;font-size:40px;font-weight:700;color:rgba(201,169,110,.2);line-height:1;margin-bottom:14px}
+.step h3{font-size:14px;font-weight:700;margin-bottom:8px}
+.step p{font-size:13px;color:var(--text2);line-height:1.65}
+.step-note{font-size:11px;color:var(--gold);margin-top:8px;font-style:italic}
+/* PLANOS */
+.planos{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:760px){.planos{grid-template-columns:1fr}}
+.plano{border-radius:var(--r3);overflow:hidden;display:flex;flex-direction:column;background:var(--bg2);border:1px solid var(--border);transition:.3s}
+.plano.feat{background:linear-gradient(160deg,rgba(201,169,110,.07),var(--bg2));border-color:var(--gold-border)}
+.plano:hover{transform:translateY(-4px)}
+.plano-medal{height:130px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;border-bottom:1px solid var(--border)}
+.plano-body{padding:22px;flex:1;display:flex;flex-direction:column}
+.plano-tier{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:var(--gold);margin-bottom:4px;display:flex;justify-content:space-between;align-items:center}
+.plano-popular{background:var(--gold);color:#0A0A0A;font-size:9px;padding:2px 8px;border-radius:100px}
+.plano-sub{font-size:12px;color:var(--text3);margin-bottom:10px;font-style:italic}
+.plano-price{font-family:"Playfair Display",serif;font-size:36px;font-weight:700;color:var(--gold);line-height:1;margin-bottom:3px}
+.plano-price-note{font-size:11px;color:var(--text3);margin-bottom:18px}
+.plano-feats{list-style:none;flex:1;display:flex;flex-direction:column;gap:8px;margin-bottom:18px}
+.plano-feats li{font-size:13px;color:var(--text2);display:flex;gap:8px;align-items:flex-start;line-height:1.5}
+.plano-feats li::before{content:"✓";color:var(--gold);font-weight:700;flex-shrink:0;margin-top:1px}
+.btn-pm{width:100%;padding:12px;background:var(--gold);color:#0A0A0A;border-radius:var(--r);font-size:13px;font-weight:700;transition:.18s;display:flex;align-items:center;justify-content:center;gap:8px;cursor:pointer}
+.btn-pm:hover{background:var(--gold2)}
+.btn-pg{width:100%;padding:12px;background:var(--gold-bg);color:var(--gold);border:1px solid var(--gold-border);border-radius:var(--r);font-size:13px;font-weight:600;transition:.18s;display:flex;align-items:center;justify-content:center;gap:8px;cursor:pointer}
+.btn-pg:hover{background:rgba(201,169,110,.15)}
+/* COMP TABLE */
+.comp-table{width:100%;border-collapse:collapse;margin-top:40px;font-size:13px}
+.comp-table th{padding:12px 16px;text-align:left;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text3);border-bottom:1px solid var(--border);background:var(--bg3)}
+.comp-table th.gold{color:var(--gold)}
+.comp-table td{padding:12px 16px;border-bottom:1px solid var(--border);color:var(--text2)}
+.comp-table tr:hover td{background:rgba(255,255,255,.02)}
+.chk{color:var(--gold);font-size:15px}
+.xmark{color:var(--text3);font-size:15px}
+/* CALCULADORA */
+.calc-box{max-width:680px;margin:48px auto 0;background:var(--bg2);border:1px solid var(--gold-border);border-radius:var(--r3);overflow:hidden}
+.calc-head{padding:20px 26px;background:linear-gradient(135deg,rgba(201,169,110,.1),rgba(201,169,110,.02));border-bottom:1px solid var(--border)}
+.calc-head h3{font-size:16px;font-weight:700;margin-bottom:3px}
+.calc-head p{font-size:12px;color:var(--text2)}
+.calc-body{padding:24px}
+.calc-label{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--gold);margin-bottom:10px}
+.calc-planos{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:20px}
+.cp{padding:12px 8px;border:1px solid var(--border);border-radius:var(--r2);text-align:center;cursor:pointer;transition:.2s;background:var(--bg3)}
+.cp:hover,.cp.active{border-color:var(--gold);background:var(--gold-bg)}
+.cp-name{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--gold);margin-bottom:2px}
+.cp-price{font-family:"Playfair Display",serif;font-size:18px;font-weight:700}
+.amb-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:8px;margin-bottom:20px}
+.amb-item{padding:12px 8px;border:1px solid var(--border);border-radius:var(--r2);cursor:pointer;transition:.2s;background:var(--bg3);display:flex;flex-direction:column;align-items:center;gap:4px;position:relative}
+.amb-item:has(input:checked){border-color:var(--gold);background:var(--gold-bg)}
+.amb-item input{position:absolute;top:6px;right:6px;width:14px;height:14px;accent-color:var(--gold);cursor:pointer}
+.amb-ico{font-size:20px}
+.amb-name{font-size:11px;font-weight:600;color:var(--text2);text-align:center}
+.calc-result{background:var(--bg3);border:1px solid var(--gold-border);border-radius:var(--r2);padding:20px}
+.result-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+.r-box{text-align:center;padding:14px;background:var(--bg2);border-radius:var(--r);border:1px solid var(--border)}
+.r-v{font-family:"Playfair Display",serif;font-size:20px;font-weight:700;color:var(--gold);margin-bottom:3px}
+.r-l{font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:.06em;font-weight:600}
+.bd{font-size:12px;color:var(--text3);margin-bottom:16px;padding:12px;background:var(--bg2);border-radius:var(--r);line-height:1.8;white-space:pre-line;border-left:2px solid var(--gold-border)}
+.calc-cta{width:100%;padding:13px;background:var(--gold);border-radius:var(--r);font-size:14px;font-weight:700;color:#0A0A0A;transition:.18s;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.calc-cta:hover{background:var(--gold2)}
+.eco-ex{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}
+.eco-box{text-align:center;padding:12px 8px;background:var(--bg2);border-radius:var(--r);border:1px solid var(--border)}
+.eco-box.green{border-color:rgba(16,185,129,.3);background:rgba(16,185,129,.05)}
+.eco-box.red2{border-color:rgba(239,68,68,.2)}
+.eco-box.gold2{border-color:var(--gold-border);background:var(--gold-bg)}
+.eco-lbl{font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px}
+.eco-val{font-family:"Playfair Display",serif;font-size:16px;font-weight:700}
+.eco-val.red{color:var(--red);text-decoration:line-through}
+.eco-val.gold{color:var(--gold)}
+.eco-val.green{color:var(--green)}
+/* DEPOIMENTOS */
+.dep-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:48px}
+@media(max-width:720px){.dep-grid{grid-template-columns:1fr}}
+.dep-card{padding:24px 22px;border-radius:var(--r3);background:var(--bg2);border:1px solid var(--border);display:flex;flex-direction:column;transition:.25s}
+.dep-card:hover{border-color:var(--gold-border)}
+.dep-stars{color:var(--gold);font-size:13px;letter-spacing:2px;margin-bottom:12px}
+.dep-txt{font-size:13px;color:var(--text2);line-height:1.8;font-style:italic;flex:1;margin-bottom:16px}
+.dep-auth{display:flex;align-items:center;gap:10px;padding-top:14px;border-top:1px solid var(--border)}
+.dep-av{width:38px;height:38px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#0A0A0A;flex-shrink:0}
+.dep-name{font-size:13px;font-weight:700}
+.dep-role{font-size:11px;color:var(--text3)}
+.dep-plan{color:var(--gold)}
+/* NUMS */
+.nums{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--r2);overflow:hidden;margin-top:48px}
+@media(max-width:600px){.nums{grid-template-columns:1fr 1fr}}
+.num{background:var(--bg);padding:28px 16px;text-align:center}
+.num-v{font-family:"Playfair Display",serif;font-size:32px;font-weight:700;color:var(--gold);line-height:1;margin-bottom:6px}
+.num-l{font-size:13px;color:var(--text2)}
+.num-s{font-size:11px;color:var(--text3);margin-top:2px}
+/* CONTATO */
+.contato-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:56px;align-items:start;margin-top:56px}
+@media(max-width:860px){.contato-grid{grid-template-columns:1fr;gap:40px}}
+.ci-list{display:flex;flex-direction:column;gap:12px;margin-top:28px}
+.ci{display:flex;align-items:center;gap:12px;font-size:13px;color:var(--text2)}
+.ci-ico{width:36px;height:36px;border-radius:var(--r2);background:var(--gold-bg);border:1px solid var(--gold-border);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
+.ci-hl{margin-top:24px;padding:18px 20px;background:rgba(16,185,129,.05);border:1px solid rgba(16,185,129,.15);border-radius:var(--r2)}
+.ci-hl h4{font-size:13px;font-weight:700;color:var(--green);margin-bottom:6px}
+.ci-hl p{font-size:13px;color:var(--text2);line-height:1.65}
+.form-card{background:var(--bg2);border:1px solid var(--border2);border-radius:var(--r3);overflow:hidden}
+.form-head{padding:18px 24px;border-bottom:1px solid var(--border);background:linear-gradient(135deg,rgba(201,169,110,.07),rgba(201,169,110,.02))}
+.form-head h3{font-family:"Playfair Display",serif;font-size:17px;font-weight:700;margin-bottom:2px}
+.form-head p{font-size:12px;color:var(--text2)}
+.form-body{padding:22px;display:flex;flex-direction:column;gap:13px}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:480px){.frow{grid-template-columns:1fr}}
+.ff{display:flex;flex-direction:column;gap:5px}
+.ff label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text3)}
+.ff input,.ff select,.ff textarea{padding:11px 14px;background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);font-size:13px;color:var(--text);font-family:"Plus Jakarta Sans",sans-serif;outline:none;transition:.18s;width:100%}
+.ff input:focus,.ff select:focus,.ff textarea:focus{border-color:var(--gold-border)}
+.ff input::placeholder,.ff textarea::placeholder{color:var(--text3)}
+.ff select option{background:var(--bg2)}
+.ff textarea{min-height:90px;resize:vertical;line-height:1.6}
+.btn-wa{width:100%;padding:13px;background:#25D366;border-radius:var(--r);font-size:14px;font-weight:700;color:#fff;display:flex;align-items:center;justify-content:center;gap:9px;transition:.18s;cursor:pointer}
+.btn-wa:hover{background:#1ebe5e;transform:translateY(-1px)}
+/* FAQ */
+.faq-list{max-width:720px;margin:48px auto 0;display:flex;flex-direction:column;gap:3px}
+.fi{border-radius:var(--r2);overflow:hidden;background:var(--bg2);border:1px solid var(--border);transition:.18s}
+.fi:hover{border-color:var(--gold-border)}
+.fi-q{width:100%;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;font-size:14px;font-weight:600;text-align:left;color:var(--text);background:none;gap:12px;cursor:pointer}
+.fi-q:hover,.fi-q.op{background:rgba(201,169,110,.04)}
+.fi-ico{flex-shrink:0;color:var(--gold);font-size:16px;transition:.3s}
+.fi-q.op .fi-ico{transform:rotate(180deg)}
+.fi-a{font-size:13px;color:var(--text2);line-height:1.75;max-height:0;overflow:hidden;transition:all .3s;padding:0 20px}
+.fi-a.op{max-height:300px;padding:0 20px 16px}
+/* FOOTER */
+footer{background:var(--bg2);border-top:1px solid var(--border);padding:48px 0 24px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;margin-bottom:36px}
+@media(max-width:720px){.footer-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:420px){.footer-grid{grid-template-columns:1fr}}
+.footer-logo{font-family:"Playfair Display",serif;font-size:20px;font-weight:700;color:var(--gold);margin-bottom:10px;cursor:pointer}
+.footer-logo span{color:#fff}
+.fc p{font-size:13px;color:rgba(255,255,255,.3);max-width:240px;line-height:1.7}
+.fc h5{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:rgba(255,255,255,.2);margin-bottom:14px}
+.fc a,.fc-lnk{display:flex;align-items:center;gap:7px;font-size:13px;color:rgba(255,255,255,.38);padding:3px 0;transition:.18s;cursor:pointer}
+.fc a:hover,.fc-lnk:hover{color:var(--gold)}
+.fc-ico{color:var(--gold);font-size:13px;flex-shrink:0}
+.footer-bot{display:flex;justify-content:space-between;align-items:center;padding-top:20px;border-top:1px solid var(--border);font-size:11px;color:rgba(255,255,255,.18);flex-wrap:wrap;gap:8px}
+</style>
+</head>
+<body>
+<nav class="nav">
+<div class="nav-inner">
+<div class="nav-logo" onclick="goTo('home')">MARKUP<span>ZERO</span></div>
+<div class="nav-links">
+<div class="nav-link" data-page="home" onclick="goTo('home')">Início</div>
+<div class="nav-link" data-page="sobre" onclick="goTo('sobre')">Quem Somos</div>
+<div class="nav-link" data-page="servicos" onclick="goTo('servicos')">Serviços</div>
+<div class="nav-link" data-page="precos" onclick="goTo('precos')">Preços</div>
+<div class="nav-link" data-page="contato" onclick="goTo('contato')">Contato</div>
+</div>
+<div class="nav-cta" onclick="goTo('contato')">Falar com a Markup Zero</div>
+<div class="nav-mob" onclick="toggleMob()">☰</div>
+</div>
+</nav>
+<div class="mob-menu" id="mob-menu">
+<div class="mob-link" onclick="goTo('home');closeMob()">Início</div>
+<div class="mob-link" onclick="goTo('sobre');closeMob()">Quem Somos</div>
+<div class="mob-link" onclick="goTo('servicos');closeMob()">Serviços</div>
+<div class="mob-link" onclick="goTo('precos');closeMob()">Preços</div>
+<div class="mob-cta" onclick="goTo('contato');closeMob()">💬 Falar com a Markup Zero</div>
+</div>
+<!-- ═══ HOME ═══ -->
+<div class="page active" id="page-home">
+<section class="home-hero">
+<div class="hg"></div><div class="hgl"></div>
+<div class="wrap">
+<div class="appear">
+<div class="eyebrow"><span class="dot"></span>Engenharia de Consumo · São Paulo – SP</div>
+<h1 class="h1">Móveis planejados direto da fábrica, <em>sem o markup do varejo.</em></h1>
+<p class="hero-sub">Aqui você tem acesso irrestrito a materiais, medidas e acabamentos. Nossa rede de parceiros especializados garante a execução de qualquer projeto, das peças mais simples às mais complexas.</p>
+<div class="hero-btns">
+<div class="btn-gold" onclick="goTo('contato')">💬 Quero meu diagnóstico grátis</div>
+<div class="btn-outline" onclick="goTo('servicos')">Conhecer serviços →</div>
+</div>
+<div class="stats-row">
+<div class="stat"><div class="stat-v">54%</div><div class="stat-l">Economia média</div></div>
+<div class="stat"><div class="stat-v">130+</div><div class="stat-l">Projetos entregues</div></div>
+<div class="stat"><div class="stat-v">+6 anos</div><div class="stat-l">No mercado SP</div></div>
+<div class="stat"><div class="stat-v">R$0</div><div class="stat-l">Do material que tocamos</div></div>
+</div>
+</div>
+</div>
+</section>
+<section class="sec sec-alt">
+<div class="wrap">
+<div class="appear" style="text-align:center">
+<span class="tag">O Problema</span>
+<h2 class="sh" style="max-width:680px;margin:0 auto 14px">Você sabe quanto custa <span style="color:var(--gold)">realmente</span> um projeto de móveis planejados?</h2>
+<p class="sp" style="margin:0 auto">Mobiliar um apartamento de 60–70m² no varejo custa entre R$ 60.000 e R$ 90.000. Grande parte desse valor não é produto — é margem empilhada.</p>
+</div>
+<div class="cards3">
+<div class="card appear d1"><div class="card-ico">💸</div><h3>Varejo cobra até 3x o custo industrial</h3><p>Você paga pela loja, showroom, vendedor comissionado e lucro do distribuidor — antes de pagar pelo produto.</p></div>
+<div class="card appear d2"><div class="card-ico">🔒</div><h3>Paga caro e ainda não escolhe</h3><p>Catálogos fechados, cores predefinidas, modelos limitados. A loja vende o que é fácil de produzir — não o que você quer.</p></div>
+<div class="card appear d3"><div class="card-ico">🎭</div><h3>"Qualidade premium" é só marketing</h3><p>Os mesmos materiais das lojas de alto padrão estão disponíveis direto na fábrica — sem o preço inflado.</p></div>
+</div>
+<div style="text-align:center;margin-top:32px"><div class="btn-gold appear" onclick="goTo('sobre')" style="display:inline-flex">Conheça nossa solução →</div></div>
+</div>
+</section>
+<section class="sec">
+<div class="wrap">
+<div class="appear" style="text-align:center">
+<span class="tag">Uma história real</span>
+<h2 class="sh" style="max-width:720px;margin:0 auto 14px">R$ 80 mil. O preço de um carro popular — <span style="color:var(--gold)">só para mobiliar a casa.</span></h2>
+</div>
+<div style="max-width:800px;margin:36px auto 0;display:grid;grid-template-columns:1fr 1.4fr;gap:0;background:var(--bg2);border:1px solid var(--gold-border);border-radius:var(--r3);overflow:hidden" class="appear">
+<div style="background:linear-gradient(160deg,rgba(201,169,110,.12),rgba(201,169,110,.02));padding:32px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;border-right:1px solid var(--border)">
+<div style="font-family:'Playfair Display',serif;font-size:40px;font-weight:800;color:var(--gold);line-height:1">R$ 80.000</div>
+<div style="font-size:11px;color:var(--text3);margin-top:6px;letter-spacing:.04em">valor pago no varejo tradicional</div>
+</div>
+<div style="padding:28px 30px">
+<p style="font-size:14px;color:var(--text2);line-height:1.85;margin-bottom:14px">Antes de conhecer a Markup Zero, um cliente fechou o projeto completo do apartamento em uma loja tradicional de móveis planejados. O valor final ficou em R$ 80.000 — o preço de um carro popular 0km, investido inteiramente em armários e painéis.</p>
+<p style="font-size:14px;color:var(--text2);line-height:1.85;margin-bottom:14px">E mesmo pagando esse valor, ele não teve liberdade de escolha real: o catálogo da loja limitava as cores e os acabamentos disponíveis. Ele não pôde ter, de fato, o que queria para a própria casa — simplesmente porque não conhecia outro caminho.</p>
+<p style="font-size:14px;color:var(--text);line-height:1.85;font-weight:600">Hoje, quem conhece a Markup Zero não precisa mais passar por isso. Nossos clientes têm acesso direto às mesmas fábricas, aos mesmos materiais e acabamentos das lojas de alto padrão — sem catálogo fechado, e sem pagar o preço de um carro só para guardar roupa.</p>
+</div>
+</div>
+<div style="text-align:center;margin-top:28px"><div class="btn-gold appear" onclick="goTo('contato')" style="display:inline-flex">💬 Quero fugir desse cenário</div></div>
+</div>
+</section>
+<section class="sec sec-alt">
+<div class="wrap" style="text-align:center">
+<span class="tag">Depoimentos</span>
+<h2 class="sh">O que dizem nossos clientes</h2>
+<p class="sp" style="margin:0 auto">Clientes de vários bairros da Grande São Paulo, cada um com uma necessidade diferente.</p>
+<div class="dep-grid">
+<div class="dep-card appear d1">
+<div class="dep-stars">★★★★★</div>
+<p class="dep-txt">"Fiquei desconfiado quando vi o resultado. Achei que haveria algum truque. Não havia. O material era exatamente o mesmo que as lojas vendem como 'premium'. A diferença é que não paguei o showroom deles."</p>
+<div class="dep-auth"><div class="dep-av">CV</div><div><div class="dep-name">Carlos Augusto Vieira</div><div class="dep-role">Itaim Bibi, SP · <span class="dep-plan">Plano Prata</span></div></div></div>
+</div>
+<div class="dep-card appear d2">
+<div class="dep-stars">★★★★★</div>
+<p class="dep-txt">"O que mais me chamou atenção foi a clareza do processo. Cada etapa foi explicada antes de acontecer, sem letra miúda. Aprovei o projeto 3D, escolhi os materiais e acompanhei tudo até a instalação."</p>
+<div class="dep-auth"><div class="dep-av">FL</div><div><div class="dep-name">Fernanda Lopes</div><div class="dep-role">Moema, SP · <span class="dep-plan">Plano Ouro</span></div></div></div>
+</div>
+<div class="dep-card appear d3">
+<div class="dep-stars">★★★★★</div>
+<p class="dep-txt">"Nunca imaginei que planejar uma cozinha pudesse ser tão simples. Resolvi praticamente tudo pelo WhatsApp, sem precisar sair de casa, e recebi fotos reais da produção em cada etapa."</p>
+<div class="dep-auth"><div class="dep-av">ET</div><div><div class="dep-name">Eduardo Tanaka</div><div class="dep-role">Vila Mariana, SP · <span class="dep-plan">Plano Bronze</span></div></div></div>
+</div>
+<div class="dep-card appear d1">
+<div class="dep-stars">★★★★★</div>
+<p class="dep-txt">"A qualidade dos móveis me surpreendeu. As dobradiças e corrediças são da mesma linha que eu já tinha visto em lojas de altíssimo padrão. Não senti diferença nenhuma no acabamento."</p>
+<div class="dep-auth"><div class="dep-av">PN</div><div><div class="dep-name">Patrícia Nogueira</div><div class="dep-role">Santo Amaro, SP · <span class="dep-plan">Plano Prata</span></div></div></div>
+</div>
+<div class="dep-card appear d2">
+<div class="dep-stars">★★★★★</div>
+<p class="dep-txt">"Fechei o projeto e em pouco mais de três semanas já estava tudo montado. A equipe cumpriu exatamente o prazo combinado, do jeito que foi apresentado desde o início."</p>
+<div class="dep-auth"><div class="dep-av">RA</div><div><div class="dep-name">Rodrigo Almeida</div><div class="dep-role">Tatuapé, SP · <span class="dep-plan">Plano Prata</span></div></div></div>
+</div>
+<div class="dep-card appear d3">
+<div class="dep-stars">★★★★★</div>
+<p class="dep-txt">"Gostei muito de poder escolher cada detalhe — cor, ferragem, tipo de puxador. Em nenhum momento me senti limitado por um catálogo fechado, como já tinha acontecido em outros orçamentos."</p>
+<div class="dep-auth"><div class="dep-av">CD</div><div><div class="dep-name">Camila Duarte</div><div class="dep-role">Alphaville, Barueri · <span class="dep-plan">Plano Ouro</span></div></div></div>
+</div>
+<div class="dep-card appear d1">
+<div class="dep-stars">★★★★★</div>
+<p class="dep-txt">"Trabalho o dia inteiro e não teria tempo de correr atrás de fábrica e transportadora. A Markup Zero cuidou de cada etapa, eu só precisei aprovar o que era importante."</p>
+<div class="dep-auth"><div class="dep-av">MV</div><div><div class="dep-name">Marcos Vinícius</div><div class="dep-role">Osasco, SP · <span class="dep-plan">Plano Bronze</span></div></div></div>
+</div>
+<div class="dep-card appear d2">
+<div class="dep-stars">★★★★★</div>
+<p class="dep-txt">"O material chegou impecável e a montagem foi rápida e organizada. Ficou visivelmente mais robusto do que os móveis que eu já tinha visto em outras casas da família."</p>
+<div class="dep-auth"><div class="dep-av">JF</div><div><div class="dep-name">Juliana Ferraz</div><div class="dep-role">Guarulhos, SP · <span class="dep-plan">Plano Prata</span></div></div></div>
+</div>
+</div>
+</div>
+</section>
+<section class="sec">
+<div class="wrap" style="text-align:center">
+<h2 class="sh appear">Pronto para economizar de verdade?</h2>
+<p class="sp appear" style="margin:0 auto 28px">Diagnóstico gratuito. Proposta em 48h. Sem compromisso.</p>
+<div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap" class="appear">
+<div class="btn-gold" onclick="goTo('contato')">💬 Falar com a Markup Zero</div>
+<div class="btn-outline" onclick="goTo('precos')">Ver planos e preços →</div>
+</div>
+</div>
+</section>
+<footer><div class="wrap">
+<div class="footer-grid">
+<div class="fc"><div class="footer-logo" onclick="goTo('home')">MARKUP<span>ZERO</span></div><p>Consultoria especializada em móveis planejados industriais. Conectamos você diretamente às fábricas de São Paulo.</p></div>
+<div class="fc"><h5>Páginas</h5><span class="fc-lnk" onclick="goTo('sobre')"><span class="fc-ico">›</span>Quem Somos</span><span class="fc-lnk" onclick="goTo('servicos')"><span class="fc-ico">›</span>Serviços</span><span class="fc-lnk" onclick="goTo('precos')"><span class="fc-ico">›</span>Preços</span></div>
+<div class="fc"><h5>Contato</h5><a href="tel:551121102744"><span class="fc-ico">📞</span>(11) 2110-2744</a><a href="mailto:contato@markupzero.com.br"><span class="fc-ico">📧</span>contato@markupzero.com.br</a><a href="https://wa.me/551121102744" target="_blank"><span class="fc-ico">💬</span>WhatsApp</a><a href="https://www.instagram.com/markupzero/" target="_blank"><span class="fc-ico">📸</span>@markupzero</a></div>
+</div>
+<div class="footer-bot"><span>© 2026 Markup Zero · Todos os direitos reservados</span><span>Preços estimados com base em projetos reais entregues em SP.</span></div>
+</div></footer>
+</div>
+<!-- ═══ QUEM SOMOS ═══ -->
+<div class="page" id="page-sobre">
+<div style="padding:64px 0 48px;text-align:center;background:var(--bg);border-bottom:1px solid var(--border)">
+<div class="wrap"><span class="tag">Quem Somos</span>
+<h1 class="sh appear" style="max-width:700px;margin:0 auto 14px">+6 anos no coração do mercado de móveis planejados de SP.</h1>
+<p class="sp appear" style="margin:0 auto">Nascemos dentro das empresas. Hoje trabalhamos para você.</p></div>
+</div>
+<section class="sec">
+<div class="wrap">
+<div class="sobre-grid">
+<div class="appear">
+<h2 class="sh">Quebramos o tabu do setor de móveis planejados.</h2>
+<p class="sp" style="margin-bottom:16px">Por mais de 6 anos, nossa equipe atuou nos bastidores das maiores empresas de móveis planejados de São Paulo — coordenando o pós-venda, garantindo que cada cliente fosse atendido com excelência. Lojas de pequeno, médio e grande porte confiaram no nosso trabalho.</p>
+<p class="sp" style="margin-bottom:16px">Vimos de perto como o setor funciona: os mesmos materiais que equipam lojas de alto padrão chegam às fábricas a um custo muito abaixo do que o consumidor final paga. A diferença? Camadas de intermediários, showrooms e margens empilhadas.</p>
+<p class="sp" style="margin-bottom:16px">Decidimos mudar isso. A Markup Zero nasceu para oferecer ao cliente final o que antes era exclusivo das grandes redes. <strong style="color:var(--text)">Sem markup. Sem intermediários. Sem surpresas.</strong></p>
+<p class="sp">Aqui, o cliente escolhe cada detalhe — material, medida, cor, ferragem, acabamento. Nossa rede de parceiros especializados transforma qualquer ideia em projeto técnico executável.</p>
+<div class="metrics">
+<div class="metric"><div class="metric-v">+6</div><div class="metric-l">Anos de mercado</div></div>
+<div class="metric"><div class="metric-v">130+</div><div class="metric-l">Projetos entregues</div></div>
+<div class="metric"><div class="metric-v">54%</div><div class="metric-l">Economia média</div></div>
+<div class="metric"><div class="metric-v">R$0</div><div class="metric-l">Do material que tocamos</div></div>
+</div>
+</div>
+<div class="sobre-cards appear d2">
+<div class="sobre-card"><div class="sc-ico">🏭</div><div><h4>Acesso industrial direto</h4><p>Rede de fábricas parceiras certificadas em SP. Sem distribuidor, sem showroom, sem margem de revenda.</p></div></div>
+<div class="sobre-card"><div class="sc-ico">📐</div><div><h4>Projeto técnico completo</h4><p>Anteprojeto, projeto visual 3D, lista de materiais e executivo de montagem — tudo incluso nos planos.</p></div></div>
+<div class="sobre-card"><div class="sc-ico">✅</div><div><h4>Transparência total</h4><p>O pagamento do material vai direto da sua conta para a fábrica. Cobramos apenas a consultoria.</p></div></div>
+<div class="sobre-card"><div class="sc-ico">🚀</div><div><h4>Sem limitações de projeto</h4><p>Peças retas, especiais, orgânicas, suspensas. Se você imaginou, nossa rede de parceiros executa.</p></div></div>
+</div>
+</div>
+</div>
+</section>
+<section class="sec sec-alt">
+<div class="wrap">
+<div class="appear" style="text-align:center"><span class="tag">Nosso Serviço, na Prática</span><h2 class="sh" style="max-width:640px;margin:0 auto 14px">Não somos um "plano de corte". Não somos uma loja com margem.</h2><p class="sp" style="margin:0 auto">Entenda exatamente o que você contrata quando fecha com a Markup Zero.</p></div>
+<div class="dif-grid">
+<div class="dif-card appear d1"><div class="dif-ico">🚫</div><h3>Sem plano de corte fechado</h3><p>Não oferecemos um plano de corte padronizado, como fazem a maioria dos serviços do mercado. Cada projeto é pensado do zero, para atender 100% à necessidade real do cliente — não a um modelo pronto.</p></div>
+<div class="dif-card appear d2"><div class="dif-ico">🚫</div><h3>Sem margem sobre o produto</h3><p>Também não aplicamos margem sobre os móveis, como fazem as lojas tradicionais. Cobramos apenas a consultoria — o material é pago direto por você à fábrica, sem nenhum tipo de markup escondido.</p></div>
+<div class="dif-card appear d3"><div class="dif-ico">🤝</div><h3>Mesmo padrão, com 100% de apoio</h3><p>Na prática, você contrata um serviço equivalente ao de uma loja de móveis planejados de alto padrão — mas pode contar com 100% do apoio da nossa empresa do briefing à entrega.</p></div>
+</div>
+<div style="max-width:800px;margin:40px auto 0" class="appear">
+<p class="sp" style="max-width:none;margin-bottom:16px">Cuidamos da execução do seu projeto de forma limpa e econômica, com móveis que atendem 100% à necessidade do cliente — não importa o acabamento escolhido. Nossos parceiros são experientes e possuem diversas opções para executar a marcenaria da sua casa com o padrão que você imaginou.</p>
+<p class="sp" style="max-width:none;font-weight:600;color:var(--text)">Ao contratar a Markup Zero, você leva para a sua obra toda a experiência de quem esteve na linha de frente do setor de móveis planejados — garantindo material de qualidade, fabricação de qualidade e móveis que duram, sem abrir mão da estética e de ferragens superiores.</p>
+</div>
+</div>
+</section>
+<section class="sec">
+<div class="wrap">
+<div class="appear" style="text-align:center"><span class="tag">Nossa Trajetória</span><h2 class="sh">De bastidores ao mercado direto.</h2></div>
+<div style="max-width:680px;margin:0 auto">
+<div class="timeline appear">
+<div class="tl"><div class="tl-dot">1</div><div class="tl-year">2018 – 2021</div><h4>Pós-venda para lojas de pequeno e médio porte</h4><p>Coordenação técnica, gestão de projetos e relacionamento com fábricas parceiras em São Paulo.</p></div>
+<div class="tl"><div class="tl-dot">2</div><div class="tl-year">2021 – 2023</div><h4>Expansão para grandes redes de móveis planejados</h4><p>Projetos de maior complexidade, múltiplas fábricas, controle rigoroso de qualidade e prazo.</p></div>
+<div class="tl"><div class="tl-dot">3</div><div class="tl-year">2024</div><h4>Lançamento da Markup Zero para o cliente final</h4><p>Quebramos o tabu: o mesmo serviço premium que as lojas contratavam, agora direto para você.</p></div>
+<div class="tl" style="padding-bottom:0"><div class="tl-dot">4</div><div class="tl-year">2025+</div><h4>Marcenaria 4.0 — modelo escalável</h4><p>Parcerias com lojistas, marceneiros e incorporadoras para escala e compartilhamento de margem.</p></div>
+</div>
+</div>
+</div>
+</section>
+<section class="sec sec-alt">
+<div class="wrap">
+<div class="appear" style="text-align:center"><span class="tag">Identidade</span><h2 class="sh">Missão, Visão e Valores</h2></div>
+<div class="mvv">
+<div class="mvv-card appear d1"><div class="mvv-ico">🎯</div><h3>Missão</h3><p>Democratizar o acesso a móveis planejados de alto padrão, eliminando intermediários e devolvendo ao cliente o poder de escolha e o controle sobre o custo real do seu projeto.</p></div>
+<div class="mvv-card appear d2"><div class="mvv-ico">🔭</div><h3>Visão</h3><p>Ser a principal referência em consultoria de móveis planejados industriais em São Paulo, tornando o modelo Markup Zero o padrão de transparência e eficiência do setor até 2027.</p></div>
+<div class="mvv-card appear d3"><div class="mvv-ico">⚡</div><h3>Valores</h3><ul><li>Transparência radical</li><li>Sem markup, sem surpresas</li><li>Liberdade total de escolha</li><li>Excelência técnica</li><li>Respeito ao cliente final</li><li>Parceria de longo prazo</li></ul></div>
+</div>
+</div>
+</section>
+<section class="sec">
+<div class="wrap" style="text-align:center">
+<h2 class="sh appear">Vamos trabalhar juntos?</h2>
+<p class="sp appear" style="margin:0 auto 28px">Diagnóstico gratuito. Proposta em 48h. Sem compromisso.</p>
+<div class="btn-gold appear" onclick="goTo('contato')" style="display:inline-flex">💬 Falar com a Markup Zero</div>
+</div>
+</section>
+<footer><div class="wrap"><div class="footer-grid"><div class="fc"><div class="footer-logo" onclick="goTo('home')">MARKUP<span>ZERO</span></div><p>Consultoria especializada em móveis planejados industriais em São Paulo.</p></div><div class="fc"><h5>Páginas</h5><span class="fc-lnk" onclick="goTo('servicos')"><span class="fc-ico">›</span>Serviços</span><span class="fc-lnk" onclick="goTo('precos')"><span class="fc-ico">›</span>Preços</span></div><div class="fc"><h5>Contato</h5><a href="tel:551121102744"><span class="fc-ico">📞</span>(11) 2110-2744</a><a href="mailto:contato@markupzero.com.br"><span class="fc-ico">📧</span>contato@markupzero.com.br</a></div></div><div class="footer-bot"><span>© 2026 Markup Zero · Todos os direitos reservados</span></div></div></footer>
+</div>
+<!-- ═══ SERVIÇOS ═══ -->
+<div class="page" id="page-servicos">
+<div style="padding:64px 0 48px;text-align:center;background:var(--bg);border-bottom:1px solid var(--border)">
+<div class="wrap"><span class="tag">Serviços</span>
+<h1 class="sh appear" style="max-width:640px;margin:0 auto 14px">Tudo que seu projeto precisa, do briefing à entrega.</h1>
+<p class="sp appear" style="margin:0 auto">Processo simples, transparente e 100% acompanhado.</p></div>
+</div>
+<section class="sec">
+<div class="wrap">
+<div class="appear" style="text-align:center"><span class="tag">O que fazemos</span><h2 class="sh">Nossos serviços</h2></div>
+<div class="cards3">
+<div class="card appear d1"><div class="card-ico">💬</div><h3>Diagnóstico e Briefing</h3><p>Entendemos o seu projeto — ambientes, estilo, materiais e orçamento. Sem compromisso e sem custo.</p><span class="card-tag">Gratuito</span></div>
+<div class="card appear d2"><div class="card-ico">📐</div><h3>Anteprojeto e Projeto Visual 3D</h3><p>Anteprojeto e renderização 3D para você aprovar cada detalhe antes da produção começar.</p><span class="card-tag">Incluso em todos os planos</span></div>
+<div class="card appear d3"><div class="card-ico">🏭</div><h3>Conexão com Fábricas Parceiras</h3><p>Acessamos nossa rede exclusiva de fábricas e negociamos o melhor preço industrial real para você.</p><span class="card-tag">Acesso exclusivo</span></div>
+<div class="card appear d1"><div class="card-ico">📋</div><h3>Lista de Materiais e Implantação</h3><p>Lista técnica completa e implantação do pedido na fábrica parceira ou na fábrica de sua escolha.</p><span class="card-tag">Incluso em todos os planos</span></div>
+<div class="card appear d2"><div class="card-ico">🔧</div><h3>Projeto Executivo para Montagem</h3><p>Projeto técnico detalhado para a equipe de montagem — cortes, encaixes e especificações completas.</p><span class="card-tag">Incluso em todos os planos</span></div>
+<div class="card appear d3"><div class="card-ico">🚚</div><h3>Acompanhamento e Entrega</h3><p>Monitoramos produção e logística em tempo real. Prazo médio: 15–25 dias úteis após pagamento.</p><span class="card-tag">Conforme o plano</span></div>
+</div>
+</div>
+</section>
+<section class="sec sec-alt">
+<div class="wrap">
+<div class="appear" style="text-align:center"><span class="tag">Processo</span><h2 class="sh">Como funciona</h2><p class="sp" style="margin:0 auto">4 etapas. Do briefing à entrega.</p></div>
+<div class="steps appear">
+<div class="step"><div class="step-n">01</div><h3>Diagnóstico Gratuito</h3><p>Você descreve o projeto e os ambientes. Analisamos o potencial de economia — sem compromisso.</p></div>
+<div class="step"><div class="step-n">02</div><h3>Conexão com a Fábrica</h3><p>Acessamos nossa rede e negociamos o melhor preço industrial real para o seu projeto.</p></div>
+<div class="step"><div class="step-n">03</div><h3>Proposta com Economia</h3><p>Você recebe o comparativo transparente: preço do varejo vs. preço industrial — linha a linha.</p></div>
+<div class="step"><div class="step-n">04</div><h3>Fabricação e Entrega</h3><p>Acompanhamos produção e logística. Você só assina quando tudo estiver instalado.</p><div class="step-note">15–25 dias úteis após pagamento</div></div>
+</div>
+</div>
+</section>
+<section class="sec">
+<div class="wrap">
+<div class="appear" style="text-align:center"><span class="tag">Materiais & Expertise</span><h2 class="sh">Sem catálogo fechado. Sem "não dá pra fazer."</h2><p class="sp" style="margin:0 auto">Nossa rede de parceiros executa peças retas, especiais, orgânicas e sob medida.</p></div>
+<div class="cards3" style="margin-top:40px">
+<div class="card appear d1"><div class="card-ico">🪵</div><h3 style="color:var(--gold)">MDF e MDP</h3><p><strong style="color:var(--text)">MDF</strong>: usinagem, frestas, relevos e peças especiais.<br/><br/><strong style="color:var(--text)">MDP</strong>: estruturas, laterais e fundos — resistente e econômico.</p></div>
+<div class="card appear d2"><div class="card-ico">🎨</div><h3 style="color:var(--gold)">BP e Lacca</h3><p><strong style="color:var(--text)">BP</strong>: texturizado, matte, ampla paleta de cores.<br/><br/><strong style="color:var(--text)">Lacca</strong>: liso, sofisticado — idêntico às marcas europeias.</p></div>
+<div class="card appear d3"><div class="card-ico">⚙️</div><h3 style="color:var(--gold)">Frentes Usinadas e Metalons</h3><p>MDF fresado com perfis exclusivos para portas. Metalons para puxadores embutidos e acabamentos industriais.</p></div>
+<div class="card appear d1"><div class="card-ico">🪟</div><h3 style="color:var(--gold)">Vidro e Alumínio</h3><p>Portas e painéis em vidro temperado, fumê, canelado ou espelhado com esquadrias de alumínio sob medida.</p></div>
+<div class="card appear d2"><div class="card-ico">🪞</div><h3 style="color:var(--gold)">Espelhos Sob Medida</h3><p>Retos ou orgânicos, bordas polidas ou bisotadas. Integrados a painéis, portas, nichos ou como peça decorativa.</p></div>
+<div class="card appear d3" style="border-color:var(--gold-border);background:var(--gold-bg)"><div class="card-ico">🚀</div><h3 style="color:var(--gold)">Peças Especiais</h3><p>Orgânicas, suspensas, embutidas, curvas. Se você imaginou, nossa rede executa — sem limite de complexidade.</p></div>
+</div>
+</div>
+</section>
+<section class="sec sec-alt">
+<div class="wrap" style="text-align:center">
+<h2 class="sh appear">Pronto para começar?</h2>
+<p class="sp appear" style="margin:0 auto 28px">Diagnóstico gratuito. Proposta em 48h. Sem compromisso.</p>
+<div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap" class="appear">
+<div class="btn-gold" onclick="goTo('contato')">💬 Falar com a Markup Zero</div>
+<div class="btn-outline" onclick="goTo('precos')">Ver planos →</div>
+</div>
+</div>
+</section>
+<footer><div class="wrap"><div class="footer-grid"><div class="fc"><div class="footer-logo" onclick="goTo('home')">MARKUP<span>ZERO</span></div><p>Consultoria especializada em móveis planejados industriais em São Paulo.</p></div><div class="fc"><h5>Páginas</h5><span class="fc-lnk" onclick="goTo('sobre')"><span class="fc-ico">›</span>Quem Somos</span><span class="fc-lnk" onclick="goTo('precos')"><span class="fc-ico">›</span>Preços</span></div><div class="fc"><h5>Contato</h5><a href="tel:551121102744"><span class="fc-ico">📞</span>(11) 2110-2744</a><a href="mailto:contato@markupzero.com.br"><span class="fc-ico">📧</span>contato@markupzero.com.br</a></div></div><div class="footer-bot"><span>© 2026 Markup Zero</span></div></div></footer>
+</div>
+<!-- ═══ PREÇOS ═══ -->
+<div class="page" id="page-precos">
+<div style="padding:64px 0 48px;text-align:center;background:var(--bg);border-bottom:1px solid var(--border)">
+<div class="wrap"><span class="tag">Planos e Preços</span>
+<h1 class="sh appear" style="max-width:640px;margin:0 auto 14px">Transparência total. Você paga só pelo material.</h1>
+<p class="sp appear" style="margin:0 auto">Nossa consultoria cuida de tudo. O pagamento do material vai direto para a fábrica — nunca para nós.</p></div>
+</div>
+<section class="sec">
+<div class="wrap">
+<div class="appear" style="padding:16px 20px;background:var(--gold-bg);border:1px solid var(--gold-border);border-radius:var(--r2);font-size:13px;color:var(--text2);display:flex;gap:12px;align-items:flex-start;line-height:1.7;margin-bottom:32px">
+<span style="color:var(--gold);font-size:16px;flex-shrink:0">ℹ️</span>
+<div>Todos os planos incluem: <strong style="color:var(--gold)">anteprojeto, projeto visual 3D, lista de materiais e projeto executivo</strong> para montagem, para 1 ambiente principal. Ambientes bônus (banheiro, área de serviço, despensa, varanda) são <strong style="color:var(--gold)">gratuitos</strong> quando acompanham um principal.<br/><span style="color:var(--text3);font-size:11px">Projetos de engenharia ou arquitetura passam por avaliação e ajuste conforme a complexidade.</span></div>
+</div>
+<div class="planos appear">
+<div class="plano">
+<div class="plano-medal" style="background:linear-gradient(135deg,#1a1305,#0f0f0f)"><div style="font-size:50px;line-height:1">🥉</div><div style="font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.14em;color:#cd7f32">Bronze</div></div>
+<div class="plano-body">
+<div class="plano-tier">Bronze</div><div class="plano-sub">Projeto Online</div>
+<div class="plano-price">R$ 397,90</div><div class="plano-price-note">taxa de consultoria única</div>
+<ul class="plano-feats"><li>Análise de orçamento do varejo</li><li>Briefing completo do projeto</li><li>Anteprojeto técnico</li><li>Projeto visual 3D renderizado</li><li>Lista de materiais detalhada</li><li>Indicação e conexão com fábricas parceiras</li><li>Implantação do pedido na fábrica</li><li>Projeto executivo para montagem</li><li>Relatório fotográfico da produção</li><li>Suporte via WhatsApp · Acompanhamento remoto</li></ul>
+<div class="btn-pg" onclick="window.open('https://wa.me/551121102744?text=Olá, quero o Plano Bronze (R$ 397,90)!','_blank')">💬 Começar com Bronze</div>
+</div>
+</div>
+<div class="plano feat">
+<div class="plano-medal" style="background:linear-gradient(135deg,#1a1a1a,#222)"><div style="font-size:50px;line-height:1">🥈</div><div style="font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.14em;color:#C0C0C0">Prata</div></div>
+<div class="plano-body">
+<div class="plano-tier">Prata <span class="plano-popular">Mais popular</span></div><div class="plano-sub">Projeto com Assistente</div>
+<div class="plano-price">R$ 597,90</div><div class="plano-price-note">taxa de consultoria única</div>
+<ul class="plano-feats"><li>Tudo do Plano Bronze</li><li>Medição técnica presencial na obra</li><li>Visita técnica em fábrica parceira</li><li>Acompanhamento dedicado: briefing → aprovação</li><li>Coordenação logística da entrega</li></ul>
+<div class="btn-pm" onclick="window.open('https://wa.me/551121102744?text=Olá, quero o Plano Prata (R$ 597,90)!','_blank')">💬 Começar com Prata</div>
+</div>
+</div>
+<div class="plano">
+<div class="plano-medal" style="background:linear-gradient(135deg,#1a1305,#2a1f08)"><div style="font-size:50px;line-height:1">🥇</div><div style="font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.14em;color:var(--gold)">Ouro</div></div>
+<div class="plano-body">
+<div class="plano-tier">Ouro</div><div class="plano-sub">Execução Completa Markup Zero</div>
+<div class="plano-price">R$ 797,90</div><div class="plano-price-note">taxa de consultoria única</div>
+<ul class="plano-feats"><li>Tudo dos Planos Bronze e Prata</li><li>Finalização e escolha de materiais em Showroom</li><li>Responsável de execução Markup Zero</li><li>Acompanhamento presencial na montagem</li><li>Do projeto à entrega: nossa equipe cuida de tudo</li></ul>
+<div class="btn-pg" onclick="window.open('https://wa.me/551121102744?text=Olá, quero o Plano Ouro (R$ 797,90)!','_blank')">💬 Começar com Ouro</div>
+</div>
+</div>
+</div>
+<p class="appear" style="text-align:center;margin-top:16px;font-size:11px;color:var(--text3)">Ambiente principal extra = valor do plano escolhido. Ambientes bônus incluídos gratuitamente com cada principal.</p>
+</div>
+</section>
+<section class="sec sec-alt">
+<div class="wrap">
+<div class="appear" style="text-align:center"><span class="tag">Comparativo</span><h2 class="sh">O que cada plano inclui</h2></div>
+<div class="appear" style="overflow-x:auto;margin-top:32px">
+<table class="comp-table">
+<thead><tr><th>Recurso</th><th class="gold">🥉 Bronze</th><th class="gold">🥈 Prata</th><th class="gold">🥇 Ouro</th></tr></thead>
+<tbody>
+<tr><td>Análise de orçamento</td><td><span class="chk">✓</span></td><td><span class="chk">✓</span></td><td><span class="chk">✓</span></td></tr>
+<tr><td>Briefing e anteprojeto</td><td><span class="chk">✓</span></td><td><span class="chk">✓</span></td><td><span class="chk">✓</span></td></tr>
+<tr><td>Indicação de fábricas</td><td><span class="chk">✓</span></td><td><span class="chk">✓</span></td><td><span class="chk">✓</span></td></tr>
+<tr><td>Projeto executivo montagem</td><td><span class="chk">✓</span></td><td><span class="chk">✓</span></td><td><span class="chk">✓</span></td></tr>
+<tr><td>Acompanhamento remoto</td><td><span class="chk">✓</span></td><td><span class="chk">✓</span></td><td><span class="chk">✓</span></td></tr>
+<tr><td>Medição técnica na obra</td><td><span class="xmark">—</span></td><td><span class="chk">✓</span></td><td><span class="chk">✓</span></td></tr>
+<tr><td>Projeto visual 3D</td><td><span class="xmark">—</span></td><td><span class="chk">✓</span></td><td><span class="chk">✓</span></td></tr>
+<tr><td>Visita técnica em fábrica</td><td><span class="xmark">—</span></td><td><span class="chk">✓</span></td><td><span class="chk">✓</span></td></tr>
+<tr><td>Finalização em Showroom</td><td><span class="xmark">—</span></td><td><span class="xmark">—</span></td><td><span class="chk">✓</span></td></tr>
+<tr><td>Suporte presencial montagem</td><td><span class="xmark">—</span></td><td><span class="xmark">—</span></td><td><span class="chk">✓</span></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section class="sec">
+<div class="wrap">
+<div class="appear" style="text-align:center"><span class="tag">Simulador</span><h2 class="sh">Veja o preço do nosso serviço</h2><p class="sp" style="margin:0 auto">Selecione os ambientes do seu imóvel. O material é pago direto à fábrica por você.</p></div>
+<div class="calc-box appear">
+<div class="calc-head"><h3>⚡ Simulador de Consultoria — Markup Zero</h3><p>Este simulador calcula o valor da nossa consultoria. O material é pago diretamente por você à fábrica.</p></div>
+<div class="calc-body">
+<div class="calc-label">1. Escolha o plano</div>
+<div class="calc-planos">
+<div class="cp" onclick="setP('bronze')" id="cp-bronze"><div class="cp-name">Bronze</div><div class="cp-price">R$ 397,90</div></div>
+<div class="cp active" onclick="setP('prata')" id="cp-prata"><div class="cp-name">Prata</div><div class="cp-price">R$ 597,90</div></div>
+<div class="cp" onclick="setP('ouro')" id="cp-ouro"><div class="cp-name">Ouro</div><div class="cp-price">R$ 797,90</div></div>
+</div>
+<div class="calc-label">2. Ambientes Principais</div>
+<div class="amb-grid" id="g-principal">
+<label class="amb-item"><input type="checkbox" checked onchange="calcUpd()"/><span class="amb-ico">🍳</span><span class="amb-name">Cozinha</span></label>
+<label class="amb-item"><input type="checkbox" onchange="calcUpd()"/><span class="amb-ico">🛏️</span><span class="amb-name">Dormitório</span></label>
+<label class="amb-item"><input type="checkbox" onchange="calcUpd()"/><span class="amb-ico">💻</span><span class="amb-name">Home Office</span></label>
+<label class="amb-item"><input type="checkbox" onchange="calcUpd()"/><span class="amb-ico">🛋️</span><span class="amb-name">Sala de Estar</span></label>
+<label class="amb-item"><input type="checkbox" onchange="calcUpd()"/><span class="amb-ico">👗</span><span class="amb-name">Closet</span></label>
+</div>
+<div class="calc-label">3. Ambientes Bônus <span style="color:var(--text3);font-size:10px;text-transform:none;font-weight:400;letter-spacing:0">(gratuitos com um principal)</span></div>
+<div class="amb-grid" id="g-bonus">
+<label class="amb-item"><input type="checkbox" checked onchange="calcUpd()"/><span class="amb-ico">🚿</span><span class="amb-name">Banheiro</span></label>
+<label class="amb-item"><input type="checkbox" onchange="calcUpd()"/><span class="amb-ico">🧺</span><span class="amb-name">Área Serviço</span></label>
+<label class="amb-item"><input type="checkbox" onchange="calcUpd()"/><span class="amb-ico">📦</span><span class="amb-name">Despensa</span></label>
+<label class="amb-item"><input type="checkbox" onchange="calcUpd()"/><span class="amb-ico">🌿</span><span class="amb-name">Varanda</span></label>
+</div>
+<div class="calc-result">
+<div class="result-grid">
+<div class="r-box"><div class="r-v" id="r-total">R$ 597,90</div><div class="r-l">Valor da consultoria</div></div>
+<div class="r-box"><div class="r-v" id="r-amb" style="font-size:16px;color:var(--text2)">2 ambientes</div><div class="r-l">Selecionados</div></div>
+</div>
+<div class="bd" id="r-bd">Plano Prata: R$ 597,90
+
+🏠 Principais: Cozinha
+
+🎁 Bônus gratuitos: Banheiro
+
+💰 Total: R$ 597,90</div>
+<div class="eco-ex">
+<div class="eco-box red2"><div class="eco-lbl">Varejo SP</div><div class="eco-val red">R$ 22.000</div></div>
+<div class="eco-box gold2"><div class="eco-lbl">Markup Zero</div><div class="eco-val gold">R$ 14.000</div></div>
+<div class="eco-box green"><div class="eco-lbl">Sua economia</div><div class="eco-val green">R$ 8.000</div></div>
+</div>
+<p style="font-size:11px;color:var(--text3);text-align:center;margin-top:8px">Exemplo real — cozinha planejada. A consultoria é um investimento inteligente.</p>
+<div class="calc-cta" style="margin-top:14px" onclick="abrirWACalc()">💬 Solicitar orçamento com esses dados</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<footer><div class="wrap"><div class="footer-grid"><div class="fc"><div class="footer-logo" onclick="goTo('home')">MARKUP<span>ZERO</span></div><p>Consultoria especializada em móveis planejados industriais em São Paulo.</p></div><div class="fc"><h5>Páginas</h5><span class="fc-lnk" onclick="goTo('sobre')"><span class="fc-ico">›</span>Quem Somos</span><span class="fc-lnk" onclick="goTo('servicos')"><span class="fc-ico">›</span>Serviços</span></div><div class="fc"><h5>Contato</h5><a href="tel:551121102744"><span class="fc-ico">📞</span>(11) 2110-2744</a><a href="mailto:contato@markupzero.com.br"><span class="fc-ico">📧</span>contato@markupzero.com.br</a></div></div><div class="footer-bot"><span>© 2026 Markup Zero</span></div></div></footer>
+</div>
+<!-- ═══ CONTATO ═══ -->
+<div class="page" id="page-contato">
+<div style="padding:64px 0 48px;text-align:center;background:var(--bg);border-bottom:1px solid var(--border)">
+<div class="wrap"><span class="tag">Contato</span>
+<h1 class="sh appear" style="max-width:640px;margin:0 auto 14px">Vamos começar o seu projeto.</h1>
+<p class="sp appear" style="margin:0 auto">Diagnóstico gratuito. Proposta em 48h. Sem compromisso.</p></div>
+</div>
+<section class="sec">
+<div class="wrap">
+<div class="contato-grid">
+<div class="appear">
+<span class="tag">Fale conosco</span>
+<h2 class="sh">Descubra quanto você pode economizar.</h2>
+<p class="sp">Preencha ao lado e nossa equipe retorna em até 2 horas com uma análise inicial gratuita.</p>
+<div class="ci-list">
+<div class="ci"><div class="ci-ico">📞</div>(11) 2110-2744</div>
+<div class="ci"><div class="ci-ico">📧</div>contato@markupzero.com.br</div>
+<div class="ci"><div class="ci-ico">🕐</div>Seg–Sex, 9h às 18h</div>
+<div class="ci"><div class="ci-ico">📍</div>São Paulo – SP · Online e presencial</div>
+<div class="ci"><a href="https://www.instagram.com/markupzero/" target="_blank" style="display:flex;align-items:center;gap:10px;color:var(--text2)"><div class="ci-ico">📸</div>@markupzero</a></div>
+</div>
+<div class="ci-hl">
+<h4>✓ Consultoria inicial 100% gratuita</h4>
+<p>Nenhum custo para receber o comparativo de preços. O pagamento do material vai sempre direto à fábrica — nunca para nós.</p>
+</div>
+</div>
+<div class="appear d2">
+<div class="form-card">
+<div class="form-head"><h3>Análise gratuita do seu projeto</h3><p>Retorno em até 2 horas · Seg–Sex 9h–18h · Sem spam</p></div>
+<div class="form-body">
+<div class="frow">
+<div class="ff"><label>Nome completo *</label><input type="text" id="f-nome" placeholder="Seu nome"/></div>
+<div class="ff"><label>WhatsApp *</label><input type="tel" id="f-tel" placeholder="(11) 9 0000-0000"/></div>
+</div>
+<div class="ff"><label>E-mail</label><input type="email" id="f-email" placeholder="seu@email.com"/></div>
+<div class="frow">
+<div class="ff"><label>Você é *</label><select id="f-perfil"><option value="">Selecione...</option><option>Pessoa física</option><option>Arquiteto(a)</option><option>Designer de interiores</option><option>Construtora / Incorporadora</option><option>Empresa</option></select></div>
+<div class="ff"><label>Plano de interesse</label><select id="f-plano"><option>Bronze — R$ 397,90</option><option selected>Prata — R$ 597,90</option><option>Ouro — R$ 797,90</option><option>Não sei ainda</option></select></div>
+</div>
+<div class="ff"><label>Ambiente principal *</label><select id="f-tipo"><option value="">Selecione...</option><option>Cozinha Planejada</option><option>Dormitório</option><option>Closet / Dressing</option><option>Home Office</option><option>Sala de Estar</option><option>Banheiro Planejado</option><option>Projeto Completo</option></select></div>
+<div class="ff"><label>Orçamento recebido no varejo</label><select id="f-orc"><option>Ainda não tenho orçamento</option><option>Até R$ 20.000</option><option>R$ 20.000 – R$ 50.000</option><option>R$ 50.000 – R$ 100.000</option><option>Acima de R$ 100.000</option></select></div>
+<div class="ff"><label>Descreva seu projeto</label><textarea id="f-desc" placeholder="Ex: Cozinha americana 12m², estilo contemporâneo, com ilha e despensa..."></textarea></div>
+<div class="btn-wa" onclick="enviarWA()">💬 Falar com a Markup Zero agora!</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="sec sec-alt">
+<div class="wrap">
+<div class="appear" style="text-align:center"><span class="tag">FAQ</span><h2 class="sh">Perguntas frequentes</h2></div>
+<div class="faq-list appear" id="faq-list"></div>
+</div>
+</section>
+<footer><div class="wrap"><div class="footer-grid"><div class="fc"><div class="footer-logo" onclick="goTo('home')">MARKUP<span>ZERO</span></div><p>Consultoria especializada em móveis planejados industriais em São Paulo.</p></div><div class="fc"><h5>Páginas</h5><span class="fc-lnk" onclick="goTo('sobre')"><span class="fc-ico">›</span>Quem Somos</span><span class="fc-lnk" onclick="goTo('servicos')"><span class="fc-ico">›</span>Serviços</span><span class="fc-lnk" onclick="goTo('precos')"><span class="fc-ico">›</span>Preços</span></div><div class="fc"><h5>Contato</h5><a href="tel:551121102744"><span class="fc-ico">📞</span>(11) 2110-2744</a><a href="mailto:contato@markupzero.com.br"><span class="fc-ico">📧</span>contato@markupzero.com.br</a><a href="https://wa.me/551121102744" target="_blank"><span class="fc-ico">💬</span>WhatsApp</a></div></div><div class="footer-bot"><span>© 2026 Markup Zero · Todos os direitos reservados</span><span>Preços estimados com base em projetos reais.</span></div></div></footer>
+</div>
+<a href="https://wa.me/551121102744?text=Olá%20Markup%20Zero!" target="_blank" class="wa-fab">💬</a>
+<script>
+const PAGES=["home","sobre","servicos","precos","contato"];
+function goTo(id){
+PAGES.forEach(p=>{document.getElementById("page-"+p).classList.remove("active");});
+document.getElementById("page-"+id).classList.add("active");
+document.querySelectorAll(".nav-link").forEach(l=>l.classList.remove("active"));
+document.querySelector(`.nav-link[data-page="${id}"]`)?.classList.add("active");
+window.scrollTo({top:0,behavior:"instant"});
+setTimeout(initObs,80);
+}
+function toggleMob(){document.getElementById("mob-menu").classList.toggle("open");}
+function closeMob(){document.getElementById("mob-menu").classList.remove("open");}
+const FAQS=[
+{q:"A Markup Zero é uma loja ou uma fábrica?",a:"Nenhuma das duas. Somos uma consultoria de acesso industrial. Conectamos você às melhores fábricas de marcenaria de São Paulo. Não temos showroom, estoque nem margem de revenda."},
+{q:"Vocês tocam no dinheiro do material?",a:"Jamais. O pagamento do material vai direto da sua conta para a fábrica. Cobramos apenas a taxa de consultoria — sempre declarada antes de qualquer decisão."},
+{q:"Como funciona a precificação dos planos?",a:"Cada plano inclui 1 ambiente principal. Ambientes bônus (banheiro, área de serviço, despensa, varanda) são gratuitos quando acompanham um principal. Ambiente principal extra = valor do plano escolhido."},
+{q:"Há limitação de materiais ou medidas?",a:"Nenhuma. MDF, MDP, BP, lacca, vidro, espelho, metalon, alumínio — qualquer material e qualquer medida. Nossa rede de parceiros executa peças retas, especiais e orgânicas."},
+{q:"Quanto tempo leva da aprovação à entrega?",a:"15 a 25 dias úteis após o pagamento ao fornecedor. O prazo pode variar de acordo com o fornecedor e tipo de material selecionado. Acompanhamos cada etapa em tempo real."},
+{q:"Atendem fora de São Paulo?",a:"Projeto 100% remoto para todo o Brasil. Para instalação fora da Grande SP, trabalhamos com parceiros logísticos regionais."},
+{q:"Projetos de arquitetos são aceitos?",a:"Sim. Projetos de arquitetura ou engenharia passam por avaliação técnica prévia e ajuste de preço conforme a complexidade."},
+];
+const fl=document.getElementById("faq-list");
+FAQS.forEach(f=>{const d=document.createElement("div");d.className="fi";d.innerHTML='<button class="fi-q" onclick="tFAQ(this)"><span>'+f.q+'</span><span class="fi-ico">⌄</span></button><div class="fi-a">'+f.a+"</div>";fl.appendChild(d);});
+function tFAQ(b){const o=b.classList.toggle("op");b.nextElementSibling.classList.toggle("op",o);}
+const PLS={bronze:{nome:"Bronze",preco:397.90},prata:{nome:"Prata",preco:597.90},ouro:{nome:"Ouro",preco:797.90}};
+let plAtivo="prata";
+function fmt(n){return"R$ "+n.toLocaleString("pt-BR",{minimumFractionDigits:2,maximumFractionDigits:2});}
+function setP(p){plAtivo=p;document.querySelectorAll(".cp").forEach(b=>b.classList.remove("active"));document.getElementById("cp-"+p)?.classList.add("active");calcUpd();}
+function calcUpd(){
+const cP=document.querySelectorAll("#g-principal input:checked");
+const cB=document.querySelectorAll("#g-bonus input:checked");
+if(!cP||!cB)return;
+const nP=cP.length,pr=PLS[plAtivo].preco;
+const extP=Math.max(0,nP-1);
+const total=pr+(extP*pr);
+const nomP=Array.from(cP).map(c=>c.closest(".amb-item").querySelector(".amb-name").textContent);
+const nomB=Array.from(cB).map(c=>c.closest(".amb-item").querySelector(".amb-name").textContent);
+const eT=document.getElementById("r-total");
+const eA=document.getElementById("r-amb");
+const eBD=document.getElementById("r-bd");
+if(!eT||!eA||!eBD)return;
+eT.textContent=fmt(total);
+eA.textContent=(nP+cB.length)+" ambiente"+(nP+cB.length!==1?"s":"");
+let bd="Plano "+PLS[plAtivo].nome+": "+fmt(pr);
+if(nomP.length)bd+="\n🏠 Principais: "+nomP.join(", ");
+if(nomB.length)bd+="\n🎁 Bônus gratuitos: "+nomB.join(", ");
+if(extP>0)bd+="\n➕ "+extP+" principal(is) extra(s): +"+fmt(extP*pr);
+bd+="\n💰 Total: "+fmt(total);
+eBD.textContent=bd;
+}
+function abrirWACalc(){
+const cP=document.querySelectorAll("#g-principal input:checked");
+const cB=document.querySelectorAll("#g-bonus input:checked");
+const pr=PLS[plAtivo].preco;
+const extP=Math.max(0,cP.length-1);
+const total=pr+(extP*pr);
+const nomP=Array.from(cP).map(c=>c.closest(".amb-item").querySelector(".amb-name").textContent);
+const nomB=Array.from(cB).map(c=>c.closest(".amb-item").querySelector(".amb-name").textContent);
+const txt="Olá Markup Zero!\n\nSimulei minha consultoria:\n- Plano: "+PLS[plAtivo].nome+" ("+fmt(pr)+")\n- Principais: "+(nomP.join(", ")||"nenhum")+"\n- Bônus: "+(nomB.join(", ")||"nenhum")+"\n- Total: "+fmt(total)+"\n\nQuero um orçamento!";
+window.open("https://wa.me/551121102744?text="+encodeURIComponent(txt),"_blank");
+}
+function enviarWA(){
+const n=document.getElementById("f-nome")?.value||"";
+const t=document.getElementById("f-tel")?.value||"";
+const p=document.getElementById("f-perfil")?.value||"";
+const pl=document.getElementById("f-plano")?.value||"";
+const tp=document.getElementById("f-tipo")?.value||"";
+const o=document.getElementById("f-orc")?.value||"";
+const d=document.getElementById("f-desc")?.value||"";
+const txt="Olá Markup Zero!\n\nNome: "+(n||"não informado")+"\nPerfil: "+p+"\nPlano: "+pl+"\nAmbiente: "+tp+"\nOrçamento varejo: "+o+(d?"\nProjeto: "+d:"")+"\nContato: "+t;
+window.open("https://wa.me/551121102744?text="+encodeURIComponent(txt),"_blank");
+}
+function initObs(){
+const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add("in");});},{threshold:0.08});
+document.querySelectorAll(".page.active .appear:not(.in)").forEach(el=>obs.observe(el));
+}
+window.addEventListener("load",()=>{calcUpd();initObs();});
+</script>
+</body>
+</html>
