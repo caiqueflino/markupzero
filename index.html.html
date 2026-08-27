@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Acesso Markup Zero — Móveis Planejados com Projeto, Venda e Fabricação Transparentes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#EDEAE1; --paper-raised:#F6F4EE;
+    --graphite-950:#14171A; --graphite-900:#1B1E20; --graphite-700:#34383C;
+    --graphite-600:#4B5157; --graphite-400:#7B8288; --graphite-200:#C7CBCE;
+    --blue:#2C4870; --blue-light:#4D6C9C;
+    --sienna:#C1442A; --sienna-dark:#9C3620;
+    --line:#D8D3C7; --line-dark:#3A3F42;
+    --font-display:'Space Grotesk',sans-serif;
+    --font-body:'IBM Plex Sans',sans-serif;
+    --font-mono:'IBM Plex Mono',monospace;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth; overflow-x:hidden;}
+  body{background:var(--paper); color:var(--graphite-900); font-family:var(--font-body); -webkit-font-smoothing:antialiased; line-height:1.5; overflow-x:hidden; max-width:100vw;}
+  a{color:inherit; text-decoration:none;}
+  button{font-family:inherit; cursor:pointer; border:none;}
+  img{max-width:100%; display:block;}
+  :focus-visible{outline:2px solid var(--sienna); outline-offset:3px;}
+
+  .container{max-width:1152px; margin:0 auto; padding:0 24px;}
+  .eyebrow{font-family:var(--font-mono); font-size:0.75rem; text-transform:uppercase; letter-spacing:0.18em; color:var(--sienna);}
+  .eyebrow.blue{color:var(--blue-light);}
+  .eyebrow.blue-l{color:var(--blue);}
+  .eyebrow.paper{color:rgba(237,234,225,0.7);}
+
+  h1,h2,h3{font-family:var(--font-display); font-weight:500; letter-spacing:-0.02em; line-height:1.1;}
+
+  .btn{display:inline-flex; align-items:center; justify-content:center; gap:8px; height:48px; padding:0 24px; font-family:var(--font-display); font-weight:500; font-size:0.9375rem; transition:background-color .15s, color .15s;}
+  .btn-lg{height:56px; padding:0 32px; font-size:1rem;}
+  .btn-sm{height:36px; padding:0 16px; font-size:0.875rem;}
+  .btn-primary{background:var(--sienna); color:var(--paper);}
+  .btn-primary:hover{background:var(--sienna-dark);}
+  .btn-outline{border:1px solid var(--graphite-900); color:var(--graphite-900); background:transparent;}
+  .btn-outline:hover{background:var(--graphite-900); color:var(--paper);}
+  .btn-outline-light{border:1px solid rgba(237,234,225,0.4); color:var(--paper); background:transparent;}
+  .btn-outline-light:hover{background:var(--paper); color:var(--graphite-900);}
+  .btn-dark{background:var(--graphite-900); color:var(--paper);}
+  .btn-dark:hover{background:var(--graphite-700);}
+
+  /* Header */
+  header.site{position:sticky; top:0; z-index:50; border-bottom:1px solid var(--line); background:rgba(237,234,225,0.92); backdrop-filter:blur(6px);}
+  header.site .container{display:flex; align-items:center; justify-content:space-between; height:72px;}
+  .logo{display:flex; align-items:center; gap:10px;}
+  .logo-img{height:32px; width:auto;}
+  .logo-text{font-family:var(--font-display); font-size:0.95rem; font-weight:500; line-height:1.15;}
+  nav.main-nav{display:none; gap:32px; align-items:center;}
+  nav.main-nav a{font-family:var(--font-mono); font-size:0.8125rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--graphite-600);}
+  nav.main-nav a:hover{color:var(--sienna);}
+  .header-actions{display:none; align-items:center; gap:12px;}
+  .header-actions .wa-link{display:flex; align-items:center; gap:4px; font-family:var(--font-mono); font-size:0.8125rem; color:var(--graphite-600);}
+  .header-actions .wa-link:hover{color:var(--sienna);}
+  @media(min-width:900px){ nav.main-nav{display:flex;} .header-actions{display:flex;} }
+
+  /* Grid paper texture */
+  .grid-paper{background-image:linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px); background-size:32px 32px;}
+
+  /* Hero */
+  section.hero{border-bottom:1px solid var(--line); padding:64px 0 0;}
+  .hero-grid{display:grid; gap:56px; align-items:center; padding-bottom:64px;}
+  @media(min-width:1024px){ .hero-grid{grid-template-columns:1.05fr 0.95fr;} section.hero{padding-top:96px;} .hero-grid{padding-bottom:96px;} }
+  .hero-title{font-size:2.375rem; margin-top:20px;}
+  .hero-title .accent{color:var(--sienna);}
+  @media(min-width:640px){ .hero-title{font-size:3.25rem;} }
+  .hero-desc{margin-top:24px; max-width:460px; color:var(--graphite-600); font-size:1rem; line-height:1.65;}
+  @media(min-width:640px){ .hero-desc{font-size:1.0625rem;} }
+  .hero-ctas{margin-top:36px; display:flex; flex-direction:column; gap:12px;}
+  @media(min-width:640px){ .hero-ctas{flex-direction:row;} }
+  .hero-caption{margin-top:12px; text-align:center; font-family:var(--font-mono); font-size:0.75rem; color:var(--graphite-600);}
+  @media(min-width:640px){ .hero-caption{text-align:left;} }
+  .hero-caption .sienna{color:var(--sienna);}
+
+  /* Hero link cards (Contato / O que fazemos) */
+  .hero-links{border-top:1px solid var(--line); background:var(--paper-raised);}
+  .hero-links-grid{display:grid;}
+  @media(min-width:768px){ .hero-links-grid{grid-template-columns:1fr 1fr;} }
+  .hero-link-card{padding:36px 40px; border-bottom:1px solid var(--line); transition:background-color .15s;}
+  @media(min-width:768px){ .hero-link-card{border-bottom:none;} .hero-link-card:first-child{border-right:1px solid var(--line);} }
+  .hero-link-card:hover{background:var(--paper);}
+  .hero-link-card .eyebrow{margin-bottom:8px;}
+  .hero-link-card h3{font-size:1.25rem;}
+  .hero-link-card p{margin-top:10px; font-size:0.9375rem; color:var(--graphite-600); max-width:380px; line-height:1.6;}
+  .hero-link-card .go{margin-top:16px; display:inline-flex; align-items:center; gap:4px; font-family:var(--font-mono); font-size:0.75rem; text-transform:uppercase; letter-spacing:0.04em; color:var(--sienna);}
+
+  /* Nota de Transparência */
+  .nota{border:1px solid var(--graphite-200); background:var(--paper-raised); box-shadow:0 1px 2px rgba(27,30,32,0.05);}
+  .nota.dark{border:1px solid rgba(237,234,225,0.15); background:var(--graphite-950); color:var(--paper);}
+  .nota-inner{padding:28px;}
+  @media(max-width:479px){ .nota-inner{padding:20px;} }
+  .nota-head{display:flex; align-items:baseline; justify-content:space-between; gap:12px;}
+  .nota-head .titulo{font-family:var(--font-mono); font-size:0.7rem; text-transform:uppercase; letter-spacing:0.14em; color:var(--graphite-600);}
+  .nota.dark .nota-head .titulo{color:rgba(237,234,225,0.5);}
+  .nota-head .numero{font-family:var(--font-mono); font-size:0.7rem; color:var(--graphite-400);}
+  .nota.dark .nota-head .numero{color:rgba(237,234,225,0.4);}
+  .ledger-row{display:flex; align-items:baseline; gap:8px; padding:8px 0; border-bottom:1px dashed var(--line); flex-wrap:wrap;}
+  .nota.dark .ledger-row{border-bottom:1px dashed var(--line-dark);}
+  .ledger-row:last-of-type{border-bottom:none;}
+  .ledger-label{font-family:var(--font-mono); font-size:0.8125rem; color:var(--graphite-600); white-space:normal; word-break:break-word;}
+  .nota.dark .ledger-label{color:rgba(237,234,225,0.55);}
+  .ledger-label.blue{color:var(--blue);}
+  .nota.dark .ledger-label.blue{color:var(--blue-light);}
+  .ledger-dots{flex:1; border-bottom:1px dotted var(--graphite-400); transform:translateY(-0.3em); min-width:12px;}
+  .nota.dark .ledger-dots{border-bottom-color:var(--graphite-600);}
+  .ledger-value{font-family:var(--font-mono); font-size:0.875rem; font-weight:500; white-space:nowrap; color:var(--graphite-900); font-variant-numeric:tabular-nums; margin-left:auto;}
+  .nota.dark .ledger-value{color:rgba(237,234,225,0.9);}
+  .ledger-value.blue{color:var(--blue);}
+  .nota.dark .ledger-value.blue{color:var(--blue-light);}
+  @media(max-width:479px){
+    .ledger-label{flex:1 1 100%;}
+    .ledger-dots{display:none;}
+    .ledger-value{margin-left:0;}
+  }
+  .nota-total{margin-top:16px; padding-top:16px; border-top:1px solid rgba(27,30,32,0.15); display:flex; align-items:baseline; justify-content:space-between;}
+  .nota.dark .nota-total{border-top-color:rgba(237,234,225,0.15);}
+  .nota-total .label{font-family:var(--font-display); font-size:0.875rem; font-weight:500; text-transform:uppercase; letter-spacing:0.02em;}
+  .nota-total .value{font-family:var(--font-mono); font-size:1.5rem; font-weight:600; font-variant-numeric:tabular-nums;}
+  .receipt-tear{height:14px; background-image:radial-gradient(circle at 7px 0, transparent 7px, var(--paper) 7.5px); background-size:14px 14px; background-position:0 -7px;}
+  .receipt-tear.dark{background-image:radial-gradient(circle at 7px 0, transparent 7px, var(--graphite-950) 7.5px);}
+
+  /* Section heading */
+  .section-heading{max-width:640px;}
+  .section-heading h2{font-size:1.875rem; margin-top:12px;}
+  @media(min-width:640px){ .section-heading h2{font-size:2.25rem;} }
+  .section-heading p{margin-top:16px; color:var(--graphite-600); font-size:1rem; line-height:1.6;}
+  .section-heading.light h2{color:var(--paper);}
+  .section-heading.light p{color:rgba(237,234,225,0.7);}
+
+  /* Comparator */
+  section.comparator{border-bottom:1px solid var(--line); padding:80px 0;}
+  .slider-card{margin-top:40px; border:1px solid var(--graphite-200); background:var(--paper-raised); padding:32px;}
+  @media(max-width:479px){ .slider-card{padding:20px;} }
+  .slider-card .row{display:flex; flex-direction:column; gap:12px;}
+  @media(min-width:640px){ .slider-card .row{flex-direction:row; align-items:center; justify-content:space-between;} }
+  .slider-card label{font-family:var(--font-mono); font-size:0.75rem; text-transform:uppercase; letter-spacing:0.14em; color:var(--graphite-600);}
+  .slider-card .amount{font-family:var(--font-mono); font-size:1.125rem; font-weight:600;}
+  input[type=range]{-webkit-appearance:none; width:100%; height:6px; background:var(--graphite-200); margin-top:20px; outline:none;}
+  input[type=range]::-webkit-slider-thumb{-webkit-appearance:none; width:20px; height:20px; background:var(--paper); border:2px solid var(--sienna); cursor:pointer;}
+  input[type=range]::-moz-range-thumb{width:18px; height:18px; background:var(--paper); border:2px solid var(--sienna); cursor:pointer;}
+  .slider-minmax{margin-top:8px; display:flex; justify-content:space-between; font-family:var(--font-mono); font-size:0.7rem; color:var(--graphite-400);}
+  .compare-grid{margin-top:32px; display:grid; gap:24px;}
+  @media(min-width:1024px){ .compare-grid{grid-template-columns:1fr 1fr;} }
+  .compare-card{border:1px solid var(--graphite-200); background:var(--paper-raised);}
+  .compare-card.dark{border:1px solid var(--graphite-900); background:var(--graphite-950); color:var(--paper);}
+  .compare-head{display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid var(--line); padding:16px 24px;}
+  .compare-card.dark .compare-head{border-bottom-color:rgba(237,234,225,0.15);}
+  .compare-head .name{font-family:var(--font-display); font-size:0.875rem; font-weight:500; text-transform:uppercase; letter-spacing:0.02em; color:var(--graphite-600);}
+  .compare-card.dark .compare-head .name{color:var(--paper);}
+  .compare-head .tag{font-family:var(--font-mono); font-size:0.75rem;}
+  .compare-body{padding:24px;}
+  .compare-foot{display:flex; align-items:baseline; justify-content:space-between; border-top:1px solid var(--line); padding:20px 24px;}
+  .compare-card.dark .compare-foot{border-top-color:rgba(237,234,225,0.15);}
+  .compare-foot .label{font-family:var(--font-display); font-size:0.875rem; font-weight:500; text-transform:uppercase;}
+  .compare-foot .value{font-family:var(--font-mono); font-size:1.25rem; font-weight:600;}
+  .savings-banner{margin-top:24px; display:flex; flex-direction:column; gap:12px; align-items:flex-start; justify-content:space-between; border:1px dashed rgba(193,68,42,0.5); background:rgba(193,68,42,0.05); padding:20px 24px;}
+  @media(min-width:640px){ .savings-banner{flex-direction:row; align-items:center;} }
+  .savings-banner p{font-size:0.9375rem; color:var(--graphite-700);}
+  .savings-banner .value{font-family:var(--font-mono); font-size:1.5rem; font-weight:600; color:var(--sienna);}
+  .savings-banner .pct{font-size:1rem; font-weight:400; color:rgba(193,68,42,0.7);}
+
+  /* 5 Steps */
+  section.steps{border-bottom:1px solid var(--line); background:var(--graphite-950); color:var(--paper); padding:80px 0;}
+  .steps-list{margin-top:56px; display:flex; flex-direction:column;}
+  .step-row{display:grid; gap:8px 32px; padding:32px 0; border-top:1px solid rgba(237,234,225,0.12);}
+  .step-row:last-child{border-bottom:1px solid rgba(237,234,225,0.12);}
+  @media(min-width:768px){ .step-row{grid-template-columns:200px 1fr;} }
+  .step-label{font-family:var(--font-mono); font-size:0.75rem; text-transform:uppercase; letter-spacing:0.1em; color:rgba(237,234,225,0.45);}
+  .step-title{margin-top:6px; font-size:1.375rem;}
+  @media(min-width:768px){ .step-label{margin-top:2px;} }
+  .step-desc{margin-top:10px; font-size:0.9375rem; line-height:1.65; color:rgba(237,234,225,0.7); max-width:640px;}
+  @media(min-width:768px){ .step-desc{margin-top:0;} }
+
+  /* Ecosystem summary (Serrabits + Léo Madeiras) */
+  section.ecosystem{padding:80px 0; border-bottom:1px solid var(--line);}
+  .eco-grid{margin-top:48px; display:grid; gap:24px;}
+  @media(min-width:768px){ .eco-grid{grid-template-columns:1fr 1fr;} }
+  .eco-card{border:1px solid var(--graphite-200); background:var(--paper-raised); padding:32px;}
+  .eco-card h3{font-size:1.25rem;}
+  .eco-card p{margin-top:12px; font-size:0.9375rem; line-height:1.65; color:var(--graphite-600);}
+  .eco-tag{display:inline-block; margin-bottom:14px; font-family:var(--font-mono); font-size:0.7rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--blue);}
+  .ecosystem-cta{margin-top:32px; display:inline-flex; align-items:center; gap:4px; font-family:var(--font-mono); font-size:0.75rem; text-transform:uppercase; letter-spacing:0.04em; color:var(--graphite-700);}
+  .ecosystem-cta:hover{color:var(--sienna);}
+
+  /* Testimonials */
+  section.testimonials{padding:80px 0; background:var(--paper-raised); border-bottom:1px solid var(--line);}
+  .testi-grid{margin-top:48px; display:grid; gap:24px;}
+  @media(min-width:640px){ .testi-grid{grid-template-columns:1fr 1fr;} }
+  @media(min-width:1100px){ .testi-grid{grid-template-columns:repeat(4,1fr);} }
+  .testi-card{display:flex; flex-direction:column; border:1px solid var(--graphite-200); background:var(--paper);}
+  .testi-head{display:flex; align-items:center; justify-content:space-between; border-bottom:1px dashed var(--graphite-200); padding:12px 18px;}
+  .piece-tag{font-family:var(--font-mono); font-size:0.65rem; letter-spacing:0.06em; border:1px solid var(--graphite-400); padding:2px 7px; color:var(--graphite-600);}
+  .testi-head .amb{font-family:var(--font-mono); font-size:0.65rem; color:var(--graphite-400);}
+  .testi-body{flex:1; padding:18px; font-size:0.875rem; line-height:1.6; color:var(--graphite-700);}
+  .testi-foot{border-top:1px dashed var(--graphite-200); padding:12px 18px;}
+  .testi-foot .name{font-family:var(--font-display); font-size:0.8125rem; font-weight:500;}
+  .testi-foot .city{display:block; margin-top:2px; font-family:var(--font-mono); font-size:0.7rem; color:var(--graphite-400);}
+
+  /* Final CTA — WhatsApp */
+  section.final-cta{padding:80px 0; text-align:center;}
+  .final-cta-inner{max-width:640px; margin:0 auto;}
+  .final-cta-inner .eyebrow{display:block;}
+  .final-cta-inner h2{font-size:2rem;}
+  @media(min-width:640px){ .final-cta-inner h2{font-size:2.5rem;} }
+  .final-cta-inner p{margin-top:16px; font-size:1.0625rem; color:var(--graphite-600); line-height:1.6;}
+  .final-cta-inner .btn{margin-top:32px;}
+
+  /* Footer */
+  footer.site{border-top:1px solid var(--line-dark); background:var(--graphite-900); color:var(--paper);}
+  .footer-grid{display:grid; gap:48px; padding:64px 0;}
+  @media(min-width:768px){ .footer-grid{grid-template-columns:1.3fr 1fr 1fr;} }
+  .footer-brand .name{font-family:var(--font-display); font-size:1.125rem; font-weight:500;}
+  .footer-brand p{margin-top:12px; max-width:320px; font-size:0.875rem; line-height:1.6; color:rgba(237,234,225,0.6);}
+  .footer-brand .cnpj{margin-top:24px; font-family:var(--font-mono); font-size:0.75rem; text-transform:uppercase; letter-spacing:0.14em; color:rgba(237,234,225,0.4);}
+  .footer-col .heading{font-family:var(--font-mono); font-size:0.75rem; text-transform:uppercase; letter-spacing:0.14em; color:rgba(237,234,225,0.4);}
+  .footer-col ul{list-style:none; margin-top:16px; display:flex; flex-direction:column; gap:10px;}
+  .footer-col a{font-size:0.875rem; color:rgba(237,234,225,0.75);}
+  .footer-col a:hover{color:var(--paper);}
+  .footer-bottom{border-top:1px solid rgba(237,234,225,0.1);}
+  .footer-bottom .container{display:flex; flex-direction:column; gap:8px; padding:24px 0; font-size:0.75rem; color:rgba(237,234,225,0.4);}
+  @media(min-width:640px){ .footer-bottom .container{flex-direction:row; align-items:center; justify-content:space-between;} }
+  .footer-bottom .mono{font-family:var(--font-mono);}
+
+  /* WhatsApp floating */
+  .wa-float{position:fixed; bottom:24px; right:24px; z-index:50; width:56px; height:56px; border-radius:50%; background:var(--sienna); color:var(--paper); display:flex; align-items:center; justify-content:center; box-shadow:0 10px 20px rgba(27,30,32,0.2); transition:transform .15s; font-size:1.375rem;}
+  .wa-float:hover{transform:scale(1.05);}
+
+  /* Page hero (used on inner pages) */
+  .page-hero{border-bottom:1px solid var(--line); padding:64px 0;}
+  @media(min-width:1024px){ .page-hero{padding:96px 0;} }
+  .page-hero h1{margin-top:16px; font-size:2.25rem; max-width:680px;}
+  @media(min-width:640px){ .page-hero h1{font-size:3rem;} }
+  .page-hero p.lead{margin-top:20px; max-width:580px; font-size:1.0625rem; color:var(--graphite-600); line-height:1.65;}
+  .page-hero p.lead a{color:var(--sienna); text-decoration:underline; text-underline-offset:2px;}
+
+  /* Generic 3-up card grid (services, principles) */
+  .services-grid{margin-top:48px; display:grid; gap:24px;}
+  @media(min-width:768px){ .services-grid{grid-template-columns:repeat(3,1fr);} }
+  .service-card{border:1px solid var(--graphite-200); background:var(--paper-raised); padding:32px;}
+  .service-card .num{font-family:var(--font-mono); font-size:0.75rem; color:var(--graphite-400);}
+  .service-card h3{margin-top:10px; font-size:1.25rem;}
+  .service-card p{margin-top:12px; font-size:0.9375rem; line-height:1.6; color:var(--graphite-600);}
+
+  /* Contact page */
+  .contact-grid{display:grid; gap:32px; margin-top:8px;}
+  @media(min-width:1024px){ .contact-grid{grid-template-columns:0.85fr 1.15fr; margin-top:0;} }
+  .channel-list{display:flex; flex-direction:column; gap:12px;}
+  .channel-card{display:flex; align-items:center; gap:14px; border:1px solid var(--graphite-200); background:var(--paper-raised); padding:18px 20px; transition:border-color .15s;}
+  .channel-card:hover{border-color:var(--sienna);}
+  .channel-icon{width:36px; height:36px; border-radius:50%; background:var(--paper); display:flex; align-items:center; justify-content:center; font-size:1.125rem; flex-shrink:0;}
+  .channel-card .title{font-family:var(--font-display); font-size:0.9375rem; font-weight:500; color:var(--graphite-900);}
+  .channel-card .sub{font-family:var(--font-mono); font-size:0.75rem; color:var(--graphite-500);}
+  .contact-form{border:1px solid var(--graphite-200); background:var(--paper-raised); padding:32px;}
+  .form-row.two{display:grid; gap:16px;}
+  @media(min-width:560px){ .form-row.two{grid-template-columns:1fr 1fr;} }
+  .field{margin-top:16px;}
+  .field:first-child{margin-top:0;}
+  .field label{display:block; font-size:0.75rem; font-weight:500; color:var(--graphite-700); margin-bottom:6px;}
+  .field input, .field textarea{width:100%; border:1px solid var(--graphite-200); background:var(--paper); padding:10px 12px; font-family:var(--font-body); font-size:0.875rem; outline:none;}
+  .field input:focus, .field textarea:focus{border-color:var(--sienna);}
+  .field textarea{resize:none;}
+  .form-success{border:1px solid var(--graphite-200); background:var(--paper-raised); padding:32px;}
+
+  /* Reference ledger used as static proof (no slider) on inner pages */
+  .nota-static-wrap{margin-top:40px; max-width:520px;}
+  .page{display:none;}
+  #page-home{display:block;}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="container">
+    <a href="#home" class="logo" data-page="home" onclick="showPage('home'); return false;" aria-label="Acesso Markup Zero — página inicial">
+      <img src="assets/logo.svg" alt="Acesso Markup Zero" class="logo-img" onerror="this.style.display='none'; document.getElementById('logo-fallback').style.display='inline-flex';" />
+      <span id="logo-fallback" class="logo-text" style="display:none;">Acesso Markup Zero</span>
+    </a>
+    <nav class="main-nav">
+      <a href="#home" data-page="home" onclick="showPage('home'); return false;">Home</a>
+      <a href="#o-que-fazemos" data-page="o-que-fazemos" onclick="showPage('o-que-fazemos'); return false;">O que fazemos</a>
+      <a href="#como-fazemos" data-page="como-fazemos" onclick="showPage('como-fazemos'); return false;">Como fazemos</a>
+      <a href="#quem-somos" data-page="quem-somos" onclick="showPage('quem-somos'); return false;">Quem somos nós</a>
+      <a href="#contato" data-page="contato" onclick="showPage('contato'); return false;">Contato</a>
+    </nav>
+    <div class="header-actions">
+      <a href="https://wa.me/5511999999999" target="_blank" class="btn btn-primary btn-sm">Falar com um especialista</a>
+    </div>
+  </div>
+</header>
+
+<div id="page-home" class="page" style="display:block;">
+
+  <!-- HERO -->
+  <section class="hero grid-paper" id="home">
+    <div class="container hero-grid">
+      <div>
+        <h1 class="hero-title">Seus móveis planejados com <span class="accent">40% a 55% de economia real.</span></h1>
+        <p class="hero-desc">Acompanho seu projeto do início ao fim com atendimento exclusivo, desenhando seu ambiente e conectando sua produção direto aos melhores processos de fabricação do país. Toda a segurança e acompanhamento de uma loja tradicional, pagando o valor justo e com preço declarado.</p>
+        <div class="hero-ctas">
+          <a href="https://wa.me/5511999999999" target="_blank" class="btn btn-primary btn-lg">Falar com um especialista</a>
+          <a href="#o-que-fazemos" onclick="showPage('o-que-fazemos'); return false;" class="btn btn-outline btn-lg">O que fazemos</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="nota">
+          <div class="nota-inner">
+            <div class="nota-head">
+              <span class="titulo">Nota de Transparência — exemplo real</span>
+              <span class="numero">Nº AMZ-2026-0184</span>
+            </div>
+            <div style="margin-top:16px;">
+              <div class="ledger-row"><span class="ledger-label">Armário aéreo 1 porta</span><span class="ledger-dots"></span><span class="ledger-value">R$ 632</span></div>
+              <div class="ledger-row"><span class="ledger-label">Guarda-roupa 4 gavetas + cabideiro</span><span class="ledger-dots"></span><span class="ledger-value">R$ 3.713</span></div>
+              <div class="ledger-row"><span class="ledger-label">Armário lavanderia 2 portas</span><span class="ledger-dots"></span><span class="ledger-value">R$ 847</span></div>
+              <div class="ledger-row"><span class="ledger-label">Banco sapateira</span><span class="ledger-dots"></span><span class="ledger-value">R$ 1.043</span></div>
+              <div class="ledger-row"><span class="ledger-label">Gabinete banheiro basculante + gaveta</span><span class="ledger-dots"></span><span class="ledger-value">R$ 1.087</span></div>
+              <div class="ledger-row"><span class="ledger-label">Conjunto cozinha planejada</span><span class="ledger-dots"></span><span class="ledger-value">R$ 4.463</span></div>
+              <div class="ledger-row"><span class="ledger-label">Bancada gourmet 3 portas</span><span class="ledger-dots"></span><span class="ledger-value">R$ 1.914</span></div>
+              <div class="ledger-row"><span class="ledger-label">Montagem (15%)</span><span class="ledger-dots"></span><span class="ledger-value">R$ 2.055</span></div>
+            </div>
+            <div class="nota-total"><span class="label">Total do kit</span><span class="value">R$ 15.754</span></div>
+          </div>
+          <div class="receipt-tear"></div>
+        </div>
+        <p class="hero-caption">Kit base para equipar um apartamento (cozinha, quarto, lavanderia e banheiro) · valores de fábrica reais de mercado · o mesmo kit custaria <span class="sienna">R$ 31.508–R$ 40.960</span> numa loja com margem tradicional.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- HERO LINK CARDS -->
+  <section class="hero-links">
+    <div class="container">
+      <div class="hero-links-grid">
+        <a href="#contato" onclick="showPage('contato'); return false;" class="hero-link-card">
+          <p class="eyebrow">Fale com a gente</p>
+          <h3>Quero ser atendido agora</h3>
+          <p>Conta pra gente sobre o seu projeto e receba atendimento próximo, como numa loja de móveis — só que sem o preço inflado.</p>
+          <span class="go">Ir para Contato →</span>
+        </a>
+        <a href="#o-que-fazemos" onclick="showPage('o-que-fazemos'); return false;" class="hero-link-card">
+          <p class="eyebrow blue-l">Entenda o serviço</p>
+          <h3>Quero entender como funciona</h3>
+          <p>Veja em detalhes o que está incluído no projeto, na venda e na fabricação — e onde exatamente fica a nossa margem.</p>
+          <span class="go" style="color:var(--blue);">Ir para O que fazemos →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPARATOR -->
+  <section class="comparator">
+    <div class="container">
+      <div class="section-heading">
+        <p class="eyebrow">Comparador de preço</p>
+        <h2>Ajuste o valor do seu projeto e veja a economia real</h2>
+        <p>O custo direto de fábrica (MDF, ferragem, corte, fitagem, frete e montagem) é o mesmo em qualquer lugar. O que muda é o quanto cada modelo de negócio soma em cima dele.</p>
+      </div>
+
+      <div class="slider-card">
+        <div class="row">
+          <label for="custo-slider">Valor de fábrica estimado (material + fabricação)</label>
+          <span class="amount" id="custo-display">R$ 18.000</span>
+        </div>
+        <input type="range" id="custo-slider" min="4000" max="60000" step="500" value="18000" />
+        <div class="slider-minmax"><span>R$ 4 mil</span><span>R$ 60 mil</span></div>
+        <p style="margin-top:12px; font-size:0.75rem; color:var(--graphite-500);">Inclui montagem estimada em 15% do valor de fábrica (varia de 15% a 25% conforme a dificuldade do ambiente).</p>
+      </div>
+
+      <div class="compare-grid">
+        <div class="compare-card">
+          <div class="compare-head"><span class="name">Modelo tradicional</span><span class="tag" style="color:var(--sienna)">margem de +100% a +160%</span></div>
+          <div class="compare-body">
+            <div class="ledger-row"><span class="ledger-label">Fábrica + montagem</span><span class="ledger-dots"></span><span class="ledger-value" id="trad-custo">R$ 18.000</span></div>
+            <div class="ledger-row"><span class="ledger-label" style="color:var(--sienna)">Margem da loja (oculta)</span><span class="ledger-dots"></span><span class="ledger-value" style="color:var(--sienna)" id="trad-markup">R$ 45.000</span></div>
+          </div>
+          <div class="compare-foot"><span class="label">Faixa estimada</span><span class="value" id="trad-total">R$ 54.000–R$ 72.000</span></div>
+        </div>
+
+        <div class="compare-card dark">
+          <div class="compare-head"><span class="name">Acesso Markup Zero</span><span class="tag" style="color:var(--blue-light)">economia de 41% a 55%</span></div>
+          <div class="compare-body">
+            <div class="ledger-row"><span class="ledger-label">Fábrica + montagem</span><span class="ledger-dots"></span><span class="ledger-value" id="amz-custo">R$ 18.000</span></div>
+            <div class="ledger-row"><span class="ledger-label blue">Serviço de projeto (18%)</span><span class="ledger-dots"></span><span class="ledger-value blue" id="amz-taxa">R$ 3.240</span></div>
+          </div>
+          <div class="compare-foot"><span class="label">Você paga</span><span class="value" id="amz-total">R$ 21.240</span></div>
+        </div>
+      </div>
+
+      <div class="savings-banner">
+        <p>Economia estimada nesse projeto, frente à média do mercado tradicional:</p>
+        <p class="value" id="economia">R$ 41.760 <span class="pct" id="economia-pct">(~66%)</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 STEPS -->
+  <section class="steps">
+    <div class="container">
+      <div class="section-heading light">
+        <p class="eyebrow blue">Nosso processo</p>
+        <h2>5 passos para um projeto de sucesso</h2>
+        <p>Do primeiro contato até a última parafusadeira. Um resumo prático de como cada etapa protege o seu projeto — e o seu bolso.</p>
+      </div>
+
+      <div class="steps-list">
+        <div class="step-row">
+          <div><span class="step-label">Passo 01</span><h3 class="step-title">Briefing</h3></div>
+          <p class="step-desc">Uma conversa inicial para entender como você vive: rotina, estilo, orçamento disponível e prioridades reais. É aqui que definimos o que importa antes de desenhar qualquer linha — evita retrabalho e projeto genérico.</p>
+        </div>
+        <div class="step-row">
+          <div><span class="step-label">Passo 02</span><h3 class="step-title">Anteprojeto</h3></div>
+          <p class="step-desc">A primeira versão do seu ambiente em 3D, pronta para você visualizar espaços, materiais e acabamentos e pedir ajustes — antes de qualquer detalhe técnico ou pedido de material ser fechado.</p>
+        </div>
+        <div class="step-row">
+          <div><span class="step-label">Passo 03</span><h3 class="step-title">Medição</h3></div>
+          <p class="step-desc">Um técnico vai até o local conferir medidas reais, prumo, esquadro e a posição de pontos elétricos e hidráulicos. É o que garante que o projeto aprovado encaixe perfeitamente na obra, sem surpresa na montagem.</p>
+        </div>
+        <div class="step-row">
+          <div><span class="step-label">Passo 04</span><h3 class="step-title">Visita à fábrica</h3></div>
+          <p class="step-desc">Você conhece de perto onde e como o seu móvel é feito: o maquinário, o processo de corte e a qualidade real do material. Ver a fábrica muda completamente a forma como você enxerga o preço que está pagando — e a confiança no resultado.</p>
+        </div>
+        <div class="step-row">
+          <div><span class="step-label">Passo 05</span><h3 class="step-title">Montagem</h3></div>
+          <p class="step-desc">A entrega final, com acompanhamento técnico para garantir que cada peça saia exatamente como foi projetado e medido — do papel para a sua casa, sem perdas.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTION NETWORK SUMMARY -->
+  <section class="ecosystem">
+    <div class="container">
+      <div class="section-heading">
+        <p class="eyebrow blue-l">Conexões que garantem entrega</p>
+        <h2>Uma rede de produção pronta pra atender você</h2>
+        <p>Não fabricamos numa marcenaria só — conectamos seu projeto a uma rede de fabricação 4.0 que já resolveu o problema de escala. Um resumo prático de como isso funciona.</p>
+      </div>
+
+      <div class="eco-grid">
+        <div class="eco-card">
+          <span class="eco-tag">Rede nacional de produção</span>
+          <h3>Plataforma Integrada de Fabricação</h3>
+          <p>Conectamos seu projeto a uma rede com acesso a mais de 100 mil centrais de serviço espalhadas por todo o Brasil. Isso permite atender seu projeto em qualquer região com o mesmo padrão de precisão de corte, usinagem CNC e fitagem de borda.</p>
+        </div>
+        <div class="eco-card">
+          <span class="eco-tag">Tecnologia e escala</span>
+          <h3>Principais Fabricantes de São Paulo</h3>
+          <p>Em São Paulo, atuamos com os principais fornecedores e indústrias do setor, utilizando maquinário de última geração para garantir infinitas possibilidades de personalização, variedade de acabamentos e prazos ágeis.</p>
+        </div>
+      </div>
+
+      <a href="#como-fazemos" onclick="showPage('como-fazemos'); return false;" class="ecosystem-cta">Ver o processo completo em Como fazemos →</a>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials">
+    <div class="container">
+      <div class="section-heading">
+        <p class="eyebrow">Depois da montagem</p>
+        <h2>O que nossos clientes falam depois de ver o móvel pronto</h2>
+      </div>
+      <div class="testi-grid">
+        <div class="testi-card">
+          <div class="testi-head"><span class="piece-tag">PREÇO</span><span class="amb">São Paulo, SP</span></div>
+          <p class="testi-body">"Fechei sabendo exatamente quanto ia pagar por cada peça. Comparei com duas lojas antes e nenhuma chegou perto desse valor. Muito obrigada pela honestidade do início ao fim."</p>
+          <div class="testi-foot"><span class="name">Camila S.</span><span class="city">Cozinha planejada</span></div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-head"><span class="piece-tag">PRAZO</span><span class="amb">Rio de Janeiro, RJ</span></div>
+          <p class="testi-body">"O prazo combinado foi o prazo que aconteceu, sem enrolação. Depois de duas experiências ruins com marcenaria, isso pra mim não tem preço. Recomendo de olhos fechados."</p>
+          <div class="testi-foot"><span class="name">Rafael M.</span><span class="city">Home office</span></div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-head"><span class="piece-tag">QUALIDADE</span><span class="amb">Uberlândia, MG</span></div>
+          <p class="testi-body">"Visitei a fábrica antes de fechar e vi de perto a diferença no material. Hoje entendo por que meu móvel ficou tão bem acabado. Valeu cada visita e cada pergunta que fiz."</p>
+          <div class="testi-foot"><span class="name">Débora A.</span><span class="city">Quarto casal</span></div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-head"><span class="piece-tag">AGRADECIMENTO</span><span class="amb">Belo Horizonte, MG</span></div>
+          <p class="testi-body">"Depois de anos adiando a reforma por medo do orçamento estourar, finalmente fiz o closet dos sonhos. Time nota mil, obrigado por tornarem isso possível de verdade."</p>
+          <div class="testi-foot"><span class="name">Thiago N.</span><span class="city">Closet</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA — QUEBRA DE OBJEÇÃO -->
+  <section class="final-cta">
+    <div class="container final-cta-inner">
+      <p class="eyebrow">Alerta de mercado</p>
+      <h2>O mercado tradicional vive de esconder margens e empurrar prazos.</h2>
+      <p>Lojas fechando do dia para a noite, atrasos infinitos, materiais inferiores maquiados como "alto padrão" e comissões ocultas que dobram o preço final. O setor de planejados lidera reclamações no país por falta de transparência. Nosso modelo elimina o intermediário: você acompanha cada etapa, sabe o custo real de produção e garante que seu investimento vá para o móvel, não para custos operacionais de showroom.</p>
+      <a href="https://wa.me/5511999999999" target="_blank" class="btn btn-primary btn-lg">Garantir meu projeto com preço justo</a>
+    </div>
+  </section>
+
+</div>
+
+<div id="page-o-que-fazemos" class="page">
+
+  <section class="page-hero grid-paper">
+    <div class="container">
+      <p class="eyebrow">O que fazemos</p>
+      <h1>Projeto, venda e fabricação — sob o mesmo teto</h1>
+      <p class="lead">Separamos o que toda loja tradicional embute num preço só. Você contrata cada etapa sabendo exatamente o que está pagando por ela — e por quê.</p>
+    </div>
+  </section>
+
+  <section style="padding:80px 0; border-bottom:1px solid var(--line);">
+    <div class="container">
+      <div class="section-heading">
+        <p class="eyebrow blue-l">Nossos três serviços</p>
+        <h2>Um único ponto de contato, três especialidades</h2>
+        <p>Cada etapa existe em empresas separadas no mercado tradicional. Aqui, elas conversam entre si — e isso é o que corta o seu orçamento pela metade.</p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card">
+          <span class="num">01</span>
+          <h3>Projeto</h3>
+          <p>Como um escritório de design de interiores. Desenhamos o seu ambiente em 3D, com acompanhamento técnico do briefing ao anteprojeto final — considerando rotina, estilo e orçamento antes de qualquer linha ser fechada.</p>
+        </div>
+        <div class="service-card">
+          <span class="num">02</span>
+          <h3>Venda e atendimento</h3>
+          <p>Como uma loja de móveis planejados tradicional. Você tem um ponto de contato do início ao fim, orçamento aberto e suporte em cada decisão — sem precisar entender de marcenaria pra tomar uma boa decisão.</p>
+        </div>
+        <div class="service-card">
+          <span class="num">03</span>
+          <h3>Fabricação</h3>
+          <p>Nas melhores indústrias do mercado. Colocamos seu pedido em produção em centrais de fabricação de ponta, sem cobrar comissão sobre material, corte ou usinagem — o preço de fábrica chega até você sem escala.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:80px 0; border-bottom:1px solid var(--line); background:var(--paper-raised);">
+    <div class="container">
+      <div class="section-heading">
+        <p class="eyebrow">Transparência de custo</p>
+        <h2>A mesma planilha que usamos pra negociar com a fábrica</h2>
+        <p>Isto não é uma estimativa arbitrária — é a soma de preços reais de mercado, vendidos direto de fábrica, mais a montagem por fora.</p>
+      </div>
+
+      <div class="nota-static-wrap">
+        <div class="nota">
+          <div class="nota-inner">
+            <div class="nota-head">
+              <span class="titulo">Planilha aberta — kit de referência</span>
+              <span class="numero">Nº AMZ-2026-0184</span>
+            </div>
+            <div style="margin-top:16px;">
+              <div class="ledger-row"><span class="ledger-label">Armário aéreo 1 porta</span><span class="ledger-dots"></span><span class="ledger-value">R$ 632</span></div>
+              <div class="ledger-row"><span class="ledger-label">Guarda-roupa 4 gavetas + cabideiro</span><span class="ledger-dots"></span><span class="ledger-value">R$ 3.713</span></div>
+              <div class="ledger-row"><span class="ledger-label">Armário lavanderia 2 portas</span><span class="ledger-dots"></span><span class="ledger-value">R$ 847</span></div>
+              <div class="ledger-row"><span class="ledger-label">Banco sapateira</span><span class="ledger-dots"></span><span class="ledger-value">R$ 1.043</span></div>
+              <div class="ledger-row"><span class="ledger-label">Gabinete banheiro basculante + gaveta</span><span class="ledger-dots"></span><span class="ledger-value">R$ 1.087</span></div>
+              <div class="ledger-row"><span class="ledger-label">Conjunto cozinha planejada</span><span class="ledger-dots"></span><span class="ledger-value">R$ 4.463</span></div>
+              <div class="ledger-row"><span class="ledger-label">Bancada gourmet 3 portas</span><span class="ledger-dots"></span><span class="ledger-value">R$ 1.914</span></div>
+              <div class="ledger-row"><span class="ledger-label">Montagem (15%)</span><span class="ledger-dots"></span><span class="ledger-value">R$ 2.055</span></div>
+            </div>
+            <div class="nota-total"><span class="label">Total do kit</span><span class="value">R$ 15.754</span></div>
+          </div>
+          <div class="receipt-tear"></div>
+        </div>
+      </div>
+
+      <p style="margin-top:24px; max-width:640px; font-size:0.9375rem; line-height:1.65; color:var(--graphite-600);">
+        Cada valor de fábrica acima se divide, em média, em <strong>65% material</strong> e
+        <strong> 35% fabricação e corte</strong> (frete já incluso). A montagem é sempre uma linha
+        à parte — varia de <strong>15% a 25%</strong> do valor de fábrica, conforme a dificuldade
+        de montagem do ambiente.
+      </p>
+    </div>
+  </section>
+
+  <section class="final-cta">
+    <div class="container final-cta-inner">
+      <h2>Quer ver isso aplicado ao seu ambiente?</h2>
+      <p>Fale com a gente e receba um orçamento real, item por item — do mesmo jeito que você acabou de ver aqui.</p>
+      <div class="hero-ctas" style="justify-content:center; margin-top:32px;">
+        <a href="#contato" onclick="showPage('contato'); return false;" class="btn btn-primary btn-lg">Falar com um especialista</a>
+        <a href="#como-fazemos" onclick="showPage('como-fazemos'); return false;" class="btn btn-outline btn-lg">Como fazemos</a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<div id="page-como-fazemos" class="page">
+
+  <section class="page-hero grid-paper">
+    <div class="container">
+      <p class="eyebrow blue-l">Como fazemos</p>
+      <h1>Do primeiro contato até a última parafusadeira</h1>
+      <p class="lead">5 passos que protegem o seu projeto, e as parcerias que garantem que ele saia do papel com qualidade industrial.</p>
+    </div>
+  </section>
+
+  <section class="steps">
+    <div class="container">
+      <div class="section-heading light">
+        <p class="eyebrow blue">Nosso processo</p>
+        <h2>5 passos para um projeto de sucesso</h2>
+        <p>Cada etapa existe pra eliminar um risco específico — de retrabalho no projeto a surpresa na montagem.</p>
+      </div>
+
+      <div class="steps-list">
+        <div class="step-row">
+          <div><span class="step-label">Passo 01</span><h3 class="step-title">Briefing</h3></div>
+          <p class="step-desc">Uma conversa inicial para entender como você vive: rotina, estilo, orçamento disponível e prioridades reais. É aqui que definimos o que importa antes de desenhar qualquer linha — evita retrabalho e projeto genérico.</p>
+        </div>
+        <div class="step-row">
+          <div><span class="step-label">Passo 02</span><h3 class="step-title">Anteprojeto</h3></div>
+          <p class="step-desc">A primeira versão do seu ambiente em 3D, pronta para você visualizar espaços, materiais e acabamentos e pedir ajustes — antes de qualquer detalhe técnico ou pedido de material ser fechado.</p>
+        </div>
+        <div class="step-row">
+          <div><span class="step-label">Passo 03</span><h3 class="step-title">Medição</h3></div>
+          <p class="step-desc">Um técnico vai até o local conferir medidas reais, prumo, esquadro e a posição de pontos elétricos e hidráulicos. É o que garante que o projeto aprovado encaixe perfeitamente na obra, sem surpresa na montagem.</p>
+        </div>
+        <div class="step-row">
+          <div><span class="step-label">Passo 04</span><h3 class="step-title">Visita à fábrica</h3></div>
+          <p class="step-desc">Você conhece de perto onde e como o seu móvel é feito: o maquinário, o processo de corte e a qualidade real do material. Ver a fábrica muda completamente a forma como você enxerga o preço que está pagando — e a confiança no resultado.</p>
+        </div>
+        <div class="step-row">
+          <div><span class="step-label">Passo 05</span><h3 class="step-title">Montagem</h3></div>
+          <p class="step-desc">A entrega final, com acompanhamento técnico para garantir que cada peça saia exatamente como foi projetado e medido — do papel para a sua casa, sem perdas.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ecosystem">
+    <div class="container">
+      <div class="section-heading">
+        <p class="eyebrow blue-l">Conexões que garantem entrega</p>
+        <h2>Uma rede de produção pronta pra atender você</h2>
+        <p>Não fabricamos numa marcenaria só — conectamos seu projeto a uma rede de fabricação 4.0 que já resolveu o problema de escala. Um resumo prático de como isso funciona.</p>
+      </div>
+
+      <div class="eco-grid">
+        <div class="eco-card">
+          <span class="eco-tag">Rede nacional de produção</span>
+          <h3>Plataforma Integrada de Fabricação</h3>
+          <p>Conectamos seu projeto a uma rede com acesso a mais de 100 mil centrais de serviço espalhadas por todo o Brasil. Isso permite atender seu projeto em qualquer região com o mesmo padrão de precisão de corte, usinagem CNC e fitagem de borda.</p>
+        </div>
+        <div class="eco-card">
+          <span class="eco-tag">Tecnologia e escala</span>
+          <h3>Principais Fabricantes de São Paulo</h3>
+          <p>Em São Paulo, atuamos com os principais fornecedores e indústrias do setor, utilizando maquinário de última geração para garantir infinitas possibilidades de personalização, variedade de acabamentos e prazos ágeis.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="final-cta">
+    <div class="container final-cta-inner">
+      <h2>Quer entender o que está incluído em cada etapa?</h2>
+      <p>Veja em detalhes o que compõe o projeto, a venda e a fabricação — e onde exatamente fica a nossa margem.</p>
+      <div class="hero-ctas" style="justify-content:center; margin-top:32px;">
+        <a href="#contato" onclick="showPage('contato'); return false;" class="btn btn-primary btn-lg">Falar com um especialista</a>
+        <a href="#o-que-fazemos" onclick="showPage('o-que-fazemos'); return false;" class="btn btn-outline btn-lg">O que fazemos</a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<div id="page-quem-somos" class="page">
+
+  <section class="page-hero grid-paper">
+    <div class="container">
+      <p class="eyebrow">Quem somos nós</p>
+      <h1>Nascemos de uma pergunta simples: por que ninguém mostra a nota?</h1>
+      <p class="lead">No mercado de móveis planejados, o cliente final quase nunca sabe quanto custa o material, quanto custa a fabricação e quanto é margem da loja. A Acesso Markup Zero existe para separar essas três coisas — e cobrar só pelo serviço de projeto e gestão.</p>
+    </div>
+  </section>
+
+  <section style="padding:80px 0; border-bottom:1px solid var(--line);">
+    <div class="container">
+      <div class="section-heading">
+        <p class="eyebrow blue-l">Nossos princípios</p>
+        <h2>O que nos compromete com esse modelo</h2>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card">
+          <span class="num">01</span>
+          <h3>A margem é declarada, não embutida</h3>
+          <p>Cobramos uma taxa de projeto fixa e informada antes do fechamento. Nunca uma porcentagem escondida dentro do preço do MDF ou da ferragem.</p>
+        </div>
+        <div class="service-card">
+          <span class="num">02</span>
+          <h3>Cada etapa de produção é rastreável</h3>
+          <p>Do corte à fitagem de borda, cada peça passa por um processo auditável, com rastreio por etiqueta. Não terceirizamos para uma fábrica sem identificação nem processo público.</p>
+        </div>
+        <div class="service-card">
+          <span class="num">03</span>
+          <h3>O cliente vê o que nós vemos</h3>
+          <p>A planilha de custo que usamos para negociar com a fábrica é a mesma que mostramos para você — sem uma segunda versão "de venda".</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials">
+    <div class="container">
+      <div class="section-heading">
+        <p class="eyebrow">Depois da montagem</p>
+        <h2>O que nossos clientes falam depois de ver o móvel pronto</h2>
+      </div>
+      <div class="testi-grid">
+        <div class="testi-card">
+          <div class="testi-head"><span class="piece-tag">PREÇO</span><span class="amb">São Paulo, SP</span></div>
+          <p class="testi-body">"Fechei sabendo exatamente quanto ia pagar por cada peça. Comparei com duas lojas antes e nenhuma chegou perto desse valor. Muito obrigada pela honestidade do início ao fim."</p>
+          <div class="testi-foot"><span class="name">Camila S.</span><span class="city">Cozinha planejada</span></div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-head"><span class="piece-tag">PRAZO</span><span class="amb">Rio de Janeiro, RJ</span></div>
+          <p class="testi-body">"O prazo combinado foi o prazo que aconteceu, sem enrolação. Depois de duas experiências ruins com marcenaria, isso pra mim não tem preço. Recomendo de olhos fechados."</p>
+          <div class="testi-foot"><span class="name">Rafael M.</span><span class="city">Home office</span></div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-head"><span class="piece-tag">QUALIDADE</span><span class="amb">Uberlândia, MG</span></div>
+          <p class="testi-body">"Visitei a fábrica antes de fechar e vi de perto a diferença no material. Hoje entendo por que meu móvel ficou tão bem acabado. Valeu cada visita e cada pergunta que fiz."</p>
+          <div class="testi-foot"><span class="name">Débora A.</span><span class="city">Quarto casal</span></div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-head"><span class="piece-tag">AGRADECIMENTO</span><span class="amb">Belo Horizonte, MG</span></div>
+          <p class="testi-body">"Depois de anos adiando a reforma por medo do orçamento estourar, finalmente fiz o closet dos sonhos. Time nota mil, obrigado por tornarem isso possível de verdade."</p>
+          <div class="testi-foot"><span class="name">Thiago N.</span><span class="city">Closet</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="final-cta">
+    <div class="container final-cta-inner">
+      <p class="eyebrow">Alerta de mercado</p>
+      <h2>O mercado tradicional vive de esconder margens e empurrar prazos.</h2>
+      <p>Lojas fechando do dia para a noite, atrasos infinitos, materiais inferiores maquiados como "alto padrão" e comissões ocultas que dobram o preço final. O setor de planejados lidera reclamações no país por falta de transparência. Nosso modelo elimina o intermediário: você acompanha cada etapa, sabe o custo real de produção e garante que seu investimento vá para o móvel, não para custos operacionais de showroom.</p>
+      <a href="https://wa.me/5511999999999" target="_blank" class="btn btn-primary btn-lg">Garantir meu projeto com preço justo</a>
+    </div>
+  </section>
+
+</div>
+
+<div id="page-contato" class="page">
+
+  <section class="page-hero" style="border-bottom:none; padding-bottom:0;">
+    <div class="container">
+      <p class="eyebrow">Contato & agendamento</p>
+      <h1>Vamos falar sobre o seu projeto</h1>
+      <p class="lead">Prefere ver um exemplo de preço primeiro? Dá uma olhada na <a href="#home" onclick="showPage('home'); return false;">Nota de Transparência na Home</a>. Se já sabe o que precisa, é só chamar.</p>
+    </div>
+  </section>
+
+  <section style="padding:48px 0 96px;">
+    <div class="container contact-grid">
+      <div class="channel-list">
+        <a href="https://wa.me/5511999999999" target="_blank" class="channel-card">
+          <span class="channel-icon">💬</span>
+          <div>
+            <div class="title">WhatsApp</div>
+            <div class="sub">Resposta mais rápida</div>
+          </div>
+        </a>
+        <a href="mailto:projeto@acessomarkupzero.com.br" class="channel-card">
+          <span class="channel-icon">✉️</span>
+          <div>
+            <div class="title">E-mail</div>
+            <div class="sub">projeto@acessomarkupzero.com.br</div>
+          </div>
+        </a>
+      </div>
+
+      <div>
+        <form class="contact-form" id="contato-form">
+          <div class="form-row two">
+            <div class="field">
+              <label for="nome">Nome</label>
+              <input id="nome" type="text" required />
+            </div>
+            <div class="field">
+              <label for="telefone">Telefone</label>
+              <input id="telefone" type="text" required />
+            </div>
+          </div>
+          <div class="field">
+            <label for="email">E-mail</label>
+            <input id="email" type="email" required />
+          </div>
+          <div class="field">
+            <label for="mensagem">Conte sobre seu projeto</label>
+            <textarea id="mensagem" rows="4" placeholder="Ambiente, metragem aproximada, prazo desejado..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="margin-top:24px; width:100%;">Enviar mensagem</button>
+        </form>
+
+        <div class="form-success" id="contato-success" style="display:none;">
+          <p style="font-family:var(--font-display); font-size:1.125rem; font-weight:500;">Recebemos sua mensagem.</p>
+          <p style="margin-top:8px; font-size:0.9375rem; color:var(--graphite-600); line-height:1.6;">Respondemos em até um dia útil. Se preferir uma resposta mais rápida, chama no WhatsApp.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer class="site">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <span class="name">Acesso Markup Zero</span>
+      <p>Projeto, venda e fabricação de móveis planejados sem margem oculta sobre material e produção. Você paga o projeto e o preço de custo direto de fábrica.</p>
+      <p class="cnpj">CNPJ 00.000.000/0001-00</p>
+    </div>
+    <div class="footer-col">
+      <p class="heading">Navegação</p>
+      <ul>
+        <li><a href="#home" onclick="showPage('home'); return false;">Home</a></li>
+        <li><a href="#o-que-fazemos" onclick="showPage('o-que-fazemos'); return false;">O que fazemos</a></li>
+        <li><a href="#como-fazemos" onclick="showPage('como-fazemos'); return false;">Como fazemos</a></li>
+        <li><a href="#quem-somos" onclick="showPage('quem-somos'); return false;">Quem somos nós</a></li>
+        <li><a href="#contato" onclick="showPage('contato'); return false;">Contato</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <p class="heading">Fale com a gente</p>
+      <ul>
+        <li><a href="https://wa.me/5511999999999" target="_blank">WhatsApp</a></li>
+        <li><a href="mailto:projeto@acessomarkupzero.com.br">E-mail</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container">
+      <p>© 2026 Acesso Markup Zero. Todos os direitos reservados.</p>
+      <p class="mono">Markup na fabricação: 0%.</p>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/5511999999999" target="_blank" class="wa-float" aria-label="Falar no WhatsApp">💬</a>
+
+<script>
+  function formatBRL(v){
+    return v.toLocaleString('pt-BR', {style:'currency', currency:'BRL', maximumFractionDigits:0});
+  }
+
+  const slider = document.getElementById('custo-slider');
+  const custoDisplay = document.getElementById('custo-display');
+  const tradCusto = document.getElementById('trad-custo');
+  const tradMarkup = document.getElementById('trad-markup');
+  const tradTotal = document.getElementById('trad-total');
+  const amzCusto = document.getElementById('amz-custo');
+  const amzTaxa = document.getElementById('amz-taxa');
+  const amzTotal = document.getElementById('amz-total');
+  const economia = document.getElementById('economia');
+  const economiaPct = document.getElementById('economia-pct');
+
+  function update(){
+    const valorFabrica = parseInt(slider.value, 10);
+    const montagem = Math.round(valorFabrica * 0.15);
+    const custoDireto = valorFabrica + montagem;
+    const taxaProjeto = Math.round(custoDireto * 0.18);
+    const amzTotalVal = custoDireto + taxaProjeto;
+    const tradMin = Math.round(custoDireto * 2.0);
+    const tradMax = Math.round(custoDireto * 2.6);
+    const mediaTrad = Math.round((tradMin + tradMax) / 2);
+    const economiaVal = mediaTrad - amzTotalVal;
+    const economiaPctVal = Math.round((economiaVal / mediaTrad) * 100);
+
+    custoDisplay.textContent = formatBRL(valorFabrica);
+    tradCusto.textContent = formatBRL(custoDireto);
+    tradMarkup.textContent = formatBRL(mediaTrad - custoDireto);
+    tradTotal.textContent = formatBRL(tradMin) + '–' + formatBRL(tradMax);
+    amzCusto.textContent = formatBRL(custoDireto);
+    amzTaxa.textContent = formatBRL(taxaProjeto);
+    amzTotal.textContent = formatBRL(amzTotalVal);
+    economia.childNodes[0].textContent = formatBRL(economiaVal) + ' ';
+    economiaPct.textContent = '(~' + economiaPctVal + '%)';
+  }
+
+  slider.addEventListener('input', update);
+  update();
+
+  var form = document.getElementById('contato-form');
+  var success = document.getElementById('contato-success');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    form.style.display = 'none';
+    success.style.display = 'block';
+  });
+
+  var PAGES = ['home','o-que-fazemos','como-fazemos','quem-somos','contato'];
+
+  function showPage(id){
+    if (PAGES.indexOf(id) === -1) id = 'home';
+    PAGES.forEach(function(p){
+      var el = document.getElementById('page-' + p);
+      if (el) el.style.display = (p === id) ? 'block' : 'none';
+    });
+    document.querySelectorAll('[data-page]').forEach(function(a){
+      if (a.getAttribute('data-page') === id) {
+        a.style.color = 'var(--graphite-900)';
+        a.style.fontWeight = '600';
+      } else {
+        a.style.color = '';
+        a.style.fontWeight = '';
+      }
+    });
+    window.scrollTo(0, 0);
+    try {
+      if (history.replaceState) history.replaceState(null, '', '#' + id);
+    } catch (e) {
+      // Alguns ambientes de preview em iframe (sandbox/srcdoc) bloqueiam
+      // a History API por política de segurança de origem. Nesses casos
+      // a navegação entre páginas continua funcionando normalmente, só
+      // não atualiza a URL visível — não é um erro que afeta o site.
+      location.hash = id;
+    }
+  }
+
+  window.addEventListener('DOMContentLoaded', function(){
+    var initial = (location.hash || '#home').replace('#', '');
+    showPage(initial);
+  });
+
+  window.addEventListener('hashchange', function(){
+    showPage(location.hash.replace('#', ''));
+  });
+</script>
+
+</body>
+</html>
