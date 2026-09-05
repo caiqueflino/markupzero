@@ -1,0 +1,1739 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+
+<!DOCTYPE html>
+
+<!DOCTYPE html>
+
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Markup Zero | Engenharia de Marcenaria e M&oacute;veis Direto de F&aacute;brica</title>
+<meta content="Projetos de m&oacute;veis planejados e engenharia executiva com transpar&ecirc;ncia total. Pague o pre&ccedil;o real de f&aacute;brica com a Markup Zero." name="description"/>
+<meta content="website" property="og:type"/>
+<meta content="Markup Zero" property="og:site_name"/>
+<meta content="Markup Zero | Engenharia de Marcenaria e M&oacute;veis Direto de F&aacute;brica" property="og:title"/>
+<meta content="Projetos de m&oacute;veis planejados e engenharia executiva com transpar&ecirc;ncia total. Pague o pre&ccedil;o real de f&aacute;brica com a Markup Zero." property="og:description"/>
+<meta content="pt_BR" property="og:locale"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<style>
+  :root{
+    --paper:#EDEAE1; --paper-raised:#F6F4EE;
+    --graphite-950:#14171A; --graphite-900:#1B1E20; --graphite-700:#34383C;
+    --graphite-600:#4B5157; --graphite-400:#7B8288; --graphite-200:#C7CBCE;
+    --blue:#2C4870; --blue-light:#4D6C9C;
+    --sienna:#C1442A; --sienna-dark:#9C3620;
+    --line:#D8D3C7; --line-dark:#3A3F42;
+    --font-display:'Space Grotesk',sans-serif;
+    --font-body:'IBM Plex Sans',sans-serif;
+    --font-mono:'IBM Plex Mono',monospace;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--paper); color:var(--graphite-900); font-family:var(--font-body); -webkit-font-smoothing:antialiased; line-height:1.5;}
+  a{color:inherit; text-decoration:none;}
+  button{font-family:inherit; cursor:pointer; border:none;}
+  img{max-width:100%; display:block;}
+  :focus-visible{outline:2px solid var(--sienna); outline-offset:3px;}
+
+  .container{max-width:1152px; margin:0 auto; padding:0 24px;}
+  .eyebrow{font-family:var(--font-mono); font-size:0.75rem; text-transform:uppercase; letter-spacing:0.18em; color:var(--sienna);}
+  .eyebrow.blue{color:var(--blue-light);}
+  .eyebrow.blue-l{color:var(--blue);}
+  .eyebrow.paper{color:rgba(237,234,225,0.7);}
+
+  h1,h2,h3{font-family:var(--font-display); font-weight:500; letter-spacing:-0.02em; line-height:1.1;}
+
+  .btn{display:inline-flex; align-items:center; justify-content:center; gap:8px; height:48px; padding:0 24px; font-family:var(--font-display); font-weight:500; font-size:0.9375rem; transition:background-color .15s, color .15s;}
+  .btn-lg{height:56px; padding:0 32px; font-size:1rem;}
+  .btn-sm{height:36px; padding:0 16px; font-size:0.875rem;}
+  .btn-primary{background:var(--sienna); color:var(--paper);}
+  .btn-primary:hover{background:var(--sienna-dark);}
+  .btn-outline{border:1px solid var(--graphite-900); color:var(--graphite-900); background:transparent;}
+  .btn-outline:hover{background:var(--graphite-900); color:var(--paper);}
+  .btn-outline-light{border:1px solid rgba(237,234,225,0.4); color:var(--paper); background:transparent;}
+  .btn-outline-light:hover{background:var(--paper); color:var(--graphite-900);}
+  .btn-dark{background:var(--graphite-900); color:var(--paper);}
+  .btn-dark:hover{background:var(--graphite-700);}
+
+  /* Header */
+  header.site{position:sticky; top:0; z-index:1000; border-bottom:1px solid var(--line); background:rgba(237,234,225,0.92); backdrop-filter:blur(6px);}
+  header.site .container{display:flex; align-items:center; justify-content:space-between; height:72px;}
+  .logo{display:flex; align-items:center; gap:10px; flex-shrink:0;}
+  .logo-img{width:74px; height:42px; object-fit:cover; object-position:center; border:1px solid rgba(216,211,199,0.8); mix-blend-mode:multiply; background:var(--paper);}
+  .logo-text{font-family:var(--font-display); font-size:0.95rem; font-weight:500; line-height:1.15;}
+  @media(max-width:479px){ .logo-img{width:68px; height:39px;} }
+  nav.main-nav{display:none; gap:32px; align-items:center;}
+  nav.main-nav a{font-family:var(--font-mono); font-size:0.8125rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--graphite-600);}
+  nav.main-nav a:hover{color:var(--sienna);}
+  .header-actions{display:none; align-items:center; gap:12px;}
+  .header-actions .wa-link{display:flex; align-items:center; gap:4px; font-family:var(--font-mono); font-size:0.8125rem; color:var(--graphite-600);}
+  .header-actions .wa-link:hover{color:var(--sienna);}
+  @media(min-width:900px){ nav.main-nav{display:flex;} .header-actions{display:flex;} }
+
+  /* Menu mobile */
+  .menu-toggle{display:flex; align-items:center; justify-content:center; width:44px; height:44px; border:1px solid var(--graphite-400); background:var(--paper-raised); cursor:pointer; color:var(--graphite-900); flex-shrink:0;}
+  @media(min-width:900px){ .menu-toggle{display:none;} }
+  .menu-toggle .bar{display:block; width:20px; height:2px; background:currentColor; position:relative;}
+  .menu-toggle .bar::before,.menu-toggle .bar::after{content:''; position:absolute; left:0; width:20px; height:2px; background:currentColor; transition:transform .15s;}
+  .menu-toggle .bar::before{top:-7px;}
+  .menu-toggle .bar::after{top:7px;}
+  .menu-toggle[aria-expanded="true"] .bar{background:transparent;}
+  .menu-toggle[aria-expanded="true"] .bar::before{top:0; transform:rotate(45deg);}
+  .menu-toggle[aria-expanded="true"] .bar::after{top:0; transform:rotate(-45deg);}
+  .menu-toggle:focus-visible{outline:2px solid var(--sienna); outline-offset:2px;}
+
+  .mobile-nav{position:fixed; top:var(--mobile-nav-top,72px); left:0; right:0; bottom:0; z-index:999; display:block; background:var(--paper); border-top:1px solid var(--line); padding:8px 24px 32px; overflow-y:auto; overscroll-behavior:contain;}
+  .mobile-nav[hidden], .mobile-nav:not(.is-open){display:none !important;}
+  .mobile-nav.is-open{display:block;}
+  @media(min-width:900px){ .mobile-nav{display:none !important;} }
+  .mobile-nav a{display:block; padding:18px 2px; font-family:var(--font-mono); font-size:0.9375rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--graphite-900); border-bottom:1px solid var(--line);}
+  .mobile-nav a:focus-visible{outline:2px solid var(--sienna); outline-offset:-2px;}
+  .mobile-nav .header-actions{display:flex; margin-top:24px;}
+
+  /* Grid paper texture */
+  .grid-paper{background-image:linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px); background-size:32px 32px;}
+
+  /* Hero */
+  section.hero{border-bottom:1px solid var(--line); padding:64px 0 0;}
+  .hero-grid{display:grid; gap:56px; align-items:center; padding-bottom:64px;}
+  @media(min-width:1024px){ .hero-grid{grid-template-columns:1.05fr 0.95fr;} section.hero{padding-top:96px;} .hero-grid{padding-bottom:96px;} }
+  .hero-title{font-size:2.375rem; margin-top:20px;}
+  .hero-title .accent{color:var(--sienna);}
+  @media(min-width:640px){ .hero-title{font-size:3.25rem;} }
+  .hero-desc{margin-top:24px; max-width:460px; color:var(--graphite-600); font-size:1rem; line-height:1.65;}
+  @media(min-width:640px){ .hero-desc{font-size:1.0625rem;} }
+  .hero-ctas{margin-top:36px; display:flex; flex-direction:column; gap:12px;}
+  @media(min-width:640px){ .hero-ctas{flex-direction:row;} }
+  .hero-caption{margin-top:12px; text-align:center; font-family:var(--font-mono); font-size:0.75rem; color:var(--graphite-600);}
+  @media(min-width:640px){ .hero-caption{text-align:left;} }
+  .hero-caption .sienna{color:var(--sienna);}
+
+  /* Hero link cards (Contato / O que fazemos) */
+  .hero-links{border-top:1px solid var(--line); background:var(--paper-raised);}
+  .hero-links-grid{display:grid;}
+  @media(min-width:768px){ .hero-links-grid{grid-template-columns:1fr 1fr;} }
+  .hero-link-card{padding:36px 40px; border-bottom:1px solid var(--line); transition:background-color .15s;}
+  @media(min-width:768px){ .hero-link-card{border-bottom:none;} .hero-link-card:first-child{border-right:1px solid var(--line);} }
+  .hero-link-card:hover{background:var(--paper);}
+  .hero-link-card .eyebrow{margin-bottom:8px;}
+  .hero-link-card h3{font-size:1.25rem;}
+  .hero-link-card p{margin-top:10px; font-size:0.9375rem; color:var(--graphite-600); max-width:380px; line-height:1.6;}
+  .hero-link-card .go{margin-top:16px; display:inline-flex; align-items:center; gap:4px; font-family:var(--font-mono); font-size:0.75rem; text-transform:uppercase; letter-spacing:0.04em; color:var(--sienna);}
+
+  /* Ficha de acompanhamento */
+  .nota{border:1px solid var(--graphite-200); background:var(--paper-raised); box-shadow:0 1px 2px rgba(27,30,32,0.05);}
+  .nota.dark{border:1px solid rgba(237,234,225,0.15); background:var(--graphite-950); color:var(--paper);}
+  .nota-inner{padding:28px; max-height:560px; overflow-y:auto; scrollbar-color:var(--graphite-400) transparent;}
+  @media(max-width:479px){ .nota-inner{padding:20px;} }
+  .nota-head{display:flex; align-items:baseline; justify-content:space-between; gap:12px;}
+  .nota-head .titulo{font-family:var(--font-mono); font-size:0.7rem; text-transform:uppercase; letter-spacing:0.14em; color:var(--graphite-600);}
+  .nota.dark .nota-head .titulo{color:rgba(237,234,225,0.5);}
+  .nota-head .numero{font-family:var(--font-mono); font-size:0.7rem; color:var(--graphite-400);}
+  .nota.dark .nota-head .numero{color:rgba(237,234,225,0.4);}
+  .ledger-row{display:flex; align-items:baseline; gap:8px; padding:8px 0; border-bottom:1px dashed var(--line); flex-wrap:wrap;}
+  .nota.dark .ledger-row{border-bottom:1px dashed var(--line-dark);}
+  .ledger-row:last-of-type{border-bottom:none;}
+  .ledger-label{font-family:var(--font-mono); font-size:0.8125rem; color:var(--graphite-600); white-space:normal; word-break:break-word;}
+  .nota.dark .ledger-label{color:rgba(237,234,225,0.55);}
+  .ledger-label.blue{color:var(--blue);}
+  .nota.dark .ledger-label.blue{color:var(--blue-light);}
+  .ledger-dots{flex:1; border-bottom:1px dotted var(--graphite-400); transform:translateY(-0.3em); min-width:12px;}
+  .nota.dark .ledger-dots{border-bottom-color:var(--graphite-600);}
+  .ledger-date{font-family:var(--font-mono); font-size:0.75rem; color:var(--graphite-500); white-space:nowrap; font-variant-numeric:tabular-nums;}
+  .ledger-value{font-family:var(--font-mono); font-size:0.875rem; font-weight:500; white-space:nowrap; color:var(--graphite-900); font-variant-numeric:tabular-nums; margin-left:auto;}
+  .ledger-value.status-done{color:var(--blue); font-size:0.75rem; text-transform:uppercase; letter-spacing:0.04em;}
+  .ledger-value.status-progress{color:var(--sienna); font-size:0.75rem; text-transform:uppercase; letter-spacing:0.04em;}
+  .ledger-value.status-pending{color:var(--graphite-400); font-size:0.75rem; text-transform:uppercase; letter-spacing:0.04em;}
+  .nota.dark .ledger-value{color:rgba(237,234,225,0.9);}
+  .ledger-value.blue{color:var(--blue);}
+  .nota.dark .ledger-value.blue{color:var(--blue-light);}
+  @media(max-width:479px){
+    .ledger-label{flex:1 1 100%;}
+    .ledger-dots{display:none;}
+    .ledger-date{margin-left:auto;}
+    .ledger-value{margin-left:0;}
+  }
+  .nota-total{margin-top:16px; padding-top:16px; border-top:1px solid rgba(27,30,32,0.15); display:flex; align-items:baseline; justify-content:space-between;}
+  .nota.dark .nota-total{border-top-color:rgba(237,234,225,0.15);}
+  .nota-total .label{font-family:var(--font-display); font-size:0.875rem; font-weight:500; text-transform:uppercase; letter-spacing:0.02em;}
+  .nota-total .value{font-family:var(--font-mono); font-size:1.5rem; font-weight:600; font-variant-numeric:tabular-nums;}
+  .receipt-tear{height:14px; background-image:radial-gradient(circle at 7px 0, transparent 7px, var(--paper) 7.5px); background-size:14px 14px; background-position:0 -7px;}
+  .receipt-tear.dark{background-image:radial-gradient(circle at 7px 0, transparent 7px, var(--graphite-950) 7.5px);}
+
+  /* Section heading */
+  .section-heading{max-width:640px;}
+  .section-heading h2{font-size:1.875rem; margin-top:12px;}
+  @media(min-width:640px){ .section-heading h2{font-size:2.25rem;} }
+  .section-heading p{margin-top:16px; color:var(--graphite-600); font-size:1rem; line-height:1.6;}
+  .section-heading.light h2{color:var(--paper);}
+  .section-heading.light p{color:rgba(237,234,225,0.7);}
+
+  /* Comparator */
+  section.comparator{border-bottom:1px solid var(--line); padding:80px 0;}
+  .slider-card{margin-top:40px; border:1px solid var(--graphite-200); background:var(--paper-raised); padding:32px;}
+  @media(max-width:479px){ .slider-card{padding:20px;} }
+  .slider-card .row{display:flex; flex-direction:column; gap:12px;}
+  @media(min-width:640px){ .slider-card .row{flex-direction:row; align-items:center; justify-content:space-between;} }
+  .slider-card label{font-family:var(--font-mono); font-size:0.75rem; text-transform:uppercase; letter-spacing:0.14em; color:var(--graphite-600);}
+  .slider-card .amount{font-family:var(--font-mono); font-size:1.125rem; font-weight:600;}
+  input[type=range]{-webkit-appearance:none; width:100%; height:6px; background:var(--graphite-200); margin-top:20px; outline:none;}
+  input[type=range]::-webkit-slider-thumb{-webkit-appearance:none; width:20px; height:20px; background:var(--paper); border:2px solid var(--sienna); cursor:pointer;}
+  input[type=range]::-moz-range-thumb{width:18px; height:18px; background:var(--paper); border:2px solid var(--sienna); cursor:pointer;}
+  .slider-minmax{margin-top:8px; display:flex; justify-content:space-between; font-family:var(--font-mono); font-size:0.7rem; color:var(--graphite-400);}
+  .compare-grid{margin-top:32px; display:grid; gap:24px;}
+  @media(min-width:1024px){ .compare-grid{grid-template-columns:1fr 1fr;} }
+  .compare-card{border:1px solid var(--graphite-200); background:var(--paper-raised);}
+  .compare-card.dark{border:1px solid var(--graphite-900); background:var(--graphite-950); color:var(--paper);}
+  .compare-head{display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid var(--line); padding:16px 24px;}
+  .compare-card.dark .compare-head{border-bottom-color:rgba(237,234,225,0.15);}
+  .compare-head .name{font-family:var(--font-display); font-size:0.875rem; font-weight:500; text-transform:uppercase; letter-spacing:0.02em; color:var(--graphite-600);}
+  .compare-card.dark .compare-head .name{color:var(--paper);}
+  .compare-head .tag{font-family:var(--font-mono); font-size:0.75rem;}
+  .compare-body{padding:24px;}
+  .compare-foot{display:flex; align-items:baseline; justify-content:space-between; border-top:1px solid var(--line); padding:20px 24px;}
+  .compare-card.dark .compare-foot{border-top-color:rgba(237,234,225,0.15);}
+  .compare-foot .label{font-family:var(--font-display); font-size:0.875rem; font-weight:500; text-transform:uppercase;}
+  .compare-foot .value{font-family:var(--font-mono); font-size:1.25rem; font-weight:600;}
+  .savings-banner{margin-top:24px; display:flex; flex-direction:column; gap:12px; align-items:flex-start; justify-content:space-between; border:1px dashed rgba(193,68,42,0.5); background:rgba(193,68,42,0.05); padding:20px 24px;}
+  @media(min-width:640px){ .savings-banner{flex-direction:row; align-items:center;} }
+  .savings-banner p{font-size:0.9375rem; color:var(--graphite-700);}
+  .savings-banner .value{font-family:var(--font-mono); font-size:1.5rem; font-weight:600; color:var(--sienna);}
+  .savings-banner .pct{font-size:1rem; font-weight:400; color:rgba(193,68,42,0.7);}
+
+  /* 5 Steps */
+  section.steps{border-bottom:1px solid var(--line); background:var(--graphite-950); color:var(--paper); padding:80px 0;}
+  .steps-list{margin-top:56px; display:flex; flex-direction:column;}
+  .step-row{display:grid; gap:8px 32px; padding:32px 0; border-top:1px solid rgba(237,234,225,0.12);}
+  .step-row:last-child{border-bottom:1px solid rgba(237,234,225,0.12);}
+  @media(min-width:768px){ .step-row{grid-template-columns:200px 1fr;} }
+  .step-label{font-family:var(--font-mono); font-size:0.75rem; text-transform:uppercase; letter-spacing:0.1em; color:rgba(237,234,225,0.45);}
+  .step-title{margin-top:6px; font-size:1.375rem;}
+  @media(min-width:768px){ .step-label{margin-top:2px;} }
+  .step-desc{margin-top:10px; font-size:0.9375rem; line-height:1.65; color:rgba(237,234,225,0.7); max-width:640px;}
+  @media(min-width:768px){ .step-desc{margin-top:0;} }
+
+  /* Ecosystem summary (rede de fabricação) */
+  section.ecosystem{padding:80px 0; border-bottom:1px solid var(--line);}
+  .eco-grid{margin-top:48px; display:grid; gap:24px;}
+  @media(min-width:768px){ .eco-grid{grid-template-columns:1fr 1fr;} }
+
+  .eco-card{border:1px solid var(--graphite-200); background:var(--paper-raised); padding:32px;}
+  .eco-card h3{font-size:1.25rem;}
+  .eco-card p{margin-top:12px; font-size:0.9375rem; line-height:1.65; color:var(--graphite-600);}
+  .eco-tag{display:inline-block; margin-bottom:14px; font-family:var(--font-mono); font-size:0.7rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--blue);}
+  .ecosystem-cta{margin-top:32px; display:inline-flex; align-items:center; gap:4px; font-family:var(--font-mono); font-size:0.75rem; text-transform:uppercase; letter-spacing:0.04em; color:var(--graphite-700);}
+  .ecosystem-cta:hover{color:var(--sienna);}
+
+  /* Testimonials wrapper (reaproveitado pela seção de diferenciais) */
+  section.testimonials{padding:80px 0; background:var(--paper-raised); border-bottom:1px solid var(--line);}
+
+
+  /* Final CTA — WhatsApp */
+  section.final-cta{padding:80px 0; text-align:center;}
+  .final-cta-inner{max-width:640px; margin:0 auto;}
+  .final-cta-inner .eyebrow{display:block;}
+  .final-cta-inner h2{font-size:2rem;}
+  @media(min-width:640px){ .final-cta-inner h2{font-size:2.5rem;} }
+  .final-cta-inner p{margin-top:16px; font-size:1.0625rem; color:var(--graphite-600); line-height:1.6;}
+  .final-cta-inner .btn{margin-top:32px;}
+
+  /* Footer */
+  footer.site{border-top:1px solid var(--line-dark); background:var(--graphite-900); color:var(--paper);}
+  .footer-grid{display:grid; gap:48px; padding:64px 0;}
+  @media(min-width:768px){ .footer-grid{grid-template-columns:1.3fr 1fr 1fr;} }
+  .footer-brand .name{font-family:var(--font-display); font-size:1.125rem; font-weight:500;}
+  .footer-brand p{margin-top:12px; max-width:320px; font-size:0.875rem; line-height:1.6; color:rgba(237,234,225,0.6);}
+  .footer-brand .cnpj{margin-top:24px; font-family:var(--font-mono); font-size:0.75rem; text-transform:uppercase; letter-spacing:0.14em; color:rgba(237,234,225,0.4);}
+  .footer-col .heading{font-family:var(--font-mono); font-size:0.75rem; text-transform:uppercase; letter-spacing:0.14em; color:rgba(237,234,225,0.4);}
+  .footer-col ul{list-style:none; margin-top:16px; display:flex; flex-direction:column; gap:10px;}
+  .footer-col a{font-size:0.875rem; color:rgba(237,234,225,0.75);}
+  .footer-col a:hover{color:var(--paper);}
+  .footer-bottom{border-top:1px solid rgba(237,234,225,0.1);}
+  .footer-bottom .container{display:flex; flex-direction:column; gap:8px; padding:24px 0; font-size:0.75rem; color:rgba(237,234,225,0.4);}
+  @media(min-width:640px){ .footer-bottom .container{flex-direction:row; align-items:center; justify-content:space-between;} }
+  .footer-bottom .mono{font-family:var(--font-mono);}
+
+  /* WhatsApp floating */
+  .wa-float{position:fixed; bottom:24px; right:24px; z-index:50; width:56px; height:56px; border-radius:50%; background:var(--sienna); color:var(--paper); display:flex; align-items:center; justify-content:center; box-shadow:0 10px 20px rgba(27,30,32,0.2); transition:transform .15s; font-size:1.375rem;}
+  .wa-float:hover{transform:scale(1.05);}
+  @media(max-width:899px){
+    .final-cta{padding-bottom:128px;}
+    .page-hero .hero-ctas{padding-bottom:16px;}
+  }
+  @media(max-width:479px){
+    .wa-float{width:44px; height:44px; right:14px; bottom:calc(12px + env(safe-area-inset-bottom)); font-size:1.1rem;}
+  }
+  @media(min-width:480px) and (max-width:899px){
+    .wa-float{width:48px; height:48px; right:18px; bottom:calc(16px + env(safe-area-inset-bottom)); font-size:1.2rem;}
+  }
+
+  /* Page hero (used on inner pages) */
+  .page-hero{border-bottom:1px solid var(--line); padding:64px 0;}
+  @media(min-width:1024px){ .page-hero{padding:96px 0;} }
+  .page-hero h1{margin-top:16px; font-size:2.25rem; max-width:680px;}
+  @media(min-width:640px){ .page-hero h1{font-size:3rem;} }
+  .page-hero p.lead{margin-top:20px; max-width:580px; font-size:1.0625rem; color:var(--graphite-600); line-height:1.65;}
+  .page-hero p.lead a{color:var(--sienna); text-decoration:underline; text-underline-offset:2px;}
+
+  /* Generic 3-up card grid (services, principles) */
+  .services-grid{margin-top:48px; display:grid; gap:24px;}
+  @media(min-width:768px){ .services-grid{grid-template-columns:repeat(3,1fr);} }
+  .services-grid.cols-4{margin-top:48px; display:grid; gap:24px;}
+  @media(min-width:640px){ .services-grid.cols-4{grid-template-columns:1fr 1fr;} }
+  @media(min-width:1024px){ .services-grid.cols-4{grid-template-columns:repeat(4,1fr);} }
+  .services-grid.cols-2{width:100%; margin-top:48px; display:grid; gap:24px;}
+  @media(min-width:640px){ .services-grid.cols-2{grid-template-columns:1fr 1fr;} }
+  .service-card{border:1px solid var(--graphite-200); background:var(--paper-raised); padding:32px; min-width:0;}
+  .service-card .num{font-family:var(--font-mono); font-size:0.75rem; color:var(--graphite-400);}
+  .service-card h3{margin-top:10px; font-size:1.25rem;}
+  .service-card p{margin-top:12px; font-size:0.9375rem; line-height:1.6; color:var(--graphite-600);}
+
+  /* Contact page */
+  .contact-grid{display:grid; gap:32px; margin-top:8px;}
+  @media(min-width:1024px){ .contact-grid{grid-template-columns:0.85fr 1.15fr; margin-top:0;} }
+  .channel-list{display:flex; flex-direction:column; gap:12px;}
+  .channel-card{display:flex; align-items:center; gap:14px; border:1px solid var(--graphite-200); background:var(--paper-raised); padding:18px 20px; transition:border-color .15s;}
+  .channel-card:hover{border-color:var(--sienna);}
+  .channel-icon{width:36px; height:36px; border-radius:50%; background:var(--paper); display:flex; align-items:center; justify-content:center; font-size:1.125rem; flex-shrink:0;}
+  .channel-card .title{font-family:var(--font-display); font-size:0.9375rem; font-weight:500; color:var(--graphite-900);}
+  .channel-card .sub{font-family:var(--font-mono); font-size:0.75rem; color:var(--graphite-500);}
+  .contact-form{border:1px solid var(--graphite-200); background:var(--paper-raised); padding:32px;}
+  .form-row.two{display:grid; gap:16px;}
+  @media(min-width:560px){ .form-row.two{grid-template-columns:1fr 1fr;} }
+  .field{margin-top:16px;}
+  .field:first-child{margin-top:0;}
+  .field label{display:block; font-size:0.75rem; font-weight:500; color:var(--graphite-700); margin-bottom:6px;}
+  .field input, .field textarea, .field select{width:100%; border:1px solid var(--graphite-200); background:var(--paper); padding:10px 12px; font-family:var(--font-body); font-size:0.875rem; outline:none;}
+  .field input:focus, .field textarea:focus, .field select:focus{border-color:var(--sienna);}
+  .field textarea{resize:vertical; min-height:116px;}
+  .field-help{display:block; margin-top:6px; font-size:0.75rem; line-height:1.45; color:var(--graphite-500);}
+  .qualification-form{margin-top:28px; text-align:left;}
+  .qualification-form .form-row{margin-top:16px;}
+  .qualification-form .field{margin-top:0;}
+  .qualification-form .btn{margin-top:24px; width:100%;}
+  .form-status{margin-top:14px; font-size:0.875rem; line-height:1.5; color:var(--graphite-600);}
+  .form-status[hidden]{display:none !important;}
+  .form-success{border:1px solid var(--graphite-200); background:var(--paper-raised); padding:32px;}
+
+  /* Reference ledger used as static proof (no slider) on inner pages */
+  .nota-static-wrap{margin-top:40px; max-width:520px;}
+
+  /* Checklist técnico (grid de 2 colunas com marcador) */
+  .check-grid{margin-top:40px; display:grid; gap:12px 32px;}
+  @media(min-width:700px){ .check-grid{grid-template-columns:1fr 1fr;} }
+  .check-item{display:flex; align-items:flex-start; gap:12px; padding:12px 0; border-bottom:1px solid var(--line); font-size:0.9375rem; line-height:1.5; color:var(--graphite-700);}
+  .check-item .mark{flex-shrink:0; width:20px; height:20px; margin-top:2px; border:1px solid var(--sienna); color:var(--sienna); display:flex; align-items:center; justify-content:center; font-size:0.6875rem; font-family:var(--font-mono);}
+
+  /* Nota de esclarecimento (caixa tracejada, tom neutro) */
+  .note-box{margin-top:32px; max-width:760px; border:1px dashed var(--graphite-400); background:var(--paper-raised); padding:20px 24px; font-size:0.9375rem; line-height:1.6; color:var(--graphite-700);}
+
+  /* Chips interativos com explicação expansível */
+  .diff-grid{margin-top:40px; display:flex; flex-wrap:wrap; gap:12px; align-items:flex-start;}
+  .diff-chip{border:1px solid var(--graphite-200); background:var(--paper-raised); padding:12px 16px; font-family:var(--font-body); font-size:0.875rem; line-height:1.45; color:var(--graphite-900); display:flex; flex-direction:column; align-items:stretch; gap:0; text-align:left; cursor:pointer; min-width:0; flex:0 1 auto; transition:border-color .18s, background-color .18s;}
+  .diff-chip:hover{border-color:var(--sienna); background:var(--paper);}
+  .diff-chip:focus-visible{outline:2px solid var(--sienna); outline-offset:3px;}
+  .diff-chip.is-open{border-color:var(--sienna); background:var(--paper);}
+  .diff-chip .chip-main{display:flex; align-items:center; gap:8px; min-height:24px;}
+  .diff-chip .mark{color:var(--sienna); font-family:var(--font-mono); font-size:1rem; line-height:1; flex:0 0 auto;}
+  .diff-chip .chip-detail{display:block; max-width:440px; padding:10px 0 2px 24px; color:var(--graphite-600); font-size:0.8125rem; line-height:1.55;}
+  .diff-chip .chip-detail[hidden]{display:none !important;}
+  .diff-chip .detail-label{display:block; margin-top:10px; color:var(--graphite-900); font-family:var(--font-mono); font-size:0.6875rem; font-weight:600; text-transform:uppercase; letter-spacing:0.08em;}
+  .diff-chip .detail-label:first-child{margin-top:0;}
+  .diff-chip .detail-copy{display:block; margin-top:3px;}
+  @media(max-width:639px){
+    .diff-grid{display:grid; grid-template-columns:1fr; gap:10px;}
+    .diff-chip{width:100%;}
+    .diff-chip .chip-detail{max-width:none; padding-left:24px;}
+  }
+
+
+  /* Tabelas de dados responsivas (comparativos, exemplos de composição) */
+  .data-table{width:100%; border-collapse:collapse; margin-top:32px; font-size:0.9375rem;}
+  .data-table th,.data-table td{text-align:left; padding:14px 16px; border-bottom:1px solid var(--line); vertical-align:top;}
+  .data-table th{font-family:var(--font-mono); font-size:0.75rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--graphite-600); font-weight:500;}
+  .data-table td{color:var(--graphite-700); line-height:1.5;}
+  .data-table.dark th{color:rgba(237,234,225,0.5);}
+  .data-table.dark td{border-bottom-color:rgba(237,234,225,0.12); color:rgba(237,234,225,0.85);}
+  @media(max-width:699px){
+    .data-table thead{display:none;}
+    .data-table, .data-table tbody, .data-table tr, .data-table td{display:block; width:100%;}
+    .data-table tr{margin-bottom:16px; border:1px solid var(--line); padding:4px 16px;}
+    .data-table.dark tr{border-color:rgba(237,234,225,0.15);}
+    .data-table td{border-bottom:1px dashed var(--line); padding:10px 0;}
+    .data-table.dark td{border-bottom:1px dashed rgba(237,234,225,0.12);}
+    .data-table tr td:last-child{border-bottom:none;}
+    .data-table td::before{content:attr(data-label); display:block; font-family:var(--font-mono); font-size:0.6875rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--graphite-400); margin-bottom:3px;}
+    .data-table.dark td::before{color:rgba(237,234,225,0.4);}
+  }
+
+  /* Grid de preços por serviço */
+  .price-grid{margin-top:40px; display:grid; gap:20px;}
+  @media(min-width:700px){ .price-grid{grid-template-columns:1fr 1fr;} }
+  .price-card{border:1px solid var(--graphite-200); background:var(--paper-raised); padding:28px;}
+  .price-card.highlight{border-color:var(--sienna); background:var(--paper);}
+  .price-card h3{font-size:1.125rem;}
+  .price-card .scope{margin-top:10px; font-size:0.875rem; line-height:1.55; color:var(--graphite-600);}
+  .price-card .price-row{margin-top:20px; padding-top:16px; border-top:1px dashed var(--graphite-200); display:flex; align-items:baseline; justify-content:space-between; gap:12px; flex-wrap:wrap;}
+  .price-card .price-value{font-family:var(--font-mono); font-size:1.0625rem; font-weight:600; color:var(--sienna);}
+  .price-card .price-bonus{font-size:0.8125rem; color:var(--graphite-600); text-align:right;}
+  .pending-tag{display:inline-block; margin-top:8px; font-family:var(--font-mono); font-size:0.6875rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--sienna); border:1px solid var(--sienna); padding:2px 8px;}
+
+  /* Regra 1+1 de ambiente bônus */
+  .ratio-badge{display:flex; flex-wrap:wrap; align-items:center; gap:14px; margin-top:24px; font-family:var(--font-mono); font-size:1.75rem; font-weight:600; color:var(--sienna);}
+  .ratio-badge .lbl{font-family:var(--font-body); font-size:0.8125rem; font-weight:400; color:var(--graphite-600); max-width:150px; line-height:1.3;}
+
+  /* Comparação em duas colunas (ex: projeto do zero x projeto existente) */
+  .twocol-compare{margin-top:40px; display:grid; gap:24px;}
+  @media(min-width:768px){ .twocol-compare{grid-template-columns:1fr 1fr;} }
+  .twocol-compare .col{border:1px solid var(--graphite-200); background:var(--paper-raised); padding:28px;}
+  .twocol-compare .col h3{font-size:1.125rem; margin-bottom:16px;}
+  .twocol-compare .col p{font-size:0.9375rem; line-height:1.6; color:var(--graphite-600); padding:8px 0; border-top:1px solid var(--line);}
+  .twocol-compare .col p:first-of-type{border-top:none;}
+  .page{display:none;}
+  #page-home{display:block;}
+</style>
+</head>
+<body>
+<header class="site" id="site-header">
+<div class="container">
+<a aria-label="Markup Zero &mdash; p&aacute;gina inicial" class="logo" data-page="home" href="#home" onclick="showPage('home'); return false;">
+<img alt="Markup Zero" class="logo-img" onerror="this.style.display='none'; document.getElementById('logo-fallback').style.display='inline-flex';" src="assets/logo.svg"/>
+<span class="logo-text" id="logo-fallback" style="display:none;">Markup Zero</span>
+</a>
+<nav class="main-nav">
+<a data-page="home" href="#home" onclick="showPage('home'); return false;">Home</a>
+<a data-page="o-que-fazemos" href="#o-que-fazemos" onclick="showPage('o-que-fazemos'); return false;">O que fazemos</a>
+<a data-page="como-fazemos" href="#como-fazemos" onclick="showPage('como-fazemos'); return false;">Como fazemos</a>
+<a data-page="quem-somos" href="#quem-somos" onclick="showPage('quem-somos'); return false;">Quem somos n&oacute;s</a>
+<a data-page="contato" href="#contato" onclick="showPage('contato'); return false;">Contato</a>
+</nav>
+<div class="header-actions">
+<a class="btn btn-primary btn-sm" href="https://wa.me/551121102744" rel="noopener noreferrer" target="_blank">Falar com um especialista</a>
+</div>
+<button aria-controls="mobile-nav" aria-expanded="false" aria-label="Abrir menu" class="menu-toggle" id="menu-toggle" type="button">
+<span class="bar"></span>
+</button>
+</div>
+<nav aria-hidden="true" aria-label="Menu principal" class="mobile-nav" hidden="" id="mobile-nav">
+<a data-page="home" href="#home" onclick="showPage('home'); return false;">Home</a>
+<a data-page="o-que-fazemos" href="#o-que-fazemos" onclick="showPage('o-que-fazemos'); return false;">O que fazemos</a>
+<a data-page="como-fazemos" href="#como-fazemos" onclick="showPage('como-fazemos'); return false;">Como fazemos</a>
+<a data-page="quem-somos" href="#quem-somos" onclick="showPage('quem-somos'); return false;">Quem somos n&oacute;s</a>
+<a data-page="contato" href="#contato" onclick="showPage('contato'); return false;">Contato</a>
+<div class="header-actions">
+<a class="btn btn-primary btn-sm" href="https://wa.me/551121102744" rel="noopener noreferrer" style="width:100%; justify-content:center;" target="_blank">Falar com um especialista</a>
+</div>
+</nav>
+</header>
+<div class="page" id="page-home" style="display:block;">
+<!-- HERO -->
+<section class="hero grid-paper" id="topo">
+<div class="container hero-grid">
+<div>
+<p class="eyebrow">Engenharia, design e execu&ccedil;&atilde;o</p>
+<h1 class="hero-title">Do sonho ao m&oacute;vel pronto <span class="accent">para a vida real.</span></h1>
+<p class="hero-desc">Criamos projetos completos desde o zero ou desenvolvemos a engenharia de projetos existentes para transformar ideias em solu&ccedil;&otilde;es fabric&aacute;veis, mont&aacute;veis e coerentes com o seu ambiente.</p>
+<p class="hero-desc" style="margin-top:12px;">Da medi&ccedil;&atilde;o ao projeto executivo, da f&aacute;brica &agrave; montagem: voc&ecirc; entende cada etapa, cada escolha e o destino do seu investimento.</p>
+<div class="hero-ctas">
+<a class="btn btn-primary btn-lg" href="https://wa.me/551121102744" rel="noopener noreferrer" target="_blank">Falar com um especialista</a>
+<a class="btn btn-outline btn-lg" href="#o-que-fazemos" onclick="showPage('o-que-fazemos'); return false;">O que fazemos</a>
+</div>
+</div>
+<div>
+<div class="nota">
+<div class="nota-inner">
+<div class="nota-head">
+<span class="titulo">Ficha de Acompanhamento &mdash; exemplo ilustrativo</span>
+<span class="numero">N&ordm; MZ-2026-0184</span>
+</div>
+<div style="margin-top:16px;"><div class="ledger-row"><span class="ledger-label">Briefing</span><span class="ledger-dots"></span><span class="ledger-date">10/10</span><span class="ledger-value status-done">CONCLU&Iacute;DO</span></div><div class="ledger-row"><span class="ledger-label">Anteprojeto</span><span class="ledger-dots"></span><span class="ledger-date">14/10</span><span class="ledger-value status-done">CONCLU&Iacute;DO</span></div><div class="ledger-row"><span class="ledger-label">Reuni&atilde;o de ajustes</span><span class="ledger-dots"></span><span class="ledger-date">18/10</span><span class="ledger-value status-done">CONCLU&Iacute;DO</span></div><div class="ledger-row"><span class="ledger-label">Medi&ccedil;&atilde;o in loco</span><span class="ledger-dots"></span><span class="ledger-date">22/10</span><span class="ledger-value status-done">CONCLU&Iacute;DO</span></div><div class="ledger-row"><span class="ledger-label">Projeto Executivo visual</span><span class="ledger-dots"></span><span class="ledger-date">26/10</span><span class="ledger-value status-done">CONCLU&Iacute;DO</span></div><div class="ledger-row"><span class="ledger-label">Confer&ecirc;ncia de projeto in loco</span><span class="ledger-dots"></span><span class="ledger-date">30/10</span><span class="ledger-value status-done">CONCLU&Iacute;DO</span></div><div class="ledger-row"><span class="ledger-label">Projeto executivo para f&aacute;brica</span><span class="ledger-dots"></span><span class="ledger-date">03/11</span><span class="ledger-value status-done">CONCLU&Iacute;DO</span></div><div class="ledger-row"><span class="ledger-label">Projeto executivo para montagem</span><span class="ledger-dots"></span><span class="ledger-date">06/11</span><span class="ledger-value status-progress">EM ANDAMENTO</span></div><div class="ledger-row"><span class="ledger-label">Visita &agrave; f&aacute;brica</span><span class="ledger-dots"></span><span class="ledger-date">10/11</span><span class="ledger-value status-pending">AGUARDANDO</span></div><div class="ledger-row"><span class="ledger-label">Implanta&ccedil;&atilde;o</span><span class="ledger-dots"></span><span class="ledger-date">12/11</span><span class="ledger-value status-pending">AGUARDANDO</span></div><div class="ledger-row"><span class="ledger-label">Acompanhamento de fabrica&ccedil;&atilde;o</span><span class="ledger-dots"></span><span class="ledger-date">15/11</span><span class="ledger-value status-pending">AGUARDANDO</span></div><div class="ledger-row"><span class="ledger-label">Entrega</span><span class="ledger-dots"></span><span class="ledger-date">22/11</span><span class="ledger-value status-pending">AGUARDANDO</span></div><div class="ledger-row"><span class="ledger-label">Confer&ecirc;ncia</span><span class="ledger-dots"></span><span class="ledger-date">23/11</span><span class="ledger-value status-pending">AGUARDANDO</span></div><div class="ledger-row"><span class="ledger-label">Montagem</span><span class="ledger-dots"></span><span class="ledger-date">25/11</span><span class="ledger-value status-pending">AGUARDANDO</span></div><div class="ledger-row"><span class="ledger-label">Vistoria final</span><span class="ledger-dots"></span><span class="ledger-date">28/11</span><span class="ledger-value status-pending">AGUARDANDO</span></div></div>
+<div class="nota-total"><span class="label">Progresso do projeto</span><span class="value">7 de 15 etapas conclu&iacute;das</span></div>
+</div>
+<div class="receipt-tear"></div>
+</div>
+<p class="hero-caption">Exemplo ilustrativo de acompanhamento &mdash; cada etapa fica vis&iacute;vel pra voc&ecirc;, do briefing &agrave; confer&ecirc;ncia final, sem caixa-preta entre o projeto e a montagem.</p>
+</div>
+</div>
+</section>
+<!-- DOIS CAMINHOS -->
+<section style="padding:64px 0; border-bottom:1px solid var(--line); background:var(--paper-raised);">
+<div class="container">
+<div class="services-grid cols-2">
+<div class="service-card">
+<span class="num">01</span>
+<h3>Criar do zero</h3>
+<p>Desenvolvemos o ambiente, o layout, a est&eacute;tica, os materiais, os acabamentos e o projeto t&eacute;cnico.</p>
+<a class="btn btn-outline btn-sm" href="https://wa.me/551121102744" rel="noopener noreferrer" style="margin-top:20px;" target="_blank">Criar meu projeto</a>
+</div>
+<div class="service-card">
+<span class="num">02</span>
+<h3>Partir de um projeto existente</h3>
+<p>Analisamos, compatibilizamos e desenvolvemos a engenharia necess&aacute;ria para levar o projeto &agrave; fabrica&ccedil;&atilde;o e &agrave; montagem.</p>
+<a class="btn btn-outline btn-sm" href="https://wa.me/551121102744" rel="noopener noreferrer" style="margin-top:20px;" target="_blank">Avaliar meu projeto</a>
+</div>
+</div>
+</div>
+</section>
+<!-- HERO LINK CARDS -->
+<section class="hero-links">
+<div class="container">
+<div class="hero-links-grid">
+<a class="hero-link-card" href="#contato" onclick="showPage('contato'); return false;">
+<p class="eyebrow">Fale com a gente</p>
+<h3>Quero ser atendido agora</h3>
+<p>Conta pra gente sobre o seu projeto e receba atendimento pr&oacute;ximo, com transpar&ecirc;ncia total sobre cada etapa e cada pre&ccedil;o.</p>
+<span class="go">Ir para Contato &rarr;</span>
+</a>
+<a class="hero-link-card" href="#o-que-fazemos" onclick="showPage('o-que-fazemos'); return false;">
+<p class="eyebrow blue-l">Entenda o servi&ccedil;o</p>
+<h3>Quero entender como funciona</h3>
+<p>Veja em detalhes o que est&aacute; inclu&iacute;do em cada etapa &mdash; do projeto &agrave; fabrica&ccedil;&atilde;o e &agrave; montagem &mdash; e como cobramos por ambiente.</p>
+<span class="go" style="color:var(--blue);">Ir para O que fazemos &rarr;</span>
+</a>
+</div>
+</div>
+</section>
+<!-- COMPARATOR -->
+<section class="comparator">
+<div class="container">
+<div class="section-heading">
+<p class="eyebrow">Como o pre&ccedil;o se forma</p>
+<h2>O mesmo material, dois jeitos diferentes de chegar at&eacute; voc&ecirc;</h2>
+<p>O custo direto de f&aacute;brica (MDF, ferragem, corte, fitagem, frete e montagem) &eacute; o mesmo em qualquer lugar. O que muda &eacute; quem faz o qu&ecirc; &mdash; e o que fica vis&iacute;vel pra voc&ecirc; no caminho.</p>
+</div>
+<div class="compare-grid">
+<div class="compare-card">
+<div class="compare-head"><span class="name">Modelo tradicional</span><span class="tag" style="color:var(--sienna)">Custos agrupados</span></div>
+<div class="compare-body">
+<div class="check-item" style="border-bottom:1px solid var(--line); padding:10px 0;"><span class="mark" style="border-color:var(--sienna); color:var(--sienna);">&minus;</span><span>Atendimento, projeto, produ&ccedil;&atilde;o e montagem aparecem somados num pre&ccedil;o s&oacute;.</span></div>
+<div class="check-item" style="border-bottom:1px solid var(--line); padding:10px 0;"><span class="mark" style="border-color:var(--sienna); color:var(--sienna);">&minus;</span><span>O cliente nem sempre sabe quanto &eacute; material e quanto &eacute; servi&ccedil;o.</span></div>
+<div class="check-item" style="padding:10px 0;"><span class="mark" style="border-color:var(--sienna); color:var(--sienna);">&minus;</span><span>Mudar uma escolha no meio do caminho pode custar mais do que parece.</span></div>
+</div>
+</div>
+<div class="compare-card dark">
+<div class="compare-head"><span class="name">Markup Zero</span><span class="tag" style="color:var(--blue-light)">Custos separados</span></div>
+<div class="compare-body">
+<div class="check-item" style="border-bottom:1px solid rgba(237,234,225,0.15); padding:10px 0; color:rgba(237,234,225,0.85);"><span class="mark" style="border-color:var(--blue-light); color:var(--blue-light);">&checkmark;</span><span>Servi&ccedil;o de engenharia e custo de fabrica&ccedil;&atilde;o aparecem separados.</span></div>
+<div class="check-item" style="border-bottom:1px solid rgba(237,234,225,0.15); padding:10px 0; color:rgba(237,234,225,0.85);"><span class="mark" style="border-color:var(--blue-light); color:var(--blue-light);">&checkmark;</span><span>Voc&ecirc; sabe o que est&aacute; pagando pelo projeto e o que vai para a produ&ccedil;&atilde;o.</span></div>
+<div class="check-item" style="padding:10px 0; color:rgba(237,234,225,0.85);"><span class="mark" style="border-color:var(--blue-light); color:var(--blue-light);">&checkmark;</span><span>Escopo e etapas explicados antes de qualquer contrata&ccedil;&atilde;o.</span></div>
+</div>
+</div>
+</div>
+<p style="margin-top:24px; max-width:640px; font-size:0.9375rem; line-height:1.65; color:var(--graphite-600);">
+        Quer ver como isso se aplica ao seu projeto? Fale com a gente &mdash; o escopo e o investimento s&atilde;o explicados com clareza antes de qualquer contrata&ccedil;&atilde;o.
+      </p>
+</div>
+</section>
+<!-- 5 STEPS -->
+<section class="steps">
+<div class="container">
+<div class="section-heading light">
+<p class="eyebrow blue">Nosso processo</p>
+<h2>5 passos para um projeto de sucesso</h2>
+<p>Do primeiro contato at&eacute; a &uacute;ltima parafusadeira. Um resumo pr&aacute;tico de como cada etapa protege o seu projeto &mdash; e o seu bolso.</p>
+</div>
+<div class="steps-list">
+<div class="step-row">
+<div><span class="step-label">Passo 01</span><h3 class="step-title">Briefing</h3></div>
+<p class="step-desc">Uma conversa inicial para entender como voc&ecirc; vive: rotina, estilo, or&ccedil;amento dispon&iacute;vel e prioridades reais. &Eacute; aqui que definimos o que importa antes de desenhar qualquer linha &mdash; evita retrabalho e projeto gen&eacute;rico.</p>
+</div>
+<div class="step-row">
+<div><span class="step-label">Passo 02</span><h3 class="step-title">Anteprojeto</h3></div>
+<p class="step-desc">A primeira vers&atilde;o do seu ambiente em 3D, pronta para voc&ecirc; visualizar espa&ccedil;os, materiais e acabamentos e pedir ajustes &mdash; antes de qualquer detalhe t&eacute;cnico ou pedido de material ser fechado.</p>
+</div>
+<div class="step-row">
+<div><span class="step-label">Passo 03</span><h3 class="step-title">Medi&ccedil;&atilde;o</h3></div>
+<p class="step-desc">Um t&eacute;cnico vai at&eacute; o local conferir medidas reais, prumo, esquadro e a posi&ccedil;&atilde;o de pontos el&eacute;tricos e hidr&aacute;ulicos. &Eacute; o que garante que o projeto aprovado encaixe perfeitamente na obra, sem surpresa na montagem.</p>
+</div>
+<div class="step-row">
+<div><span class="step-label">Passo 04</span><h3 class="step-title">Visita &agrave; f&aacute;brica</h3></div>
+<p class="step-desc">Voc&ecirc; conhece de perto onde e como o seu m&oacute;vel &eacute; feito: o maquin&aacute;rio, o processo de corte e a qualidade real do material. Ver a f&aacute;brica muda completamente a forma como voc&ecirc; enxerga o pre&ccedil;o que est&aacute; pagando &mdash; e a confian&ccedil;a no resultado.</p>
+</div>
+<div class="step-row">
+<div><span class="step-label">Passo 05</span><h3 class="step-title">Montagem</h3></div>
+<p class="step-desc">A entrega final, com acompanhamento t&eacute;cnico para garantir que cada pe&ccedil;a saia exatamente como foi projetado e medido &mdash; do papel para a sua casa, sem perdas.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- ECOSYSTEM SUMMARY: REDE DE FABRICAÇÃO -->
+<section class="ecosystem">
+<div class="container">
+<div class="section-heading">
+<p class="eyebrow blue-l">Conex&otilde;es que garantem entrega</p>
+<h2>Parcerias s&oacute;lidas, resultado de sucesso pra voc&ecirc;</h2>
+<p>Trabalhamos com quem j&aacute; resolveu o problema da fabrica&ccedil;&atilde;o em escala. Um resumo pr&aacute;tico de quem est&aacute; por tr&aacute;s do seu m&oacute;vel.</p>
+</div>
+<div class="eco-grid">
+<div class="eco-card">
+<span class="eco-tag">Rede nacional de fabrica&ccedil;&atilde;o</span>
+<h3>Centenas de f&aacute;bricas em todo o Brasil</h3>
+<p>Temos acesso a uma plataforma conectada a centenas de f&aacute;bricas espalhadas por todo o pa&iacute;s &mdash; seccionadoras de alta precis&atilde;o, usinagem CNC e fitagem de borda, com etiqueta e c&oacute;digo de barras por pe&ccedil;a. N&atilde;o importa a cidade onde voc&ecirc; mora: o padr&atilde;o de corte, a rastreabilidade e o prazo seguem o mesmo crit&eacute;rio t&eacute;cnico.</p>
+</div>
+<div class="eco-card">
+<span class="eco-tag">Alcance em S&atilde;o Paulo</span>
+<h3>As principais f&aacute;bricas de m&oacute;veis planejados de SP</h3>
+<p>Temos acesso &agrave;s principais f&aacute;bricas de m&oacute;veis planejados de S&atilde;o Paulo &mdash; unidades acess&iacute;veis, com tecnologia de ponta e ao alcance do seu projeto. Isso garante versatilidade de material e os prazos mais competitivos do setor, no mesmo padr&atilde;o usado pelas maiores redes de fabrica&ccedil;&atilde;o do pa&iacute;s.</p>
+</div>
+</div>
+<a class="ecosystem-cta" href="#como-fazemos" onclick="showPage('como-fazemos'); return false;">Ver o processo completo em Como fazemos &rarr;</a>
+</div>
+</section>
+<!-- DIFERENCIAIS -->
+<section class="testimonials">
+<div class="container">
+<div class="section-heading">
+<p class="eyebrow">O que muda com a gente</p>
+<h2>Uma equipe que j&aacute; viveu os dois lados da marcenaria</h2>
+</div>
+<div class="diff-grid" style="margin-top:8px;">
+<button aria-controls="chip-detail-1" aria-expanded="false" class="diff-chip" onclick="toggleDiffChip(this); return false;" type="button">
+<span class="chip-main"><span aria-hidden="true" class="mark">＋</span><span class="chip-label">Vis&atilde;o de f&aacute;brica, n&atilde;o s&oacute; de desenho</span></span>
+<span class="chip-detail" hidden="" id="chip-detail-1"><span class="detail-label">O que &eacute;:</span><span class="detail-copy">An&aacute;lise t&eacute;cnica aprofundada de como a solu&ccedil;&atilde;o ser&aacute; interpretada, usinada e montada pela ind&uacute;stria.</span><span class="detail-label">Como se aplica:</span><span class="detail-copy">Evita erros conceituais no desenho de arquitetura ao antecipar restri&ccedil;&otilde;es de m&aacute;quinas, ferragens e encaixes reais.</span></span>
+</button>
+<button aria-controls="chip-detail-2" aria-expanded="false" class="diff-chip" onclick="toggleDiffChip(this); return false;" type="button">
+<span class="chip-main"><span aria-hidden="true" class="mark">＋</span><span class="chip-label">Engenharia executiva antes da produ&ccedil;&atilde;o</span></span>
+<span class="chip-detail" hidden="" id="chip-detail-2"><span class="detail-label">O que &eacute;:</span><span class="detail-copy">Organiza&ccedil;&atilde;o completa da estrutura fabril antes de enviar o projeto para a corte e usinagem.</span><span class="detail-label">Como se aplica:</span><span class="detail-copy">Padroniza&ccedil;&atilde;o e detalhamento de listas de pe&ccedil;as, ferragens, folgas t&eacute;cnicas e planos de fura&ccedil;&atilde;o direto para o ch&atilde;o de f&aacute;brica.</span></span>
+</button>
+<button aria-controls="chip-detail-3" aria-expanded="false" class="diff-chip" onclick="toggleDiffChip(this); return false;" type="button">
+<span class="chip-main"><span aria-hidden="true" class="mark">＋</span><span class="chip-label">Leitura pr&aacute;tica da montagem</span></span>
+<span class="chip-detail" hidden="" id="chip-detail-3"><span class="detail-label">O que &eacute;:</span><span class="detail-copy">Planejamento log&iacute;stico e sequencial de instala&ccedil;&atilde;o para a equipe de campo.</span><span class="detail-label">Como se aplica:</span><span class="detail-copy">Mapeamento de acessos, ordem de encaixe e identifica&ccedil;&atilde;o clara de cada pe&ccedil;a, reduzindo o tempo de montagem no cliente.</span></span>
+</button>
+<button aria-controls="chip-detail-4" aria-expanded="false" class="diff-chip" onclick="toggleDiffChip(this); return false;" type="button">
+<span class="chip-main"><span aria-hidden="true" class="mark">＋</span><span class="chip-label">Compatibiliza&ccedil;&atilde;o com o ambiente real</span></span>
+<span class="chip-detail" hidden="" id="chip-detail-4"><span class="detail-label">O que &eacute;:</span><span class="detail-copy">Confer&ecirc;ncia cruzada entre as medidas do projeto e a arquitetura real do local.</span><span class="detail-label">Como se aplica:</span><span class="detail-copy">Checagem pr&eacute;via de interfer&ecirc;ncias com tomadas, pontos de &aacute;gua, prumadas, caixilhos, portas e janelas antes da fabrica&ccedil;&atilde;o.</span></span>
+</button>
+<button aria-controls="chip-detail-5" aria-expanded="false" class="diff-chip" onclick="toggleDiffChip(this); return false;" type="button">
+<span class="chip-main"><span aria-hidden="true" class="mark">＋</span><span class="chip-label">Liberdade de materiais e acabamentos</span></span>
+<span class="chip-detail" hidden="" id="chip-detail-5"><span class="detail-label">O que &eacute;:</span><span class="detail-copy">Especifica&ccedil;&atilde;o imparcial e abrangente de mat&eacute;rias-primas dispon&iacute;veis no mercado.</span><span class="detail-label">Como se aplica:</span><span class="detail-copy">Avalia&ccedil;&atilde;o e valida&ccedil;&atilde;o de MDF, MDP, BP, lacas, vidros, l&acirc;minas e serralheria de acordo com a viabilidade t&eacute;cnica e o or&ccedil;amento.</span></span>
+</button>
+<button aria-controls="chip-detail-6" aria-expanded="false" class="diff-chip" onclick="toggleDiffChip(this); return false;" type="button">
+<span class="chip-main"><span aria-hidden="true" class="mark">＋</span><span class="chip-label">Atendimento direto ao cliente final</span></span>
+<span class="chip-detail" hidden="" id="chip-detail-6"><span class="detail-label">O que &eacute;:</span><span class="detail-copy">Atendimento direto a quem entende das decis&otilde;es de engenharia, projeto, fabrica&ccedil;&atilde;o e montagem.</span><span class="detail-label">Como se aplica:</span><span class="detail-copy">O cliente conversa com a equipe t&eacute;cnica e acompanha as defini&ccedil;&otilde;es que impactam o resultado final.</span></span>
+</button>
+<button aria-controls="chip-detail-7" aria-expanded="false" class="diff-chip" onclick="toggleDiffChip(this); return false;" type="button">
+<span class="chip-main"><span aria-hidden="true" class="mark">＋</span><span class="chip-label">Transpar&ecirc;ncia de escopo e investimento</span></span>
+<span class="chip-detail" hidden="" id="chip-detail-7"><span class="detail-label">O que &eacute;:</span><span class="detail-copy">Clareza sobre custos, prazos, entregas e etapas antes do fechamento do contrato.</span><span class="detail-label">Como se aplica:</span><span class="detail-copy">Cada servi&ccedil;o &eacute; apresentado sem caixas-pretas comerciais ou custos ocultos, conforme o escopo contratado.</span></span>
+</button>
+</div>
+</div>
+</section>
+<!-- FINAL CTA — WHATSAPP -->
+<section class="final-cta">
+<div class="container final-cta-inner">
+<p class="eyebrow">Conte o que voc&ecirc; quer construir</p>
+<h2>Voc&ecirc; pode chegar com uma ideia, um ambiente vazio ou um projeto existente.</h2>
+<p>A gente entende o ponto de partida, explica o escopo com clareza e acompanha do primeiro tra&ccedil;o at&eacute; a montagem &mdash; sem letra mi&uacute;da no meio do caminho.</p>
+<a class="btn btn-primary btn-lg" href="https://wa.me/551121102744" rel="noopener noreferrer" target="_blank">Chamar no WhatsApp</a>
+</div>
+</section>
+</div>
+<div class="page" id="page-o-que-fazemos">
+<section class="page-hero grid-paper">
+<div class="container">
+<p class="eyebrow">O que fazemos</p>
+<h1>Criamos o projeto do zero ou transformamos o seu projeto em realidade</h1>
+<p class="lead">A Markup Zero atua desde a concep&ccedil;&atilde;o do ambiente at&eacute; a fabrica&ccedil;&atilde;o e a montagem. Podemos desenvolver o seu projeto completo, come&ccedil;ando pelo briefing e pelo design de interiores, ou receber um projeto que voc&ecirc; j&aacute; possui e desenvolver toda a engenharia necess&aacute;ria para torn&aacute;-lo fabric&aacute;vel e mont&aacute;vel.</p>
+<p class="lead" style="margin-top:16px;">Em ambos os casos, analisamos o ambiente, resolvemos medidas, ergonomia, colis&otilde;es, folgas, materiais, ferragens, usinagens e condi&ccedil;&otilde;es de execu&ccedil;&atilde;o para que a solu&ccedil;&atilde;o funcione na vida real &mdash; e n&atilde;o apenas na imagem.</p>
+<div class="hero-ctas" style="margin-top:32px;">
+<a class="btn btn-primary btn-lg" href="https://wa.me/551121102744" rel="noopener noreferrer" target="_blank">Quero avaliar meu projeto</a>
+<a class="btn btn-outline btn-lg" href="#como-fazemos" onclick="showPage('como-fazemos'); return false;">Entender como funciona</a>
+</div>
+<p class="hero-caption">Atendimento direto ao cliente final, seja o projeto criado do zero por n&oacute;s, seja um projeto que voc&ecirc; j&aacute; possui.</p>
+</div>
+</section>
+<section style="padding:80px 0; border-bottom:1px solid var(--line);">
+<div class="container">
+<div class="section-heading">
+<p class="eyebrow blue-l">Duas portas de entrada</p>
+<h2>Dois caminhos. O mesmo compromisso t&eacute;cnico.</h2>
+<p>Seja come&ccedil;ando do zero ou partindo de um projeto existente, o objetivo &eacute; o mesmo: entregar uma solu&ccedil;&atilde;o coerente com o ambiente, com as necessidades do cliente e com as condi&ccedil;&otilde;es reais de fabrica&ccedil;&atilde;o e montagem.</p>
+</div>
+<div class="services-grid cols-2 aligned-grid">
+<div class="service-card">
+<span class="num">01</span>
+<h3>Projeto completo desde o zero</h3>
+<p>Voc&ecirc; come&ccedil;a com uma necessidade, um ambiente ou uma ideia. Desenvolvemos o conceito, o layout, a linguagem visual, os materiais, os acabamentos e o projeto t&eacute;cnico necess&aacute;rio para levar a solu&ccedil;&atilde;o at&eacute; a fabrica&ccedil;&atilde;o e a montagem.</p>
+<a class="btn btn-outline btn-sm" href="https://wa.me/551121102744" rel="noopener noreferrer" style="margin-top:20px;" target="_blank">Come&ccedil;ar meu projeto</a>
+</div>
+<div class="service-card">
+<span class="num">02</span>
+<h3>Engenharia sobre projeto existente</h3>
+<p>Voc&ecirc; j&aacute; comprou ou recebeu um projeto de uma loja, arquiteto, designer ou outro profissional. N&oacute;s analisamos o material, conferimos o ambiente e desenvolvemos a camada executiva para fabrica&ccedil;&atilde;o, implanta&ccedil;&atilde;o e montagem.</p>
+<a class="btn btn-outline btn-sm" href="https://wa.me/551121102744" rel="noopener noreferrer" style="margin-top:20px;" target="_blank">Avaliar meu projeto</a>
+</div>
+</div>
+<table class="data-table">
+<thead><tr><th>Quando voc&ecirc; come&ccedil;a do zero</th><th>Quando voc&ecirc; j&aacute; tem um projeto</th></tr></thead>
+<tbody>
+<tr><td data-label="Do zero">Entendemos sua rotina e suas necessidades.</td><td data-label="Projeto existente">Recebemos e analisamos o material existente.</td></tr>
+<tr><td data-label="Do zero">Desenvolvemos conceito, layout e est&eacute;tica.</td><td data-label="Projeto existente">Identificamos lacunas e incompatibilidades.</td></tr>
+<tr><td data-label="Do zero">Definimos materiais e acabamentos.</td><td data-label="Projeto existente">Revisamos medidas, ergonomia e execu&ccedil;&atilde;o.</td></tr>
+<tr><td data-label="Do zero">Criamos o projeto visual e executivo.</td><td data-label="Projeto existente">Desenvolvemos a engenharia necess&aacute;ria.</td></tr>
+<tr><td data-label="Do zero">Preparamos fabrica&ccedil;&atilde;o, montagem e acompanhamento.</td><td data-label="Projeto existente">Preparamos fabrica&ccedil;&atilde;o, montagem e acompanhamento.</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+<section style="padding:80px 0; border-bottom:1px solid var(--line); background:var(--paper-raised);">
+<div class="container">
+<div class="section-heading">
+<p class="eyebrow blue-l">O que fazemos na pr&aacute;tica</p>
+<h2>Transformamos inten&ccedil;&atilde;o visual em execu&ccedil;&atilde;o poss&iacute;vel</h2>
+<p>Um projeto &mdash; criado por n&oacute;s desde o briefing ou comprado em outro lugar &mdash; ainda precisa passar por uma etapa de engenharia para ser produzido e instalado corretamente. &Eacute; nessa transi&ccedil;&atilde;o que atuamos.</p>
+</div>
+<div class="services-grid cols-4">
+<div class="service-card">
+<span class="num">01</span>
+<h3>Leitura t&eacute;cnica do projeto</h3>
+<p>Analisamos o briefing do zero ou o projeto j&aacute; existente &mdash; desenhos, perspectivas, ambientes, materiais e componentes previstos &mdash; para identificar o que precisa ser detalhado antes da fabrica&ccedil;&atilde;o.</p>
+</div>
+<div class="service-card">
+<span class="num">02</span>
+<h3>Engenharia executiva</h3>
+<p>Desenvolvemos e organizamos as informa&ccedil;&otilde;es t&eacute;cnicas necess&aacute;rias para fabrica&ccedil;&atilde;o: medidas, divis&otilde;es, encontros, folgas, ferragens, componentes, usinagens e orienta&ccedil;&otilde;es de execu&ccedil;&atilde;o.</p>
+</div>
+<div class="service-card">
+<span class="num">03</span>
+<h3>Implanta&ccedil;&atilde;o na f&aacute;brica</h3>
+<p>Preparamos e implantamos o pedido para que a produ&ccedil;&atilde;o compreenda o que deve ser fabricado, reduzindo interpreta&ccedil;&otilde;es, adapta&ccedil;&otilde;es improvisadas e retrabalho na linha de produ&ccedil;&atilde;o.</p>
+</div>
+<div class="service-card">
+<span class="num">04</span>
+<h3>Supervis&atilde;o da montagem</h3>
+<p>Acompanhamos a instala&ccedil;&atilde;o no ambiente, verificamos a execu&ccedil;&atilde;o e realizamos a confer&ecirc;ncia final para identificar diverg&ecirc;ncias antes do encerramento do projeto.</p>
+</div>
+</div>
+</div>
+</section>
+<section style="padding:80px 0; border-bottom:1px solid var(--line);">
+<div class="container">
+<div class="section-heading">
+<p class="eyebrow">Antes de a m&aacute;quina cortar</p>
+<h2>A maioria dos problemas aparece quando o projeto ainda n&atilde;o foi validado para a realidade do ambiente</h2>
+<p>Antes de liberar o projeto para produ&ccedil;&atilde;o, verificamos se as decis&otilde;es do desenho funcionam nas medidas reais do im&oacute;vel e se podem ser executadas por m&aacute;quinas, f&aacute;brica e montadores.</p>
+</div>
+<div class="check-grid">
+<div class="check-item"><span class="mark">&checkmark;</span><span>Medidas gerais e medidas internas.</span></div>
+<div class="check-item"><span class="mark">&checkmark;</span><span>Prumo, esquadro e n&iacute;veis do ambiente.</span></div>
+<div class="check-item"><span class="mark">&checkmark;</span><span>Espessuras, folgas e toler&acirc;ncias de montagem.</span></div>
+<div class="check-item"><span class="mark">&checkmark;</span><span>Interfer&ecirc;ncias com paredes, portas, janelas, rodap&eacute;s e forros.</span></div>
+<div class="check-item"><span class="mark">&checkmark;</span><span>Colis&otilde;es com pontos el&eacute;tricos, hidr&aacute;ulicos, g&aacute;s, prumadas e equipamentos.</span></div>
+<div class="check-item"><span class="mark">&checkmark;</span><span>Circula&ccedil;&atilde;o e ergonomia de uso.</span></div>
+<div class="check-item"><span class="mark">&checkmark;</span><span>Abertura de portas, gavetas e basculantes.</span></div>
+<div class="check-item"><span class="mark">&checkmark;</span><span>Compatibilidade entre ferragens, acess&oacute;rios e dimens&otilde;es do m&oacute;vel.</span></div>
+<div class="check-item"><span class="mark">&checkmark;</span><span>Encontros entre m&oacute;dulos, tampos, pain&eacute;is, bancadas e acabamentos.</span></div>
+<div class="check-item"><span class="mark">&checkmark;</span><span>Necessidade de cortes, furos, rasgos, usinagens ou adapta&ccedil;&otilde;es especiais.</span></div>
+<div class="check-item"><span class="mark">&checkmark;</span><span>Identifica&ccedil;&atilde;o das pe&ccedil;as e orienta&ccedil;&atilde;o para montagem.</span></div>
+</div>
+<p style="margin-top:24px; max-width:640px; font-size:0.9375rem; line-height:1.65; color:var(--graphite-600);">
+        N&atilde;o eliminamos todos os riscos de um projeto &mdash; mas reduzimos riscos, identificamos incompatibilidades, antecipamos problemas e aumentamos a previsibilidade da fabrica&ccedil;&atilde;o e da montagem.
+      </p>
+</div>
+</section>
+<section class="steps">
+<div class="container">
+<div class="section-heading light">
+<p class="eyebrow blue">A jornada do projeto</p>
+<h2>Do recebimento do projeto at&eacute; a confer&ecirc;ncia final</h2>
+<p>Cada etapa existe para eliminar um risco espec&iacute;fico entre o projeto aprovado e o m&oacute;vel instalado.</p>
+</div>
+<div class="steps-list">
+<div class="step-row">
+<div><span class="step-label">Etapa 01</span><h3 class="step-title">Recebimento do projeto</h3></div>
+<p class="step-desc">Recebemos o projeto visual, comercial ou preliminar adquirido pelo cliente e entendemos o que foi especificado, quais ambientes est&atilde;o inclu&iacute;dos e quais informa&ccedil;&otilde;es ainda precisam ser desenvolvidas.</p>
+</div>
+<div class="step-row">
+<div><span class="step-label">Etapa 02</span><h3 class="step-title">Confer&ecirc;ncia do ambiente</h3></div>
+<p class="step-desc">Validamos as medidas e as condi&ccedil;&otilde;es reais do local, verificando prumo, esquadro, n&iacute;veis, infraestrutura, acessos e interfer&ecirc;ncias que podem afetar o m&oacute;vel.</p>
+</div>
+<div class="step-row">
+<div><span class="step-label">Etapa 03</span><h3 class="step-title">Desenvolvimento executivo</h3></div>
+<p class="step-desc">Transformamos o desenho em informa&ccedil;&otilde;es t&eacute;cnicas para fabrica&ccedil;&atilde;o e montagem, detalhando m&oacute;dulos, pe&ccedil;as, componentes, ferragens, encontros, folgas e necessidades de usinagem.</p>
+</div>
+<div class="step-row">
+<div><span class="step-label">Etapa 04</span><h3 class="step-title">Compatibiliza&ccedil;&atilde;o e aprova&ccedil;&atilde;o</h3></div>
+<p class="step-desc">Conferimos as solu&ccedil;&otilde;es com o ambiente e com o projeto aprovado, antecipando colis&otilde;es, conflitos de abertura, problemas ergon&ocirc;micos e adapta&ccedil;&otilde;es que poderiam surgir durante a instala&ccedil;&atilde;o.</p>
+</div>
+<div class="step-row">
+<div><span class="step-label">Etapa 05</span><h3 class="step-title">Implanta&ccedil;&atilde;o na f&aacute;brica</h3></div>
+<p class="step-desc">Organizamos e implantamos o pedido na f&aacute;brica para que a produ&ccedil;&atilde;o tenha informa&ccedil;&otilde;es claras sobre o que deve ser cortado, usinado, identificado e preparado.</p>
+</div>
+<div class="step-row">
+<div><span class="step-label">Etapa 06</span><h3 class="step-title">Supervis&atilde;o da montagem</h3></div>
+<p class="step-desc">Acompanhamos a montagem e realizamos a confer&ecirc;ncia final do conjunto instalado, observando alinhamento, encaixes, funcionamento e correspond&ecirc;ncia com o projeto aprovado.</p>
+</div>
+</div>
+</div>
+</section>
+<section style="padding:80px 0; border-bottom:1px solid var(--line);">
+<div class="container">
+<div class="section-heading">
+<p class="eyebrow blue-l">Para quem &eacute; este servi&ccedil;o</p>
+<h2>Para voc&ecirc; que quer criar um projeto novo ou j&aacute; tem um projeto em m&atilde;os</h2>
+</div>
+<div class="services-grid cols-4">
+<div class="service-card">
+<h3>Quer criar um projeto novo</h3>
+<p>Voc&ecirc; tem um ambiente vazio ou uma ideia em mente e quer desenvolver o projeto completo desde o briefing, com quem j&aacute; cuida da fabrica&ccedil;&atilde;o e da montagem.</p>
+</div>
+<div class="service-card">
+<h3>Comprou m&oacute;veis planejados</h3>
+<p>Voc&ecirc; comprou um projeto em uma loja e quer uma revis&atilde;o t&eacute;cnica independente antes de fabricar ou montar.</p>
+</div>
+<div class="service-card">
+<h3>Tem projeto de arquiteto ou designer</h3>
+<p>Voc&ecirc; tem um projeto autoral, uma imagem 3D ou um desenho de interiores e precisa transform&aacute;-lo em documenta&ccedil;&atilde;o executiva para produ&ccedil;&atilde;o.</p>
+</div>
+<div class="service-card">
+<h3>Tem um ambiente complexo</h3>
+<p>Voc&ecirc; precisa resolver medidas dif&iacute;ceis, espa&ccedil;os irregulares, curvas, elementos org&acirc;nicos, portas de vidro, estruturas em Metalon, usinagens especiais ou encontros que exigem maior controle t&eacute;cnico.</p>
+</div>
+</div>
+<div class="note-box">
+        N&atilde;o &eacute; necess&aacute;rio substituir o profissional ou a loja que criou o projeto. Nossa atua&ccedil;&atilde;o pode entrar como a camada de engenharia, fabrica&ccedil;&atilde;o e montagem necess&aacute;ria para tirar a solu&ccedil;&atilde;o do papel com mais previsibilidade.
+      </div>
+</div>
+</section>
+<section style="padding:80px 0; border-bottom:1px solid var(--line); background:var(--paper-raised);">
+<div class="container">
+<div class="section-heading">
+<p class="eyebrow">Nosso papel &eacute; tornar o projeto execut&aacute;vel</p>
+<h2>O que n&atilde;o fazemos</h2>
+<p>N&atilde;o somos uma loja de m&oacute;veis planejados e n&atilde;o substitu&iacute;mos automaticamente o arquiteto, o designer ou o fabricante respons&aacute;vel pelo projeto original. Somos a equipe de engenharia e execu&ccedil;&atilde;o que desenvolve, compatibiliza, implanta e acompanha as informa&ccedil;&otilde;es necess&aacute;rias para que o m&oacute;vel seja fabric&aacute;vel e mont&aacute;vel.</p>
+</div>
+</div>
+</section>
+<section style="padding:80px 0; border-bottom:1px solid var(--line);">
+<div class="container">
+<div class="section-heading">
+<p class="eyebrow blue-l">Diferenciais t&eacute;cnicos</p>
+<h2>Quando o projeto precisa sair da tela e entrar na f&aacute;brica</h2>
+</div>
+<div class="diff-grid">
+<button aria-controls="chip-detail-8" aria-expanded="false" class="diff-chip" onclick="toggleDiffChip(this); return false;" type="button">
+<span class="chip-main"><span aria-hidden="true" class="mark">＋</span><span class="chip-label">Projeto executivo para fabrica&ccedil;&atilde;o</span></span>
+<span class="chip-detail" hidden="" id="chip-detail-8"><span class="detail-label">O que &eacute;:</span><span class="detail-copy">Documenta&ccedil;&atilde;o t&eacute;cnica que traduz o projeto em pe&ccedil;as, medidas, materiais, ferragens e informa&ccedil;&otilde;es de produ&ccedil;&atilde;o.</span><span class="detail-label">Como se aplica:</span><span class="detail-copy">A f&aacute;brica recebe um conjunto organizado de dados para cortar, usinar e produzir com menos interpreta&ccedil;&otilde;es.</span></span>
+</button>
+<button aria-controls="chip-detail-9" aria-expanded="false" class="diff-chip" onclick="toggleDiffChip(this); return false;" type="button">
+<span class="chip-main"><span aria-hidden="true" class="mark">＋</span><span class="chip-label">Compatibiliza&ccedil;&atilde;o com o ambiente real</span></span>
+<span class="chip-detail" hidden="" id="chip-detail-9"><span class="detail-label">O que &eacute;:</span><span class="detail-copy">Confer&ecirc;ncia cruzada entre as medidas do projeto e a arquitetura real do local.</span><span class="detail-label">Como se aplica:</span><span class="detail-copy">Checagem pr&eacute;via de interfer&ecirc;ncias com tomadas, pontos de &aacute;gua, prumadas, caixilhos, portas e janelas antes da fabrica&ccedil;&atilde;o.</span></span>
+</button>
+<button aria-controls="chip-detail-10" aria-expanded="false" class="diff-chip" onclick="toggleDiffChip(this); return false;" type="button">
+<span class="chip-main"><span aria-hidden="true" class="mark">＋</span><span class="chip-label">Medidas e ergonomia revisadas</span></span>
+<span class="chip-detail" hidden="" id="chip-detail-10"><span class="detail-label">O que &eacute;:</span><span class="detail-copy">Revis&atilde;o das dimens&otilde;es de uso, circula&ccedil;&atilde;o, alcance e propor&ccedil;&atilde;o dos elementos do m&oacute;vel.</span><span class="detail-label">Como se aplica:</span><span class="detail-copy">Ajustamos alturas, profundidades, folgas e divis&otilde;es para o m&oacute;vel funcionar no ambiente e na rotina do cliente.</span></span>
+</button>
+<button aria-controls="chip-detail-11" aria-expanded="false" class="diff-chip" onclick="toggleDiffChip(this); return false;" type="button">
+<span class="chip-main"><span aria-hidden="true" class="mark">＋</span><span class="chip-label">Redu&ccedil;&atilde;o de colis&otilde;es e adapta&ccedil;&otilde;es na montagem</span></span>
+<span class="chip-detail" hidden="" id="chip-detail-11"><span class="detail-label">O que &eacute;:</span><span class="detail-copy">Identifica&ccedil;&atilde;o antecipada de conflitos entre o m&oacute;vel, a arquitetura e os componentes existentes.</span><span class="detail-label">Como se aplica:</span><span class="detail-copy">Corrigimos encontros e interfer&ecirc;ncias no projeto antes que a equipe precise improvisar durante a instala&ccedil;&atilde;o.</span></span>
+</button>
+<button aria-controls="chip-detail-12" aria-expanded="false" class="diff-chip" onclick="toggleDiffChip(this); return false;" type="button">
+<span class="chip-main"><span aria-hidden="true" class="mark">＋</span><span class="chip-label">Implanta&ccedil;&atilde;o e comunica&ccedil;&atilde;o com a f&aacute;brica</span></span>
+<span class="chip-detail" hidden="" id="chip-detail-12"><span class="detail-label">O que &eacute;:</span><span class="detail-copy">Prepara&ccedil;&atilde;o e encaminhamento das informa&ccedil;&otilde;es t&eacute;cnicas para o fornecedor ou ind&uacute;stria respons&aacute;vel.</span><span class="detail-label">Como se aplica:</span><span class="detail-copy">Alinhamos arquivos, especifica&ccedil;&otilde;es e decis&otilde;es para reduzir d&uacute;vidas entre projeto, produ&ccedil;&atilde;o e controle de qualidade.</span></span>
+</button>
+<button aria-controls="chip-detail-13" aria-expanded="false" class="diff-chip" onclick="toggleDiffChip(this); return false;" type="button">
+<span class="chip-main"><span aria-hidden="true" class="mark">＋</span><span class="chip-label">Supervis&atilde;o t&eacute;cnica da montagem</span></span>
+<span class="chip-detail" hidden="" id="chip-detail-13"><span class="detail-label">O que &eacute;:</span><span class="detail-copy">Acompanhamento especializado da instala&ccedil;&atilde;o para conferir ader&ecirc;ncia ao projeto e ao escopo contratado.</span><span class="detail-label">Como se aplica:</span><span class="detail-copy">A equipe verifica etapas cr&iacute;ticas, registra diverg&ecirc;ncias e orienta os encaminhamentos necess&aacute;rios no local.</span></span>
+</button>
+<button aria-controls="chip-detail-14" aria-expanded="false" class="diff-chip" onclick="toggleDiffChip(this); return false;" type="button">
+<span class="chip-main"><span aria-hidden="true" class="mark">＋</span><span class="chip-label">Aplica&ccedil;&atilde;o em m&oacute;veis retos, org&acirc;nicos e com usinagens especiais</span></span>
+<span class="chip-detail" hidden="" id="chip-detail-14"><span class="detail-label">O que &eacute;:</span><span class="detail-copy">Desenvolvimento de solu&ccedil;&otilde;es lineares, curvas e com detalhes construtivos fora do padr&atilde;o convencional.</span><span class="detail-label">Como se aplica:</span><span class="detail-copy">Estudamos materiais, raios, emendas, encaixes e processos para tornar a forma desejada fabric&aacute;vel e mont&aacute;vel.</span></span>
+</button>
+</div>
+</div>
+</section>
+<section class="final-cta">
+<div class="container final-cta-inner">
+<p class="eyebrow">Seu projeto pode estar pronto para a pr&oacute;xima etapa</p>
+<h2>Vamos avaliar se o seu projeto est&aacute; pronto para fabricar e montar?</h2>
+<p>Envie o projeto que voc&ecirc; j&aacute; possui e explique o ambiente. Nossa equipe vai entender o escopo, identificar a etapa t&eacute;cnica necess&aacute;ria e orientar o pr&oacute;ximo passo.</p>
+<div class="hero-ctas" style="justify-content:center; margin-top:32px;">
+<a class="btn btn-primary btn-lg" href="https://wa.me/551121102744" rel="noopener noreferrer" target="_blank">Falar com um especialista no WhatsApp</a>
+<a class="btn btn-outline btn-lg" href="#home" onclick="showPage('home'); return false;">Voltar para a Home</a>
+</div>
+</div>
+</section>
+</div>
+<div class="page" id="page-como-fazemos">
+<section class="page-hero grid-paper">
+<div class="container">
+<p class="eyebrow blue-l">Nosso m&eacute;todo de trabalho</p>
+<h1>Do primeiro briefing &agrave; montagem: o m&eacute;todo que transforma ideias em realidade</h1>
+<p class="lead">Podemos come&ccedil;ar com uma folha em branco ou com um projeto que voc&ecirc; j&aacute; possui. Em qualquer ponto de partida, seguimos uma sequ&ecirc;ncia t&eacute;cnica para entender o ambiente, desenvolver a solu&ccedil;&atilde;o, preparar a fabrica&ccedil;&atilde;o e acompanhar a montagem.</p>
+<div class="diff-grid" style="margin-top:32px;">
+<button aria-controls="chip-detail-15" aria-expanded="false" class="diff-chip" onclick="toggleDiffChip(this); return false;" type="button">
+<span class="chip-main"><span aria-hidden="true" class="mark">＋</span><span class="chip-label">Do ambiente real para o projeto executivo</span></span>
+<span class="chip-detail" hidden="" id="chip-detail-15"><span class="detail-label">O que &eacute;:</span><span class="detail-copy">Transforma&ccedil;&atilde;o das condi&ccedil;&otilde;es f&iacute;sicas do local em medidas, folgas e decis&otilde;es de projeto.</span><span class="detail-label">Como se aplica:</span><span class="detail-copy">A leitura do ambiente orienta a documenta&ccedil;&atilde;o executiva antes que o projeto avance para a fabrica&ccedil;&atilde;o.</span></span>
+</button>
+<button aria-controls="chip-detail-16" aria-expanded="false" class="diff-chip" onclick="toggleDiffChip(this); return false;" type="button">
+<span class="chip-main"><span aria-hidden="true" class="mark">＋</span><span class="chip-label">Da engenharia para a f&aacute;brica</span></span>
+<span class="chip-detail" hidden="" id="chip-detail-16"><span class="detail-label">O que &eacute;:</span><span class="detail-copy">Tradu&ccedil;&atilde;o das decis&otilde;es de projeto em informa&ccedil;&otilde;es compreens&iacute;veis para m&aacute;quinas e equipes de produ&ccedil;&atilde;o.</span><span class="detail-label">Como se aplica:</span><span class="detail-copy">Organizamos desenhos, medidas, pe&ccedil;as, materiais e ferragens para facilitar a interpreta&ccedil;&atilde;o industrial.</span></span>
+</button>
+<button aria-controls="chip-detail-17" aria-expanded="false" class="diff-chip" onclick="toggleDiffChip(this); return false;" type="button">
+<span class="chip-main"><span aria-hidden="true" class="mark">＋</span><span class="chip-label">Da f&aacute;brica para a montagem</span></span>
+<span class="chip-detail" hidden="" id="chip-detail-17"><span class="detail-label">O que &eacute;:</span><span class="detail-copy">Organiza&ccedil;&atilde;o das informa&ccedil;&otilde;es necess&aacute;rias para instalar no ambiente aquilo que foi produzido.</span><span class="detail-label">Como se aplica:</span><span class="detail-copy">O projeto de montagem indica posi&ccedil;&otilde;es, componentes, encaixes e sequ&ecirc;ncia para a equipe de campo.</span></span>
+</button>
+</div>
+<div class="hero-ctas" style="margin-top:32px;">
+<a class="btn btn-primary btn-lg" href="https://wa.me/551121102744" rel="noopener noreferrer" target="_blank">Quero estruturar meu projeto</a>
+<a class="btn btn-outline btn-lg" href="#o-que-fazemos" onclick="showPage('o-que-fazemos'); return false;">Conhecer o que fazemos</a>
+</div>
+<p class="hero-caption">Atendimento direto ao cliente final, com escopo e etapas explicados antes do in&iacute;cio do trabalho.</p>
+</div>
+</section>
+<section style="padding:80px 0; border-bottom:1px solid var(--line);">
+<div class="container">
+<div class="section-heading">
+<p class="eyebrow blue-l">Entre a imagem e a execu&ccedil;&atilde;o</p>
+<h2>Uma perspectiva bonita ainda precisa se transformar em engenharia</h2>
+<p>O projeto visual mostra a est&eacute;tica, os volumes, as cores e a inten&ccedil;&atilde;o do ambiente. Antes de a f&aacute;brica produzir e o montador instalar, &eacute; necess&aacute;rio resolver medidas, espessuras, folgas, ferragens, encontros, acessos, usinagens e interfer&ecirc;ncias.</p>
+<p style="margin-top:16px;">&Eacute; nessa etapa que a imagem deixa de ser apenas uma perspectiva e se transforma em um conjunto de pe&ccedil;as, componentes, instru&ccedil;&otilde;es e informa&ccedil;&otilde;es t&eacute;cnicas que as m&aacute;quinas, a f&aacute;brica e os montadores conseguem compreender.</p>
+</div>
+<table class="data-table">
+<thead><tr><th>Projeto visual</th><th>Projeto pronto para execu&ccedil;&atilde;o</th></tr></thead>
+<tbody>
+<tr><td data-label="Projeto visual">Apresenta o conceito e a est&eacute;tica.</td><td data-label="Pronto para execu&ccedil;&atilde;o">Detalha medidas, pe&ccedil;as e componentes.</td></tr>
+<tr><td data-label="Projeto visual">Ajuda o cliente a visualizar o resultado.</td><td data-label="Pronto para execu&ccedil;&atilde;o">Considera folgas, toler&acirc;ncias e montagem.</td></tr>
+<tr><td data-label="Projeto visual">Define a inten&ccedil;&atilde;o do ambiente.</td><td data-label="Pronto para execu&ccedil;&atilde;o">Resolve conflitos com o ambiente real.</td></tr>
+<tr><td data-label="Projeto visual">Mostra o resultado esperado.</td><td data-label="Pronto para execu&ccedil;&atilde;o">Orienta fabrica&ccedil;&atilde;o e instala&ccedil;&atilde;o.</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="steps">
+<div class="container">
+<div class="section-heading light">
+<p class="eyebrow blue">Um m&eacute;todo estudado para fazer o projeto dar certo</p>
+<h2>Duas portas de entrada, uma sequ&ecirc;ncia t&eacute;cnica em comum</h2>
+<p>Nosso trabalho segue uma sequ&ecirc;ncia t&eacute;cnica que conecta entendimento, medi&ccedil;&atilde;o, anteprojeto, confer&ecirc;ncia, projeto executivo, fabrica&ccedil;&atilde;o, montagem e supervis&atilde;o. Cada etapa existe para antecipar problemas e aumentar a previsibilidade do resultado.</p>
+</div>
+<div class="steps-list">
+<div class="step-row">
+<div><span class="step-label">Ponto de entrada A</span><h3 class="step-title">Projeto desde o zero</h3></div>
+<p class="step-desc">Come&ccedil;amos pelo briefing, pela leitura do ambiente e pelo desenvolvimento do conceito. Entendemos como voc&ecirc; vive, o que precisa guardar, como pretende usar cada espa&ccedil;o e qual linguagem visual faz sentido para a sua casa.</p>
+</div>
+<div class="step-row">
+<div><span class="step-label">Ponto de entrada B</span><h3 class="step-title">Projeto existente</h3></div>
+<p class="step-desc">Recebemos a perspectiva, o projeto comercial ou o material desenvolvido por outro profissional. Analisamos o que foi especificado, identificamos o que precisa ser conferido e estruturamos a engenharia necess&aacute;ria para avan&ccedil;ar com seguran&ccedil;a.</p>
+</div>
+<div class="step-row">
+<div><span class="step-label">Etapa 01</span><h3 class="step-title">Briefing e entendimento do cliente</h3></div>
+<p class="step-desc">Entendemos a rotina, as necessidades, as prefer&ecirc;ncias, o or&ccedil;amento e as expectativas do cliente. Tamb&eacute;m analisamos o projeto existente, quando ele j&aacute; foi comprado ou desenvolvido por outro profissional.</p>
+</div>
+<div class="step-row">
+<div><span class="step-label">Etapa 02</span><h3 class="step-title">Leitura e medi&ccedil;&atilde;o do ambiente</h3></div>
+<p class="step-desc">Levantamos as medidas e as condi&ccedil;&otilde;es reais do local. Verificamos prumo, esquadro, n&iacute;veis, v&atilde;os, portas, janelas, rodap&eacute;s, forros, acessos, pontos el&eacute;tricos, hidr&aacute;ulicos, g&aacute;s, prumadas e demais interfer&ecirc;ncias.</p>
+</div>
+<div class="step-row">
+<div><span class="step-label">Etapa 03</span><h3 class="step-title">Anteprojeto e adequa&ccedil;&atilde;o da solu&ccedil;&atilde;o</h3></div>
+<p class="step-desc">Avaliamos se o projeto sonhado funciona na vida real. Ajustamos propor&ccedil;&otilde;es, circula&ccedil;&atilde;o, ergonomia, alturas, profundidades, aberturas e rela&ccedil;&otilde;es entre os m&oacute;dulos.</p>
+</div>
+<div class="step-row">
+<div><span class="step-label">Etapa 04</span><h3 class="step-title">Confer&ecirc;ncia e compatibiliza&ccedil;&atilde;o</h3></div>
+<p class="step-desc">Conferimos as informa&ccedil;&otilde;es do projeto contra o ambiente e contra os componentes previstos. Identificamos colis&otilde;es, conflitos de abertura, incompatibilidades, falta de folgas e pontos que poderiam gerar adapta&ccedil;&otilde;es improvisadas.</p>
+</div>
+<div class="step-row">
+<div><span class="step-label">Etapa 05</span><h3 class="step-title">Projeto executivo</h3></div>
+<p class="step-desc">Organizamos as informa&ccedil;&otilde;es t&eacute;cnicas necess&aacute;rias para fabrica&ccedil;&atilde;o e montagem, incluindo m&oacute;dulos, pe&ccedil;as, dimens&otilde;es, espessuras, materiais, ferragens, componentes, encontros, folgas, identifica&ccedil;&otilde;es, cortes, furos, rasgos e usinagens especiais.</p>
+</div>
+<div class="step-row">
+<div><span class="step-label">Etapa 06</span><h3 class="step-title">Projeto para fabrica&ccedil;&atilde;o</h3></div>
+<p class="step-desc">Preparamos o projeto para os processos da f&aacute;brica, considerando m&aacute;quinas manuais e autom&aacute;ticas, corte, fitagem, fura&ccedil;&atilde;o, usinagem, identifica&ccedil;&atilde;o de pe&ccedil;as, montagem pr&eacute;via e demais procedimentos aplic&aacute;veis.</p>
+</div>
+<div class="step-row">
+<div><span class="step-label">Etapa 07</span><h3 class="step-title">Projeto para montagem</h3></div>
+<p class="step-desc">Organizamos as informa&ccedil;&otilde;es necess&aacute;rias para que os montadores compreendam a sequ&ecirc;ncia, os encaixes, as posi&ccedil;&otilde;es, os componentes e os cuidados espec&iacute;ficos da instala&ccedil;&atilde;o.</p>
+</div>
+<div class="step-row">
+<div><span class="step-label">Etapa 08</span><h3 class="step-title">Acompanhamento t&eacute;cnico da montagem</h3></div>
+<p class="step-desc">Como parte do servi&ccedil;o completo, acompanhamos a instala&ccedil;&atilde;o, verificamos alinhamentos, encaixes, funcionamento, acabamento e correspond&ecirc;ncia com o projeto aprovado. A supervis&atilde;o pode ser realizada por equipe pr&oacute;pria ou por profissionais previamente alinhados ao nosso padr&atilde;o de trabalho, conforme a disponibilidade e o projeto.</p>
+</div>
+</div>
+<p style="margin-top:32px; max-width:640px; font-size:0.9375rem; line-height:1.65; color:rgba(237,234,225,0.7);">
+        O m&eacute;todo busca maior previsibilidade t&eacute;cnica e redu&ccedil;&atilde;o de erros e retrabalho &mdash; n&atilde;o uma promessa de acerto absoluto.
+      </p>
+</div>
+</section>
+<section class="ecosystem">
+<div class="container">
+<div class="section-heading">
+<p class="eyebrow blue-l">Parcerias s&oacute;lidas para a etapa de fabrica&ccedil;&atilde;o</p>
+<h2>A tecnologia e a ind&uacute;stria por tr&aacute;s do seu m&oacute;vel</h2>
+<p>Trabalhamos com quem j&aacute; resolveu o problema da fabrica&ccedil;&atilde;o em escala. Aqui est&aacute; exatamente quem est&aacute; por tr&aacute;s da implanta&ccedil;&atilde;o do seu pedido.</p>
+</div>
+<div class="eco-grid">
+<div class="eco-card">
+<span class="eco-tag">Rede nacional de fabrica&ccedil;&atilde;o</span>
+<h3>Centenas de f&aacute;bricas em todo o Brasil</h3>
+<p>Temos acesso a uma plataforma conectada a centenas de f&aacute;bricas espalhadas por todo o pa&iacute;s &mdash; seccionadoras de alta precis&atilde;o, usinagem CNC e fitagem de borda, com etiqueta e c&oacute;digo de barras por pe&ccedil;a. Isso significa atendimento em n&iacute;vel nacional, com o mesmo padr&atilde;o de corte e rastreabilidade, n&atilde;o importa a cidade onde voc&ecirc; mora.</p>
+</div>
+<div class="eco-card">
+<span class="eco-tag">Alcance em S&atilde;o Paulo</span>
+<h3>As principais f&aacute;bricas de m&oacute;veis planejados de SP</h3>
+<p>Temos acesso &agrave;s principais f&aacute;bricas de m&oacute;veis planejados de S&atilde;o Paulo &mdash; unidades acess&iacute;veis, com tecnologia de ponta e ao alcance do seu projeto. Isso nos d&aacute; versatilidade de material e os prazos mais competitivos do setor, no mesmo padr&atilde;o usado pelas maiores redes de fabrica&ccedil;&atilde;o do pa&iacute;s.</p>
+</div>
+</div>
+</div>
+</section>
+<section style="padding:80px 0; border-bottom:1px solid var(--line);">
+<div class="container">
+<div class="section-heading">
+<p class="eyebrow blue-l">Materiais e solu&ccedil;&otilde;es</p>
+<h2>Alto padr&atilde;o &eacute; a solu&ccedil;&atilde;o bem resolvida para o seu ambiente</h2>
+<p>Nossa engenharia permite explorar diferentes materiais, espessuras, desenhos, acabamentos e sistemas construtivos, sempre respeitando a viabilidade t&eacute;cnica de fabrica&ccedil;&atilde;o e montagem.</p>
+</div>
+<div class="diff-grid">
+<button aria-controls="chip-detail-18" aria-expanded="false" class="diff-chip" onclick="toggleDiffChip(this); return false;" type="button">
+<span class="chip-main"><span aria-hidden="true" class="mark">＋</span><span class="chip-label">MDF</span></span>
+<span class="chip-detail" hidden="" id="chip-detail-18"><span class="detail-label">O que &eacute;:</span><span class="detail-copy">Painel de fibras de madeira com variedade de espessuras, padr&otilde;es e acabamentos.</span><span class="detail-label">Como se aplica:</span><span class="detail-copy">&Eacute; especificado conforme uso, desenho, resist&ecirc;ncia, acabamento desejado e processo de fabrica&ccedil;&atilde;o.</span></span>
+</button>
+<button aria-controls="chip-detail-19" aria-expanded="false" class="diff-chip" onclick="toggleDiffChip(this); return false;" type="button">
+<span class="chip-main"><span aria-hidden="true" class="mark">＋</span><span class="chip-label">MDP</span></span>
+<span class="chip-detail" hidden="" id="chip-detail-19"><span class="detail-label">O que &eacute;:</span><span class="detail-copy">Painel de part&iacute;culas de madeira indicado para aplica&ccedil;&otilde;es espec&iacute;ficas de mobili&aacute;rio.</span><span class="detail-label">Como se aplica:</span><span class="detail-copy">A escolha considera resist&ecirc;ncia, acabamento, dimens&atilde;o das pe&ccedil;as e adequa&ccedil;&atilde;o ao uso previsto.</span></span>
+</button>
+<button aria-controls="chip-detail-20" aria-expanded="false" class="diff-chip" onclick="toggleDiffChip(this); return false;" type="button">
+<span class="chip-main"><span aria-hidden="true" class="mark">＋</span><span class="chip-label">BP</span></span>
+<span class="chip-detail" hidden="" id="chip-detail-20"><span class="detail-label">O que &eacute;:</span><span class="detail-copy">Revestimento melam&iacute;nico aplicado ao painel, com padr&otilde;es, cores e texturas variadas.</span><span class="detail-label">Como se aplica:</span><span class="detail-copy">&Eacute; usado quando o projeto pede praticidade, padroniza&ccedil;&atilde;o visual e uma superf&iacute;cie adequada &agrave; rotina do ambiente.</span></span>
+</button>
+<button aria-controls="chip-detail-21" aria-expanded="false" class="diff-chip" onclick="toggleDiffChip(this); return false;" type="button">
+<span class="chip-main"><span aria-hidden="true" class="mark">＋</span><span class="chip-label">Laca</span></span>
+<span class="chip-detail" hidden="" id="chip-detail-21"><span class="detail-label">O que &eacute;:</span><span class="detail-copy">Acabamento aplicado sobre a superf&iacute;cie para criar apar&ecirc;ncia uniforme e diferentes n&iacute;veis de brilho.</span><span class="detail-label">Como se aplica:</span><span class="detail-copy">A especifica&ccedil;&atilde;o considera cor, textura, manuten&ccedil;&atilde;o, prazo, or&ccedil;amento e compatibilidade com a fabrica&ccedil;&atilde;o.</span></span>
+</button>
+<button aria-controls="chip-detail-22" aria-expanded="false" class="diff-chip" onclick="toggleDiffChip(this); return false;" type="button">
+<span class="chip-main"><span aria-hidden="true" class="mark">＋</span><span class="chip-label">Vidro</span></span>
+<span class="chip-detail" hidden="" id="chip-detail-22"><span class="detail-label">O que &eacute;:</span><span class="detail-copy">Material que pode compor portas, pain&eacute;is, nichos e detalhes de mobili&aacute;rio.</span><span class="detail-label">Como se aplica:</span><span class="detail-copy">Definimos medidas, espessura, tipo, ferragens e requisitos de seguran&ccedil;a antes da fabrica&ccedil;&atilde;o e instala&ccedil;&atilde;o.</span></span>
+</button>
+<button aria-controls="chip-detail-23" aria-expanded="false" class="diff-chip" onclick="toggleDiffChip(this); return false;" type="button">
+<span class="chip-main"><span aria-hidden="true" class="mark">＋</span><span class="chip-label">Serralheria</span></span>
+<span class="chip-detail" hidden="" id="chip-detail-23"><span class="detail-label">O que &eacute;:</span><span class="detail-copy">Estruturas e componentes met&aacute;licos que integram o m&oacute;vel ao ambiente.</span><span class="detail-label">Como se aplica:</span><span class="detail-copy">Dimensionamos perfis, encontros, pintura, cargas e formas de fixa&ccedil;&atilde;o conforme o desenho e a montagem.</span></span>
+</button>
+<button aria-controls="chip-detail-24" aria-expanded="false" class="diff-chip" onclick="toggleDiffChip(this); return false;" type="button">
+<span class="chip-main"><span aria-hidden="true" class="mark">＋</span><span class="chip-label">Metalon</span></span>
+<span class="chip-detail" hidden="" id="chip-detail-24"><span class="detail-label">O que &eacute;:</span><span class="detail-copy">Perfil met&aacute;lico usado em estruturas, bases, prateleiras e detalhes construtivos.</span><span class="detail-label">Como se aplica:</span><span class="detail-copy">A aplica&ccedil;&atilde;o considera dimens&atilde;o, acabamento, carga, pontos de uni&atilde;o e forma de instala&ccedil;&atilde;o no ambiente.</span></span>
+</button>
+<button aria-controls="chip-detail-25" aria-expanded="false" class="diff-chip" onclick="toggleDiffChip(this); return false;" type="button">
+<span class="chip-main"><span aria-hidden="true" class="mark">＋</span><span class="chip-label">Ferragens e acess&oacute;rios</span></span>
+<span class="chip-detail" hidden="" id="chip-detail-25"><span class="detail-label">O que &eacute;:</span><span class="detail-copy">Componentes que determinam o movimento, a organiza&ccedil;&atilde;o, a abertura e o uso do m&oacute;vel.</span><span class="detail-label">Como se aplica:</span><span class="detail-copy">Selecionamos dobradi&ccedil;as, corredi&ccedil;as, elevadores e organizadores conforme peso, medidas, ergonomia e durabilidade.</span></span>
+</button>
+<button aria-controls="chip-detail-26" aria-expanded="false" class="diff-chip" onclick="toggleDiffChip(this); return false;" type="button">
+<span class="chip-main"><span aria-hidden="true" class="mark">＋</span><span class="chip-label">Usinagens especiais</span></span>
+<span class="chip-detail" hidden="" id="chip-detail-26"><span class="detail-label">O que &eacute;:</span><span class="detail-copy">Cortes, furos, rasgos, rebaixos e recortes preparados para fun&ccedil;&otilde;es espec&iacute;ficas.</span><span class="detail-label">Como se aplica:</span><span class="detail-copy">Detalhamos as usinagens para acomodar ferragens, ilumina&ccedil;&atilde;o, encaixes e solu&ccedil;&otilde;es personalizadas.</span></span>
+</button>
+<button aria-controls="chip-detail-27" aria-expanded="false" class="diff-chip" onclick="toggleDiffChip(this); return false;" type="button">
+<span class="chip-main"><span aria-hidden="true" class="mark">＋</span><span class="chip-label">Formas retas</span></span>
+<span class="chip-detail" hidden="" id="chip-detail-27"><span class="detail-label">O que &eacute;:</span><span class="detail-copy">Solu&ccedil;&otilde;es lineares compostas por m&oacute;dulos, pain&eacute;is, portas e encontros definidos.</span><span class="detail-label">Como se aplica:</span><span class="detail-copy">A geometria facilita a padroniza&ccedil;&atilde;o de pe&ccedil;as, a leitura fabril e uma montagem mais previs&iacute;vel.</span></span>
+</button>
+<button aria-controls="chip-detail-28" aria-expanded="false" class="diff-chip" onclick="toggleDiffChip(this); return false;" type="button">
+<span class="chip-main"><span aria-hidden="true" class="mark">＋</span><span class="chip-label">Formas org&acirc;nicas</span></span>
+<span class="chip-detail" hidden="" id="chip-detail-28"><span class="detail-label">O que &eacute;:</span><span class="detail-copy">Geometrias curvas ou fluidas que exigem estudo construtivo e maior precis&atilde;o.</span><span class="detail-label">Como se aplica:</span><span class="detail-copy">Analisamos raios, materiais, emendas, gabaritos, encaixes e processo de fabrica&ccedil;&atilde;o antes de liberar a solu&ccedil;&atilde;o.</span></span>
+</button>
+<button aria-controls="chip-detail-29" aria-expanded="false" class="diff-chip" onclick="toggleDiffChip(this); return false;" type="button">
+<span class="chip-main"><span aria-hidden="true" class="mark">＋</span><span class="chip-label">Solu&ccedil;&otilde;es personalizadas</span></span>
+<span class="chip-detail" hidden="" id="chip-detail-29"><span class="detail-label">O que &eacute;:</span><span class="detail-copy">Decis&otilde;es de projeto adaptadas ao ambiente, &agrave; rotina, ao or&ccedil;amento e ao processo dispon&iacute;vel.</span><span class="detail-label">Como se aplica:</span><span class="detail-copy">Cada escolha &eacute; compatibilizada com medidas reais, materiais, fornecedores, m&aacute;quinas e condi&ccedil;&otilde;es de montagem.</span></span>
+</button>
+</div>
+<div class="savings-banner" style="margin-top:40px; border-color:rgba(44,72,112,0.4); background:rgba(44,72,112,0.05);">
+<p style="max-width:520px;">"Alto padr&atilde;o" n&atilde;o deve ser apenas uma etiqueta para inflar o pre&ccedil;o. Alto padr&atilde;o &eacute; a solu&ccedil;&atilde;o que voc&ecirc; escolhe, especifica e acompanha &mdash; com qualidade t&eacute;cnica, materiais adequados e execu&ccedil;&atilde;o bem planejada.</p>
+</div>
+<p style="margin-top:20px; max-width:640px; font-size:0.9375rem; line-height:1.65; color:var(--graphite-600);">
+        A especifica&ccedil;&atilde;o final depende do ambiente, do projeto, dos fornecedores, das m&aacute;quinas dispon&iacute;veis, dos prazos e das condi&ccedil;&otilde;es t&eacute;cnicas de fabrica&ccedil;&atilde;o &mdash; trabalhamos com ampla possibilidade de especifica&ccedil;&atilde;o e liberdade de solu&ccedil;&atilde;o conforme a viabilidade t&eacute;cnica.
+      </p>
+</div>
+</section>
+<section style="padding:80px 0; border-bottom:1px solid var(--line); background:var(--paper-raised);">
+<div class="container">
+<div class="section-heading">
+<p class="eyebrow">Um servi&ccedil;o completo por ambiente</p>
+<h2>Voc&ecirc; contrata o ambiente. A gente conduz o projeto at&eacute; a montagem.</h2>
+<p>O servi&ccedil;o completo da Markup Zero re&uacute;ne briefing, desenvolvimento, engenharia executiva, compatibiliza&ccedil;&atilde;o, prepara&ccedil;&atilde;o para fabrica&ccedil;&atilde;o, projeto para montagem e acompanhamento t&eacute;cnico.</p>
+<p style="margin-top:16px;">A contrata&ccedil;&atilde;o &eacute; feita por ambiente principal. N&atilde;o trabalhamos com uma lista de servi&ccedil;os adicionais para voc&ecirc; montar aos poucos: o valor corresponde ao conjunto completo de trabalho necess&aacute;rio para transformar o projeto em uma solu&ccedil;&atilde;o fabric&aacute;vel e mont&aacute;vel.</p>
+</div>
+<div class="note-box">O mesmo fluxo vale para projetos criados do zero ou para projetos que voc&ecirc; j&aacute; recebeu de uma loja, arquiteto ou outro profissional.</div>
+</div>
+</section>
+<section style="padding:80px 0; border-bottom:1px solid var(--line);">
+<div class="container">
+<div class="section-heading">
+<p class="eyebrow blue-l">Regra de contrata&ccedil;&atilde;o</p>
+<h2>1 ambiente contratado + 1 ambiente b&ocirc;nus</h2>
+<p>Para cada ambiente principal contratado, voc&ecirc; recebe um ambiente b&ocirc;nus eleg&iacute;vel, sem cobran&ccedil;a adicional, conforme a classifica&ccedil;&atilde;o e a an&aacute;lise do projeto.</p>
+</div>
+<div class="ratio-badge">1 <span class="lbl">ambiente principal</span> + 1 <span class="lbl">ambiente b&ocirc;nus</span></div>
+<div class="check-grid" style="margin-top:32px;">
+<div class="check-item"><span class="mark">P</span><span><strong>Ambientes principais:</strong> cozinha, quartos, su&iacute;te, sala, closet, office, &aacute;rea gourmet e outros ambientes principais da casa.</span></div>
+<div class="check-item"><span class="mark">B</span><span><strong>Ambientes b&ocirc;nus:</strong> banheiro, lavabo, &aacute;rea de servi&ccedil;o, varanda e ambientes de apoio com at&eacute; aproximadamente 3 m&sup2;.</span></div>
+</div>
+<div class="note-box">Projetos desenvolvidos por arquitetos passam por avalia&ccedil;&atilde;o antes do or&ccedil;amento. Essa an&aacute;lise confirma o enquadramento do ambiente, a viabilidade do escopo completo e a aplica&ccedil;&atilde;o do ambiente b&ocirc;nus.</div>
+</div>
+</section>
+<section style="padding:80px 0; border-bottom:1px solid var(--line); background:var(--paper-raised);">
+<div class="container">
+<div class="section-heading">
+<p class="eyebrow">Pr&oacute;ximo passo</p>
+<h2>Vamos conversar sobre o seu projeto?</h2>
+<p>O escopo e o or&ccedil;amento s&atilde;o definidos depois de conhecermos o ambiente, o projeto e as necessidades reais da sua casa.</p>
+<p style="margin-top:16px;">Se voc&ecirc; j&aacute; tem um projeto de arquiteto, uma perspectiva de loja ou quer desenvolver tudo do zero, entre em contato. Avaliamos o material recebido e orientamos o melhor caminho para transformar a ideia em um projeto completo e execut&aacute;vel.</p>
+</div>
+<div class="hero-ctas" style="margin-top:32px;">
+<a class="btn btn-primary btn-lg" href="#contato" onclick="showPage('contato'); return false;">Solicitar or&ccedil;amento</a>
+<a class="btn btn-outline btn-lg" href="https://wa.me/551121102744" rel="noopener noreferrer" target="_blank">Falar com um especialista</a>
+</div>
+<p class="hero-caption">Projetos desenvolvidos por arquitetos passam por avalia&ccedil;&atilde;o antes do or&ccedil;amento.</p>
+</div>
+</section>
+<section style="padding:80px 0; border-bottom:1px solid var(--line);">
+<div class="container">
+<div class="section-heading">
+<p class="eyebrow blue-l">Modelo tradicional &times; Markup Zero</p>
+<h2>O m&oacute;vel tem um custo. A forma de vender pode multiplicar esse custo.</h2>
+<p>Em uma loja tradicional, o pre&ccedil;o final pode reunir diferentes componentes comerciais e operacionais: atendimento, comiss&atilde;o, ger&ecirc;ncia, medi&ccedil;&atilde;o, projeto, p&oacute;s-venda, financeiro, log&iacute;stica, fabrica&ccedil;&atilde;o, supervis&atilde;o e montagem. O cliente nem sempre consegue identificar quanto est&aacute; pagando por cada parte.</p>
+<p style="margin-top:16px;">Na Markup Zero, separamos o servi&ccedil;o de engenharia do custo dos materiais e da fabrica&ccedil;&atilde;o sempre que o escopo permitir. Voc&ecirc; entende o que est&aacute; contratando, quais etapas est&atilde;o inclu&iacute;das e quais valores s&atilde;o destinados &agrave; produ&ccedil;&atilde;o e &agrave; execu&ccedil;&atilde;o.</p>
+</div>
+<table class="data-table">
+<thead><tr><th>Modelo tradicional</th><th>Markup Zero</th></tr></thead>
+<tbody>
+<tr><td data-label="Tradicional">Muitos custos podem aparecer incorporados ao pre&ccedil;o final.</td><td data-label="Markup Zero">O servi&ccedil;o &eacute; explicado por ambiente e escopo.</td></tr>
+<tr><td data-label="Tradicional">O cliente pode ter pouco acesso &agrave; etapa t&eacute;cnica.</td><td data-label="Markup Zero">O cliente acompanha as decis&otilde;es t&eacute;cnicas.</td></tr>
+<tr><td data-label="Tradicional">Projeto, venda, produ&ccedil;&atilde;o e montagem podem parecer uma &uacute;nica coisa.</td><td data-label="Markup Zero">Engenharia, fabrica&ccedil;&atilde;o e montagem s&atilde;o organizadas por etapa.</td></tr>
+<tr><td data-label="Tradicional">O pre&ccedil;o do m&oacute;vel pode esconder diferentes margens e custos.</td><td data-label="Markup Zero">Materiais, fabrica&ccedil;&atilde;o e servi&ccedil;os s&atilde;o discriminados conforme o escopo.</td></tr>
+</tbody>
+</table>
+<div class="savings-banner">
+<p style="max-width:480px;">A economia m&eacute;dia estimada pode ficar entre <strong>45% e 55%</strong> em compara&ccedil;&atilde;o com valores praticados por lojas tradicionais, dependendo do projeto, dos materiais, da fabrica&ccedil;&atilde;o, da log&iacute;stica, da montagem e das condi&ccedil;&otilde;es comerciais.</p>
+<div><span class="value">45&ndash;55%</span><span class="pct"> estimativa de refer&ecirc;ncia</span></div>
+</div>
+<p style="margin-top:16px; max-width:640px; font-size:0.875rem; line-height:1.6; color:var(--graphite-600);">
+        Essa faixa &eacute; uma estimativa de refer&ecirc;ncia, n&atilde;o uma promessa autom&aacute;tica. A compara&ccedil;&atilde;o precisa considerar escopos equivalentes, materiais equivalentes, acabamentos equivalentes e servi&ccedil;os equivalentes, dependendo da loja e do contrato comparado.
+      </p>
+</div>
+</section>
+<section style="padding:80px 0; border-bottom:1px solid var(--line); background:var(--paper-raised);">
+<div class="container">
+<div class="section-heading">
+<p class="eyebrow">Montagem e supervis&atilde;o</p>
+<h2>A montagem tamb&eacute;m faz parte do resultado</h2>
+<p>Um projeto preparado para fabrica&ccedil;&atilde;o precisa chegar &agrave; obra com informa&ccedil;&otilde;es claras. Como parte do servi&ccedil;o completo, acompanhamos a montagem, verificamos alinhamentos, encaixes, funcionamento, acabamento e correspond&ecirc;ncia com o projeto aprovado.</p>
+</div>
+<div class="diff-grid">
+<button aria-controls="chip-detail-30" aria-expanded="false" class="diff-chip" onclick="toggleDiffChip(this); return false;" type="button">
+<span class="chip-main"><span aria-hidden="true" class="mark">＋</span><span class="chip-label">Equipe pr&oacute;pria ou previamente alinhada</span></span>
+<span class="chip-detail" hidden="" id="chip-detail-30"><span class="detail-label">O que &eacute;:</span><span class="detail-copy">Possibilidade de contar com profissionais pr&oacute;prios ou equipes alinhadas ao padr&atilde;o t&eacute;cnico do projeto.</span><span class="detail-label">Como se aplica:</span><span class="detail-copy">A indica&ccedil;&atilde;o ou contrata&ccedil;&atilde;o considera regi&atilde;o, disponibilidade, escopo, ferramentas e n&iacute;vel de acompanhamento.</span></span>
+</button>
+<button aria-controls="chip-detail-31" aria-expanded="false" class="diff-chip" onclick="toggleDiffChip(this); return false;" type="button">
+<span class="chip-main"><span aria-hidden="true" class="mark">＋</span><span class="chip-label">Profissionais treinados no padr&atilde;o de trabalho</span></span>
+<span class="chip-detail" hidden="" id="chip-detail-31"><span class="detail-label">O que &eacute;:</span><span class="detail-copy">Montadores orientados sobre as especifica&ccedil;&otilde;es, a sequ&ecirc;ncia e os cuidados definidos no projeto.</span><span class="detail-label">Como se aplica:</span><span class="detail-copy">A equipe recebe as informa&ccedil;&otilde;es necess&aacute;rias para executar o conjunto com mais previsibilidade e organiza&ccedil;&atilde;o.</span></span>
+</button>
+<button aria-controls="chip-detail-32" aria-expanded="false" class="diff-chip" onclick="toggleDiffChip(this); return false;" type="button">
+<span class="chip-main"><span aria-hidden="true" class="mark">＋</span><span class="chip-label">Ferramentas adequadas</span></span>
+<span class="chip-detail" hidden="" id="chip-detail-32"><span class="detail-label">O que &eacute;:</span><span class="detail-copy">Equipamentos compat&iacute;veis com os materiais, o ambiente e o tipo de montagem previsto.</span><span class="detail-label">Como se aplica:</span><span class="detail-copy">A sele&ccedil;&atilde;o de ferramentas ajuda a preservar pe&ccedil;as, acabamentos, fixa&ccedil;&otilde;es e seguran&ccedil;a durante a instala&ccedil;&atilde;o.</span></span>
+</button>
+<button aria-controls="chip-detail-33" aria-expanded="false" class="diff-chip" onclick="toggleDiffChip(this); return false;" type="button">
+<span class="chip-main"><span aria-hidden="true" class="mark">＋</span><span class="chip-label">Leitura do projeto de montagem</span></span>
+<span class="chip-detail" hidden="" id="chip-detail-33"><span class="detail-label">O que &eacute;:</span><span class="detail-copy">Interpreta&ccedil;&atilde;o das posi&ccedil;&otilde;es, componentes, encaixes, sequ&ecirc;ncia e cuidados de instala&ccedil;&atilde;o.</span><span class="detail-label">Como se aplica:</span><span class="detail-copy">A equipe usa a documenta&ccedil;&atilde;o para localizar cada pe&ccedil;a e executar o m&oacute;vel de acordo com o planejamento.</span></span>
+</button>
+<button aria-controls="chip-detail-34" aria-expanded="false" class="diff-chip" onclick="toggleDiffChip(this); return false;" type="button">
+<span class="chip-main"><span aria-hidden="true" class="mark">＋</span><span class="chip-label">Aten&ccedil;&atilde;o a encaixes e alinhamentos</span></span>
+<span class="chip-detail" hidden="" id="chip-detail-34"><span class="detail-label">O que &eacute;:</span><span class="detail-copy">Confer&ecirc;ncia dos encontros, prumos, n&iacute;veis, portas, gavetas, pain&eacute;is e pontos vis&iacute;veis do conjunto.</span><span class="detail-label">Como se aplica:</span><span class="detail-copy">As verifica&ccedil;&otilde;es s&atilde;o feitas durante a montagem para corrigir desvios antes da finaliza&ccedil;&atilde;o do ambiente.</span></span>
+</button>
+<button aria-controls="chip-detail-35" aria-expanded="false" class="diff-chip" onclick="toggleDiffChip(this); return false;" type="button">
+<span class="chip-main"><span aria-hidden="true" class="mark">＋</span><span class="chip-label">Supervis&atilde;o t&eacute;cnica</span></span>
+<span class="chip-detail" hidden="" id="chip-detail-35"><span class="detail-label">O que &eacute;:</span><span class="detail-copy">Acompanhamento especializado da execu&ccedil;&atilde;o para conferir a montagem em rela&ccedil;&atilde;o ao projeto e &agrave;s condi&ccedil;&otilde;es do ambiente.</span><span class="detail-label">Como se aplica:</span><span class="detail-copy">A supervis&atilde;o observa pontos cr&iacute;ticos, registra diverg&ecirc;ncias e orienta ajustes ou encaminhamentos conforme o escopo contratado.</span></span>
+</button>
+<button aria-controls="chip-detail-36" aria-expanded="false" class="diff-chip" onclick="toggleDiffChip(this); return false;" type="button">
+<span class="chip-main"><span aria-hidden="true" class="mark">＋</span><span class="chip-label">Confer&ecirc;ncia final</span></span>
+<span class="chip-detail" hidden="" id="chip-detail-36"><span class="detail-label">O que &eacute;:</span><span class="detail-copy">Verifica&ccedil;&atilde;o do conjunto instalado em rela&ccedil;&atilde;o ao projeto aprovado e &agrave;s condi&ccedil;&otilde;es previstas no escopo.</span><span class="detail-label">Como se aplica:</span><span class="detail-copy">Registramos pend&ecirc;ncias, ajustes e observa&ccedil;&otilde;es para concluir a entrega com clareza.</span></span>
+</button>
+</div>
+<p style="margin-top:24px; max-width:640px; font-size:0.9375rem; line-height:1.65; color:var(--graphite-600);">
+        Tudo conforme disponibilidade, regi&atilde;o e escopo contratado. N&atilde;o prometemos montagem perfeita, zero problemas ou acerto absoluto &mdash; trabalhamos para reduzir riscos e aumentar a previsibilidade do resultado.
+      </p>
+</div>
+</section>
+<section class="final-cta">
+<div class="container final-cta-inner">
+<p class="eyebrow">Pr&oacute;ximo passo</p>
+<h2>Vamos estruturar o seu ambiente?</h2>
+<p>Envie o projeto que voc&ecirc; j&aacute; possui ou conte o que pretende construir. Vamos avaliar o ambiente, confirmar o enquadramento e orientar o pr&oacute;ximo passo para o servi&ccedil;o completo.</p>
+<div class="hero-ctas" style="justify-content:center; margin-top:32px;">
+<a class="btn btn-primary btn-lg" href="https://wa.me/551121102744" rel="noopener noreferrer" target="_blank">Falar com um especialista no WhatsApp</a>
+<a class="btn btn-outline btn-lg" href="#o-que-fazemos" onclick="showPage('o-que-fazemos'); return false;">Ver o que fazemos</a>
+</div>
+<p class="hero-caption" style="text-align:center; margin-top:16px;">Sem compromisso nesta primeira conversa. O escopo &eacute; explicado antes da contrata&ccedil;&atilde;o.</p>
+</div>
+</section>
+</div>
+<div class="page" id="page-quem-somos">
+<section class="page-hero grid-paper">
+<div class="container">
+<p class="eyebrow">Quem somos n&oacute;s</p>
+<h1>Experi&ecirc;ncia de f&aacute;brica, vis&atilde;o de projeto e compromisso com o resultado</h1>
+<p class="lead">A Markup Zero nasceu da experi&ecirc;ncia pr&aacute;tica em todas as etapas que fazem um projeto de m&oacute;veis planejados chegar ao cliente: atendimento, produ&ccedil;&atilde;o, p&oacute;s-venda, fabrica&ccedil;&atilde;o, montagem, supervis&atilde;o e engenharia.</p>
+<p class="lead" style="margin-top:16px;">Hoje, colocamos esse conhecimento diretamente ao seu alcance para criar projetos desde o zero ou transformar projetos existentes em solu&ccedil;&otilde;es tecnicamente preparadas para fabricar e montar.</p>
+<div class="diff-grid" style="margin-top:32px;">
+<button aria-controls="chip-detail-37" aria-expanded="false" class="diff-chip" onclick="toggleDiffChip(this); return false;" type="button">
+<span class="chip-main"><span aria-hidden="true" class="mark">＋</span><span class="chip-label">Experi&ecirc;ncia desde 2016</span></span>
+<span class="chip-detail" hidden="" id="chip-detail-37"><span class="detail-label">O que &eacute;:</span><span class="detail-copy">Trajet&oacute;ria pr&aacute;tica no setor de m&oacute;veis planejados desde 2016, incluindo &aacute;reas fabril, comercial e de montagem.</span><span class="detail-label">Como se aplica:</span><span class="detail-copy">Essa viv&ecirc;ncia ajuda a antecipar problemas que normalmente aparecem entre venda, produ&ccedil;&atilde;o, p&oacute;s-venda e obra.</span></span>
+</button>
+<button aria-controls="chip-detail-38" aria-expanded="false" class="diff-chip" onclick="toggleDiffChip(this); return false;" type="button">
+<span class="chip-main"><span aria-hidden="true" class="mark">＋</span><span class="chip-label">Engenharia e projetos desde 2022</span></span>
+<span class="chip-detail" hidden="" id="chip-detail-38"><span class="detail-label">O que &eacute;:</span><span class="detail-copy">Atua&ccedil;&atilde;o concentrada em engenharia e projetos desde 2022, apoiando decis&otilde;es t&eacute;cnicas antes da produ&ccedil;&atilde;o.</span><span class="detail-label">Como se aplica:</span><span class="detail-copy">O conhecimento acumulado &eacute; aplicado diretamente ao cliente final para estruturar projetos fabric&aacute;veis e mont&aacute;veis.</span></span>
+</button>
+<button aria-controls="chip-detail-39" aria-expanded="false" class="diff-chip" onclick="toggleDiffChip(this); return false;" type="button">
+<span class="chip-main"><span aria-hidden="true" class="mark">＋</span><span class="chip-label">Vis&atilde;o completa do ciclo da marcenaria</span></span>
+<span class="chip-detail" hidden="" id="chip-detail-39"><span class="detail-label">O que &eacute;:</span><span class="detail-copy">Leitura integrada de projeto, f&aacute;brica, log&iacute;stica, montagem, supervis&atilde;o e experi&ecirc;ncia do cliente.</span><span class="detail-label">Como se aplica:</span><span class="detail-copy">Conectamos as etapas para reduzir ru&iacute;dos entre quem desenha, quem fabrica e quem instala.</span></span>
+</button>
+</div>
+<div class="hero-ctas" style="margin-top:32px;">
+<a class="btn btn-primary btn-lg" href="#como-fazemos" onclick="showPage('como-fazemos'); return false;">Conhecer nosso m&eacute;todo</a>
+<a class="btn btn-outline btn-lg" href="https://wa.me/551121102744" rel="noopener noreferrer" target="_blank">Falar com um especialista</a>
+</div>
+<p class="hero-caption">Atendimento direto ao cliente final, com escopo, etapas e investimento explicados com clareza.</p>
+</div>
+</section>
+<section class="steps">
+<div class="container">
+<div class="section-heading light">
+<p class="eyebrow blue">Nossa trajet&oacute;ria</p>
+<h2>Conhecemos a marcenaria de dentro para fora</h2>
+<p>Desde 2016, a dire&ccedil;&atilde;o da Markup Zero atua no setor de m&oacute;veis planejados. Nesse per&iacute;odo, passou por diferentes &aacute;reas do servi&ccedil;o: fabril, comercial, p&oacute;s-venda, produ&ccedil;&atilde;o, supervis&atilde;o e montagem.</p>
+<p style="margin-top:12px;">Essa viv&ecirc;ncia mostrou que muitos problemas n&atilde;o surgem apenas na ideia ou no desenho. Eles aparecem quando a medida n&atilde;o fecha, quando a pe&ccedil;a n&atilde;o pode ser produzida, quando a infraestrutura colide com o m&oacute;vel, quando a f&aacute;brica interpreta a informa&ccedil;&atilde;o de outra forma ou quando o montador precisa resolver na obra o que deveria ter sido definido no projeto.</p>
+</div>
+<div class="steps-list">
+<div class="step-row">
+<div><span class="step-label">2016</span><h3 class="step-title">Entrada no setor</h3></div>
+<p class="step-desc">In&iacute;cio da trajet&oacute;ria no segmento de m&oacute;veis planejados e contato direto com a realidade de lojas, f&aacute;bricas, pedidos e clientes.</p>
+</div>
+<div class="step-row">
+<div><span class="step-label">Ao longo do caminho</span><h3 class="step-title">Experi&ecirc;ncia nos 360 graus da marcenaria</h3></div>
+<p class="step-desc">Atua&ccedil;&atilde;o em &aacute;reas fabris, comerciais, de p&oacute;s-venda, produ&ccedil;&atilde;o, supervis&atilde;o e montagem, compreendendo como cada etapa interfere na seguinte.</p>
+</div>
+<div class="step-row">
+<div><span class="step-label">2022</span><h3 class="step-title">Foco exclusivo em engenharia e projetos</h3></div>
+<p class="step-desc">A dire&ccedil;&atilde;o passa a atuar exclusivamente no desenvolvimento de engenharia e projetos, apoiando lojistas e marcenarias na redu&ccedil;&atilde;o de erros de fabrica&ccedil;&atilde;o, p&oacute;s-venda e montagem.</p>
+</div>
+<div class="step-row">
+<div><span class="step-label">Hoje</span><h3 class="step-title">Atendimento direto ao cliente final</h3></div>
+<p class="step-desc">O mesmo conhecimento t&eacute;cnico que antes era acessado principalmente por lojas e marcenarias passa a estar dispon&iacute;vel diretamente para o cliente que quer criar ou executar seu projeto com mais clareza e previsibilidade.</p>
+</div>
+</div>
+</div>
+</section>
+<section style="padding:80px 0; border-bottom:1px solid var(--line);">
+<div class="container">
+<div class="section-heading">
+<p class="eyebrow blue-l">O que aprendemos na pr&aacute;tica</p>
+<h2>Um m&oacute;vel n&atilde;o termina na imagem que o cliente aprovou</h2>
+<p>Entre a imagem e o m&oacute;vel instalado existe uma cadeia inteira de decis&otilde;es. O projeto precisa conversar com o ambiente, com os materiais, com as ferragens, com as m&aacute;quinas, com a f&aacute;brica e com os profissionais que far&atilde;o a montagem.</p>
+</div>
+<div class="services-grid cols-4">
+<div class="service-card">
+<h3>Na f&aacute;brica</h3>
+<p>Aprendemos a preparar informa&ccedil;&otilde;es que possam ser interpretadas pelos processos e equipamentos dispon&iacute;veis, reduzindo d&uacute;vidas, retrabalho e adapta&ccedil;&otilde;es durante a produ&ccedil;&atilde;o.</p>
+</div>
+<div class="service-card">
+<h3>No p&oacute;s-venda</h3>
+<p>Entendemos quais falhas de projeto e comunica&ccedil;&atilde;o costumam aparecer somente depois da venda e como antecipar esses pontos antes de liberar a produ&ccedil;&atilde;o.</p>
+</div>
+<div class="service-card">
+<h3>Na montagem</h3>
+<p>Vimos de perto como pequenas decis&otilde;es de medida, folga, identifica&ccedil;&atilde;o ou sequ&ecirc;ncia podem facilitar ou dificultar a instala&ccedil;&atilde;o no ambiente.</p>
+</div>
+<div class="service-card">
+<h3>Na engenharia</h3>
+<p>Transformamos essa experi&ecirc;ncia pr&aacute;tica em m&eacute;todo, documenta&ccedil;&atilde;o, compatibiliza&ccedil;&atilde;o e decis&otilde;es t&eacute;cnicas aplic&aacute;veis a cada projeto.</p>
+</div>
+</div>
+</div>
+</section>
+<section style="padding:80px 0; border-bottom:1px solid var(--line); background:var(--paper-raised);">
+<div class="container">
+<div class="section-heading">
+<p class="eyebrow">Nossa atua&ccedil;&atilde;o atual</p>
+<h2>Do primeiro briefing &agrave; montagem do resultado</h2>
+<p>Hoje, a Markup Zero re&uacute;ne design, engenharia e execu&ccedil;&atilde;o para atender dois momentos diferentes do cliente: quando ele quer criar o projeto desde o zero e quando j&aacute; possui um projeto que precisa ser tecnicamente desenvolvido para fabricar e montar.</p>
+</div>
+<div class="services-grid cols-2">
+<div class="service-card">
+<span class="num">01</span>
+<h3>Criar tudo desde o zero</h3>
+<p>Come&ccedil;amos entendendo sua rotina, seu estilo, suas necessidades, seu or&ccedil;amento e as caracter&iacute;sticas do im&oacute;vel. Desenvolvemos conceito, layout, materiais, acabamentos, anteprojeto, projeto executivo e as informa&ccedil;&otilde;es necess&aacute;rias para fabrica&ccedil;&atilde;o, montagem e acompanhamento.</p>
+<a class="btn btn-outline btn-sm" href="https://wa.me/551121102744" rel="noopener noreferrer" style="margin-top:20px;" target="_blank">Come&ccedil;ar um projeto</a>
+</div>
+<div class="service-card">
+<span class="num">02</span>
+<h3>Desenvolver um projeto existente</h3>
+<p>Recebemos uma perspectiva, um projeto de loja, um projeto de arquiteto, um desenho ou uma proposta j&aacute; existente. Analisamos o material, conferimos o ambiente e desenvolvemos a engenharia necess&aacute;ria para que a solu&ccedil;&atilde;o seja fabric&aacute;vel e mont&aacute;vel.</p>
+<a class="btn btn-outline btn-sm" href="https://wa.me/551121102744" rel="noopener noreferrer" style="margin-top:20px;" target="_blank">Avaliar um projeto existente</a>
+</div>
+</div>
+<p style="margin-top:32px; max-width:640px; font-size:0.9375rem; line-height:1.65; color:var(--graphite-600);">
+        Os dois caminhos podem chegar &agrave; mesma entrega: uma solu&ccedil;&atilde;o entendida pelo cliente, pela f&aacute;brica, pelos profissionais de produ&ccedil;&atilde;o e pela equipe de montagem.
+      </p>
+</div>
+</section>
+<section style="padding:80px 0; border-bottom:1px solid var(--line);">
+<div class="container">
+<div class="section-heading">
+<p class="eyebrow blue-l">Prop&oacute;sito e vis&atilde;o</p>
+<h2>Por que existimos</h2>
+</div>
+<div class="eco-grid">
+<div class="eco-card">
+<span class="eco-tag">Prop&oacute;sito</span>
+<p style="font-size:1rem; line-height:1.65; color:var(--graphite-700);">Tornar o conhecimento t&eacute;cnico de projetos, fabrica&ccedil;&atilde;o e montagem acess&iacute;vel ao cliente final, transformando ideias em solu&ccedil;&otilde;es claras, vi&aacute;veis e bem executadas.</p>
+</div>
+<div class="eco-card">
+<span class="eco-tag">Vis&atilde;o</span>
+<p style="font-size:1rem; line-height:1.65; color:var(--graphite-700);">Ser reconhecida como uma refer&ecirc;ncia em engenharia e projetos de m&oacute;veis planejados, conectando cliente, projeto, f&aacute;brica e montagem com mais transpar&ecirc;ncia, liberdade de solu&ccedil;&atilde;o e previsibilidade.</p>
+</div>
+</div>
+<div class="section-heading" style="margin-top:64px;">
+<p class="eyebrow blue-l">Valores</p>
+<h3 class="step-title">O que guia cada decis&atilde;o</h3>
+</div>
+<div class="services-grid">
+<div class="service-card">
+<h3>Clareza</h3>
+<p>Explicar o que ser&aacute; feito, por que ser&aacute; feito e qual &eacute; o escopo de cada etapa.</p>
+</div>
+<div class="service-card">
+<h3>Dom&iacute;nio t&eacute;cnico</h3>
+<p>Tomar decis&otilde;es com base na experi&ecirc;ncia de ambiente, projeto, f&aacute;brica e montagem.</p>
+</div>
+<div class="service-card">
+<h3>Transpar&ecirc;ncia</h3>
+<p>Permitir que o cliente saiba onde seu investimento est&aacute; sendo aplicado, sem custos escondidos ou letras mi&uacute;das.</p>
+</div>
+<div class="service-card">
+<h3>Responsabilidade</h3>
+<p>Reconhecer limites, depend&ecirc;ncias e condi&ccedil;&otilde;es reais de cada projeto, sem prometer o que n&atilde;o pode ser controlado.</p>
+</div>
+<div class="service-card">
+<h3>Liberdade de solu&ccedil;&atilde;o</h3>
+<p>Desenvolver projetos personalizados, respeitando materiais, acabamentos e processos tecnicamente vi&aacute;veis.</p>
+</div>
+<div class="service-card">
+<h3>Respeito ao cliente</h3>
+<p>Tratar o sonho, o or&ccedil;amento, o tempo e as decis&otilde;es do cliente com seriedade.</p>
+</div>
+</div>
+<div class="section-heading" style="margin-top:64px;">
+<p class="eyebrow blue-l">Metas</p>
+<h3 class="step-title">Nossos compromissos operacionais</h3>
+</div>
+<div class="check-grid">
+<div class="check-item"><span class="mark">&checkmark;</span><span>Ampliar o acesso direto do cliente &agrave; engenharia de m&oacute;veis planejados.</span></div>
+<div class="check-item"><span class="mark">&checkmark;</span><span>Reduzir falhas de comunica&ccedil;&atilde;o entre projeto, f&aacute;brica e montagem.</span></div>
+<div class="check-item"><span class="mark">&checkmark;</span><span>Tornar escopos e pre&ccedil;os mais compreens&iacute;veis.</span></div>
+<div class="check-item"><span class="mark">&checkmark;</span><span>Desenvolver projetos mais coerentes com a vida real.</span></div>
+<div class="check-item"><span class="mark">&checkmark;</span><span>Aumentar a previsibilidade de fabrica&ccedil;&atilde;o e montagem.</span></div>
+<div class="check-item"><span class="mark">&checkmark;</span><span>Construir rela&ccedil;&otilde;es duradouras com clientes, f&aacute;bricas, marcenarias e profissionais de execu&ccedil;&atilde;o.</span></div>
+</div>
+</div>
+</section>
+<section style="padding:80px 0; border-bottom:1px solid var(--line); background:var(--paper-raised);">
+<div class="container">
+<div class="section-heading">
+<p class="eyebrow">Uma situa&ccedil;&atilde;o que poderia acontecer com qualquer cliente</p>
+<h2>Quando o or&ccedil;amento parece fechado, mas as escolhas ainda est&atilde;o limitadas</h2>
+<p><em>O exemplo a seguir &eacute; uma simula&ccedil;&atilde;o ilustrativa, n&atilde;o um depoimento ou caso real de um cliente espec&iacute;fico.</em></p>
+</div>
+<p style="max-width:720px; font-size:0.9375rem; line-height:1.7; color:var(--graphite-700);">
+        Imagine um cliente que comprou em uma loja tradicional de m&oacute;veis planejados a mob&iacute;lia completa de um im&oacute;vel de 70 m&sup2; por R$ 80.000. Ele aprovou imagens bonitas, mas n&atilde;o conhecia a exist&ecirc;ncia da Markup Zero e n&atilde;o teve acesso &agrave; mesma profundidade de engenharia, especifica&ccedil;&atilde;o e acompanhamento.
+      </p>
+<p style="margin-top:16px; max-width:720px; font-size:0.9375rem; line-height:1.7; color:var(--graphite-700);">
+        Durante o processo, esse cliente encontra um acabamento na internet, uma espessura diferente, um desenho mais autoral ou uma solu&ccedil;&atilde;o que combina melhor com a casa. Por&eacute;m, descobre que a loja trabalha com um cat&aacute;logo fechado, uma lista limitada de op&ccedil;&otilde;es ou condi&ccedil;&otilde;es que tornam a altera&ccedil;&atilde;o muito mais cara e dif&iacute;cil.
+      </p>
+<p style="margin-top:16px; max-width:720px; font-size:0.9375rem; line-height:1.7; color:var(--graphite-700);">
+        Em muitos modelos tradicionais, o cliente recebe uma solu&ccedil;&atilde;o pronta dentro das op&ccedil;&otilde;es comerciais dispon&iacute;veis. Isso pode ser conveniente, mas nem sempre oferece a liberdade de escolher exatamente o acabamento, a espessura, o desenho ou a combina&ccedil;&atilde;o que imaginou.
+      </p>
+<p style="margin-top:16px; max-width:720px; font-size:0.9375rem; line-height:1.7; color:var(--graphite-700);">
+        Se esse cliente tivesse conhecido a Markup Zero antes, poderia ter come&ccedil;ado pelo desenvolvimento completo do projeto ou contratado a engenharia para avaliar diferentes caminhos de fabrica&ccedil;&atilde;o. Poderia entender o que est&aacute; pagando pelo servi&ccedil;o t&eacute;cnico, o que corresponde aos materiais, o que corresponde &agrave; fabrica&ccedil;&atilde;o e quais etapas de montagem e supervis&atilde;o estavam inclu&iacute;das.
+      </p>
+<p style="margin-top:16px; max-width:720px; font-size:0.9375rem; line-height:1.7; color:var(--graphite-700);">
+        Considerando a faixa m&eacute;dia de economia estimada de 45% a 55% em compara&ccedil;&otilde;es com escopos equivalentes de lojas tradicionais, uma refer&ecirc;ncia puramente ilustrativa sobre R$ 80.000 poderia indicar uma diferen&ccedil;a aproximada entre R$ 36.000 e R$ 44.000.
+      </p>
+<table class="data-table">
+<thead><tr><th>Refer&ecirc;ncia ilustrativa</th><th>C&aacute;lculo</th><th>Valor aproximado</th></tr></thead>
+<tbody>
+<tr><td data-label="Refer&ecirc;ncia">Or&ccedil;amento tradicional hipot&eacute;tico</td><td data-label="C&aacute;lculo">&mdash;</td><td data-label="Valor">R$ 80.000</td></tr>
+<tr><td data-label="Refer&ecirc;ncia">Economia estimada de 45%</td><td data-label="C&aacute;lculo">R$ 80.000 &times; 45%</td><td data-label="Valor">R$ 36.000</td></tr>
+<tr><td data-label="Refer&ecirc;ncia">Economia estimada de 55%</td><td data-label="C&aacute;lculo">R$ 80.000 &times; 55%</td><td data-label="Valor">R$ 44.000</td></tr>
+<tr><td data-label="Refer&ecirc;ncia">Faixa hipot&eacute;tica ap&oacute;s economia</td><td data-label="C&aacute;lculo">R$ 80.000 &minus; economia</td><td data-label="Valor">R$ 36.000 a R$ 44.000</td></tr>
+</tbody>
+</table>
+<div class="note-box">
+        Esta &eacute; uma simula&ccedil;&atilde;o ilustrativa, n&atilde;o uma promessa de pre&ccedil;o ou economia. A compara&ccedil;&atilde;o real precisa considerar projetos equivalentes, materiais equivalentes, acabamentos equivalentes, fabrica&ccedil;&atilde;o, frete, montagem, supervis&atilde;o, impostos, dist&acirc;ncia e condi&ccedil;&otilde;es comerciais. O pre&ccedil;o final de uma loja pode reunir diferentes custos, margens e servi&ccedil;os, e o cliente nem sempre consegue identificar a participa&ccedil;&atilde;o de cada componente.
+      </div>
+</div>
+</section>
+<section style="padding:80px 0; border-bottom:1px solid var(--line);">
+<div class="container">
+<div class="savings-banner" style="border-color:rgba(44,72,112,0.4); background:rgba(44,72,112,0.05);">
+<p style="max-width:600px; font-size:1rem;">Alto padr&atilde;o n&atilde;o deve ser apenas uma etiqueta usada para aumentar o pre&ccedil;o. Para n&oacute;s, alto padr&atilde;o &eacute; o resultado de uma solu&ccedil;&atilde;o bem especificada, tecnicamente compatibilizada, fabricada com cuidado e montada de acordo com o projeto. O alto padr&atilde;o da sua casa come&ccedil;a nas escolhas que voc&ecirc; faz &mdash; e na clareza sobre o que est&aacute; pagando.</p>
+</div>
+<p style="margin-top:16px; max-width:600px; font-size:0.9375rem; color:var(--graphite-600);">Alto padr&atilde;o n&atilde;o &eacute; s&oacute; uma etiqueta. &Eacute; a qualidade da solu&ccedil;&atilde;o que voc&ecirc; escolhe e acompanha.</p>
+</div>
+</section>
+<section style="padding:80px 0; border-bottom:1px solid var(--line); background:var(--paper-raised);">
+<div class="container">
+<div class="section-heading">
+<p class="eyebrow blue-l">Como contratamos</p>
+<h2>Voc&ecirc; sabe o que est&aacute; comprando</h2>
+<p>A contrata&ccedil;&atilde;o &eacute; organizada por ambiente e por escopo. O cliente entende se est&aacute; contratando um projeto completo desde o zero, engenharia sobre um projeto existente, projeto para fabrica&ccedil;&atilde;o, projeto para montagem, implanta&ccedil;&atilde;o na f&aacute;brica ou supervis&atilde;o da montagem.</p>
+</div>
+<div class="note-box">
+        A cada ambiente principal contratado, o cliente pode receber um ambiente b&ocirc;nus eleg&iacute;vel, sempre na rela&ccedil;&atilde;o 1+1, conforme as condi&ccedil;&otilde;es comerciais e o escopo confirmado antes da contrata&ccedil;&atilde;o. O ambiente b&ocirc;nus n&atilde;o &eacute; cumulativo indefinidamente, depende da classifica&ccedil;&atilde;o do ambiente, do limite de &aacute;rea e do escopo t&eacute;cnico, e pode exigir or&ccedil;amento complementar se for complexo ou estiver fora das condi&ccedil;&otilde;es.
+      </div>
+<p style="margin-top:24px; max-width:640px; font-size:0.9375rem; line-height:1.65; color:var(--graphite-600);">
+        Veja a paleta completa de servi&ccedil;os, a regra 1+1 e a compara&ccedil;&atilde;o com o modelo tradicional na p&aacute;gina <a href="#como-fazemos" onclick="showPage('como-fazemos'); return false;" style="color:var(--sienna); text-decoration:underline;">Como fazemos</a>.
+      </p>
+</div>
+</section>
+<section class="final-cta">
+<div class="container final-cta-inner">
+<h2>Quer conhecer a gente de perto?</h2>
+<p>Marca uma conversa e traz seu projeto &mdash; a gente mostra como funciona na pr&aacute;tica, sem compromisso.</p>
+<a class="btn btn-primary btn-lg" href="https://wa.me/551121102744" rel="noopener noreferrer" target="_blank">Falar com um especialista</a>
+</div>
+</section>
+</div>
+<div class="page" id="page-contato">
+<section class="page-hero" style="border-bottom:none; padding-bottom:0;">
+<div class="container">
+<p class="eyebrow">Contato &amp; agendamento</p>
+<h1>Vamos falar sobre o seu projeto</h1>
+<p class="lead">Conte-nos sobre o seu projeto. Se voc&ecirc; j&aacute; tem um desenho/planta ou quer come&ccedil;ar uma ideia do zero, nossa equipe est&aacute; pronta para te atender.</p>
+</div>
+</section>
+<section style="padding:48px 0 96px;">
+<div class="container contact-grid">
+<div class="channel-list">
+<a class="channel-card" href="https://wa.me/551121102744?text=Ol&aacute;!%20Gostaria%20de%20falar%20com%20um%20especialista%20da%20Markup%20Zero." rel="noopener noreferrer" target="_blank">
+<span class="channel-icon">💬</span>
+<div>
+<div class="title">WhatsApp</div>
+<div class="sub">Resposta mais r&aacute;pida</div>
+</div>
+</a>
+<a class="channel-card" href="mailto:projeto@markupzero.com.br">
+<span class="channel-icon">✉️</span>
+<div>
+<div class="title">E-mail</div>
+<div class="sub">projeto@markupzero.com.br</div>
+</div>
+</a>
+</div>
+<div>
+<form class="contact-form qualification-form" id="contato-form" novalidate="">
+<div class="form-row two">
+<div class="field">
+<label for="nome">Nome do cliente <span aria-hidden="true">*</span></label>
+<input autocomplete="name" id="nome" name="nome" required="" type="text"/>
+</div>
+<div class="field">
+<label for="telefone">Telefone / WhatsApp <span aria-hidden="true">*</span></label>
+<input autocomplete="tel" id="telefone" inputmode="tel" name="telefone" required="" type="tel"/>
+</div>
+</div>
+<div class="form-row two">
+<div class="field">
+<label for="email">E-mail do cliente <span aria-hidden="true">*</span></label>
+<input autocomplete="email" id="email" name="email" required="" type="email"/>
+</div>
+<div class="field">
+<label for="endereco-obra">Endere&ccedil;o da obra</label>
+<input autocomplete="street-address" id="endereco-obra" name="endereco-obra" placeholder="Rua, bairro e cidade" type="text"/>
+</div>
+</div>
+<div class="form-row two">
+<div class="field">
+<label for="situacao-obra">Situa&ccedil;&atilde;o da obra</label>
+<select id="situacao-obra" name="situacao-obra">
+<option value="">Selecione uma op&ccedil;&atilde;o</option>
+<option>Pronto / Entregue</option>
+<option>Em obras</option>
+<option>Sem as chaves ainda</option>
+</select>
+</div>
+<div class="field">
+<label for="qtd-ambientes">Quantidade de ambientes</label>
+<select id="qtd-ambientes" name="qtd-ambientes">
+<option value="">Selecione uma op&ccedil;&atilde;o</option>
+<option>1 ambiente</option>
+<option>2 a 3 ambientes</option>
+<option>4+ ambientes / casa completa</option>
+</select>
+</div>
+</div>
+<div class="field">
+<label for="prazo">Prazo para fechamento</label>
+<select id="prazo" name="prazo">
+<option value="">Selecione uma op&ccedil;&atilde;o</option>
+<option>Imediato</option>
+<option>Dentro de 15 dias</option>
+<option>Em at&eacute; 1 m&ecirc;s</option>
+<option>Mais de 1 m&ecirc;s</option>
+</select>
+</div>
+<div class="field">
+<label for="mensagem">Observa&ccedil;&otilde;es / detalhes do projeto</label>
+<textarea id="mensagem" name="mensagem" placeholder="Conte brevemente sobre o ambiente, refer&ecirc;ncias, necessidades ou d&uacute;vidas." rows="5"></textarea>
+<span class="field-help">Opcional. Quanto mais contexto voc&ecirc; enviar, melhor ser&aacute; a primeira orienta&ccedil;&atilde;o.</span>
+</div>
+<button class="btn btn-primary" type="submit">Enviar para o WhatsApp</button>
+<p aria-live="polite" class="form-status" hidden="" id="contato-status" role="status"></p>
+</form>
+</div>
+</div>
+</section>
+</div>
+<footer class="site">
+<div class="container footer-grid">
+<div class="footer-brand">
+<span class="name">Markup Zero</span>
+<p>Engenharia, design e execu&ccedil;&atilde;o de m&oacute;veis planejados: projeto do zero ou engenharia sobre projeto existente, fabrica&ccedil;&atilde;o, implanta&ccedil;&atilde;o em f&aacute;brica e montagem organizadas com transpar&ecirc;ncia de escopo e investimento.</p>
+<p class="cnpj">Markup Zero &middot; CNPJ 60.056.651/0001-25 &middot; S&atilde;o Paulo/SP</p>
+</div>
+<div class="footer-col">
+<p class="heading">Navega&ccedil;&atilde;o</p>
+<ul>
+<li><a href="#home" onclick="showPage('home'); return false;">Home</a></li>
+<li><a href="#o-que-fazemos" onclick="showPage('o-que-fazemos'); return false;">O que fazemos</a></li>
+<li><a href="#como-fazemos" onclick="showPage('como-fazemos'); return false;">Como fazemos</a></li>
+<li><a href="#quem-somos" onclick="showPage('quem-somos'); return false;">Quem somos n&oacute;s</a></li>
+<li><a href="#contato" onclick="showPage('contato'); return false;">Contato</a></li>
+</ul>
+</div>
+<div class="footer-col">
+<p class="heading">Fale com a gente</p>
+<ul>
+<li><a href="https://wa.me/551121102744" rel="noopener noreferrer" target="_blank">WhatsApp</a></li>
+<li><a href="mailto:projeto@markupzero.com.br">E-mail</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-bottom">
+<div class="container">
+<p>&copy; 2026 Markup Zero. Todos os direitos reservados.</p>
+<p class="mono">Markup na fabrica&ccedil;&atilde;o: 0%.</p>
+</div>
+</div>
+</footer>
+<a aria-label="Falar no WhatsApp" class="wa-float" href="https://wa.me/551121102744" rel="noopener noreferrer" target="_blank">💬</a>
+<script>
+  // ===================================================================
+  // 1) NAVEGAÇÃO E MENU — roda primeiro e de forma isolada, para que
+  //    a troca de páginas e o menu mobile funcionem mesmo que algum
+  //    widget secundário (comparador, formulário) falhe mais abaixo.
+  // ===================================================================
+  var PAGES = ['home','o-que-fazemos','como-fazemos','quem-somos','contato'];
+
+  var menuToggle = document.getElementById('menu-toggle');
+  var mobileNav = document.getElementById('mobile-nav');
+  var siteHeader = document.getElementById('site-header');
+  var mobileMenuReady = false;
+
+  // O menu é retirado do header porque o backdrop-filter do cabeçalho
+  // cria um contexto de posicionamento que limitaria um elemento fixed
+  // à altura do próprio header em alguns navegadores mobile.
+  function ensureMobileNavRoot(){
+    if (mobileNav && document.body && mobileNav.parentElement !== document.body) {
+      document.body.appendChild(mobileNav);
+    }
+  }
+
+  // O painel é posicionado abaixo da altura real do cabeçalho para continuar
+  // correto quando o logo ou o texto ocuparem duas linhas.
+  function positionMobileNav(){
+    if (!siteHeader || !mobileNav) return;
+    var headerHeight = siteHeader.getBoundingClientRect().height;
+    mobileNav.style.setProperty('--mobile-nav-top', headerHeight + 'px');
+    mobileNav.style.top = headerHeight + 'px';
+  }
+
+  function onMenuKeydown(e){
+    if (e.key === 'Escape' || e.keyCode === 27) {
+      closeMenu(true);
+    }
+  }
+
+  function onOutsideClick(e){
+    if (!mobileNav || !menuToggle) return;
+    if (!mobileNav.contains(e.target) && !menuToggle.contains(e.target)) {
+      closeMenu(false);
+    }
+  }
+
+  function openMenu(){
+    if (!mobileNav || !menuToggle) return;
+    positionMobileNav();
+    mobileNav.hidden = false;
+    mobileNav.classList.add('is-open');
+    mobileNav.setAttribute('aria-hidden', 'false');
+    menuToggle.setAttribute('aria-expanded', 'true');
+    menuToggle.setAttribute('aria-label', 'Fechar menu');
+    document.addEventListener('keydown', onMenuKeydown);
+    document.addEventListener('click', onOutsideClick, true);
+    var firstLink = mobileNav.querySelector('a');
+    if (firstLink) firstLink.focus();
+  }
+
+  function closeMenu(returnFocus){
+    if (!mobileNav || !menuToggle) return;
+    mobileNav.hidden = true;
+    mobileNav.classList.remove('is-open');
+    mobileNav.setAttribute('aria-hidden', 'true');
+    menuToggle.setAttribute('aria-expanded', 'false');
+    menuToggle.setAttribute('aria-label', 'Abrir menu');
+    document.removeEventListener('keydown', onMenuKeydown);
+    document.removeEventListener('click', onOutsideClick, true);
+    if (returnFocus !== false) menuToggle.focus();
+  }
+
+  function toggleMobileMenu(e){
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+    if (!menuToggle || !mobileNav) return;
+    var isOpen = menuToggle.getAttribute('aria-expanded') === 'true';
+    if (isOpen) closeMenu(true); else openMenu();
+  }
+  window.toggleMobileMenu = toggleMobileMenu;
+
+  function initMobileMenu(){
+    if (mobileMenuReady || !menuToggle || !mobileNav) return;
+    mobileMenuReady = true;
+    ensureMobileNavRoot();
+    positionMobileNav();
+    closeMenu(false);
+    menuToggle.addEventListener('click', toggleMobileMenu);
+    mobileNav.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){ closeMenu(false); });
+    });
+    window.addEventListener('resize', positionMobileNav);
+    window.addEventListener('orientationchange', positionMobileNav);
+    if (window.ResizeObserver && siteHeader) {
+      new ResizeObserver(positionMobileNav).observe(siteHeader);
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initMobileMenu);
+  } else {
+    initMobileMenu();
+  }
+
+  function showPage(id){
+    if (PAGES.indexOf(id) === -1) id = 'home';
+    PAGES.forEach(function(p){
+      var el = document.getElementById('page-' + p);
+      if (el) el.style.display = (p === id) ? 'block' : 'none';
+    });
+    document.querySelectorAll('[data-page]').forEach(function(a){
+      if (a.getAttribute('data-page') === id) {
+        a.style.color = 'var(--graphite-900)';
+        a.style.fontWeight = '600';
+      } else {
+        a.style.color = '';
+        a.style.fontWeight = '';
+      }
+    });
+    closeMenu(false);
+    window.scrollTo(0, 0);
+    try {
+      if (history.replaceState) history.replaceState(null, '', '#' + id);
+    } catch (e) {
+      // Alguns ambientes de preview em iframe (sandbox/srcdoc) bloqueiam
+      // a History API por política de segurança de origem. Nesses casos
+      // a navegação entre páginas continua funcionando normalmente, só
+      // não atualiza a URL visível — não é um erro que afeta o site.
+      location.hash = id;
+    }
+  }
+
+  function bootPage(){
+    initMobileMenu();
+    var initial = (location.hash || '#home').replace('#', '');
+    showPage(initial);
+  }
+  if (document.readyState === 'loading') {
+    window.addEventListener('DOMContentLoaded', bootPage);
+  } else {
+    bootPage();
+  }
+
+  window.addEventListener('hashchange', function(){
+    showPage(location.hash.replace('#', ''));
+  });
+
+  // O comparador de preço interativo da Home foi removido (a seção agora é
+  // qualitativa, sem slider). Bloco de JS correspondente removido junto.
+
+  // Quadros com “+”: a própria caixa alterna a explicação ao ser clicada.
+  function toggleDiffChip(chip){
+    if (!chip) return false;
+    var detail = chip.querySelector('.chip-detail');
+    var mark = chip.querySelector('.mark');
+    if (!detail) return false;
+    var willOpen = chip.getAttribute('aria-expanded') !== 'true';
+    chip.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+    chip.classList.toggle('is-open', willOpen);
+    if (willOpen) detail.removeAttribute('hidden');
+    else detail.setAttribute('hidden', '');
+    if (mark) mark.textContent = willOpen ? '−' : '＋';
+    return false;
+  }
+  window.toggleDiffChip = toggleDiffChip;
+
+  // ===================================================================
+  // 3) FORMULÁRIO DE QUALIFICAÇÃO — WhatsApp.
+  // ===================================================================
+  try {
+    var form = document.getElementById('contato-form');
+    var status = document.getElementById('contato-status');
+    if (form) {
+      form.addEventListener('submit', function(e){
+        e.preventDefault();
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          return;
+        }
+        var value = function(id){
+          var field = document.getElementById(id);
+          return field && field.value.trim() ? field.value.trim() : 'Não informado';
+        };
+        var message = [
+          'Olá! Gostaria de um orçamento para o meu projeto com a Markup Zero:',
+          '',
+          '👤 *Nome:* ' + value('nome'),
+          '📞 *Telefone:* ' + value('telefone'),
+          '📧 *E-mail:* ' + value('email'),
+          '📍 *Endereço da Obra:* ' + value('endereco-obra'),
+          '🏗️ *Situação da Obra:* ' + value('situacao-obra'),
+          '📐 *Quantidade de Ambientes:* ' + value('qtd-ambientes'),
+          '⏱️ *Prazo para Fechamento:* ' + value('prazo'),
+          '💬 *Observações:* ' + value('mensagem')
+        ].join('\n');
+        var whatsappUrl = 'https://wa.me/551121102744?text=' + encodeURIComponent(message);
+        if (status) {
+          status.hidden = false;
+          status.textContent = 'Abrindo o WhatsApp com os dados preenchidos...';
+        }
+        var whatsappWindow = window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+        if (!whatsappWindow) window.location.href = whatsappUrl;
+      });
+    }
+  } catch (err) {
+    console.error('Formulário de qualificação: falha ao inicializar.', err);
+  }
+</script>
+</body>
+</html>
